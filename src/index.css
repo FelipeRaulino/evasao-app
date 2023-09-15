@@ -32,3 +32,9 @@ li {
 * {
   box-sizing: border-box;
 }
+
+.content-container {
+  padding: 1.5rem 2.5rem;
+  flex: 1;
+  min-height: 100vh;
+}

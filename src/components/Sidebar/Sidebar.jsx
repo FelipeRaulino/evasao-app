@@ -20,13 +20,13 @@ const sideBarLinkItems = [
   },
   {
     id: "taxaEvasao",
-    name: "Taxa de Evasão",
+    name: "Taxas de Evasão",
     path: "/taxaEvasao",
     icon: taxaEvasaoIcon,
   },
   {
     id: "aprovacoesTCC",
-    name: "Aprovações de TCC",
+    name: "Taxa de Aprovações",
     path: "/aprovacoesTCC",
     icon: aprovacoesTCCIcon,
   },

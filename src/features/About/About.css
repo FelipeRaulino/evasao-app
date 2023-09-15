@@ -1,0 +1,28 @@
+.content-title {
+  margin-bottom: 20px;
+}
+
+.section-container {
+  margin-bottom: 30px;
+}
+
+.section-container:last-child {
+  margin-bottom: 0px;
+}
+
+.section-title {
+  margin-bottom: 10px;
+}
+
+.section-formula-description {
+  margin: 20px 0 35px;
+}
+
+.section-formula-description p {
+  font-style: italic;
+  color: #424242;
+}
+
+.section-formula-img img {
+  margin: 0 auto;
+}
