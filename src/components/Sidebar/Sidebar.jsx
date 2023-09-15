@@ -15,38 +15,38 @@ const sideBarLinkItems = [
   {
     id: "dashboard",
     name: "Tela Inicial",
+    path: "/",
     icon: homeIcon,
-    active: true,
   },
   {
     id: "taxaEvasao",
     name: "Taxa de Evasão",
+    path: "/taxaEvasao",
     icon: taxaEvasaoIcon,
-    active: false,
   },
   {
     id: "aprovacoesTCC",
     name: "Aprovações de TCC",
+    path: "/aprovacoesTCC",
     icon: aprovacoesTCCIcon,
-    active: false,
   },
   {
     id: "taxasRetencaoI",
     name: "Taxas de Retenção I",
+    path: "/taxasRetencaoI",
     icon: taxaRetencaoIIcon,
-    active: false,
   },
   {
     id: "taxasRetencaoII",
     name: "Taxas de Retenção II",
+    path: "/taxasRetencaoII",
     icon: taxaRetencaoIIIcon,
-    active: false,
   },
   {
     id: "sobre",
     name: "Sobre",
+    path: "/sobre",
     icon: sobreIcon,
-    active: false,
   },
 ];
 
@@ -56,11 +56,10 @@ const Sidebar = () => (
       <img src={logoUFC} alt="Logo UFC" />
       <h1>Evasão de TCC</h1>
     </div>
-    <ul>
-      {sideBarLinkItems.map((item) => (
-        <SidebarLinkItem key={item.id} item={item} />
-      ))}
-    </ul>
+
+    {sideBarLinkItems.map((item) => (
+      <SidebarLinkItem key={item.id} item={item} />
+    ))}
   </div>
 );
 

@@ -4,7 +4,13 @@
   padding: 20px 0;
   position: relative;
   margin: 5px 0;
+  text-decoration: none;
+  color: #d2d2d2;
   transition: 0.3s;
+}
+
+.sidebar-link-item:hover {
+  color: #fff;
 }
 
 .sidebar-link-item__active {
@@ -15,6 +21,9 @@
   margin: 5px 0;
   transition: 0.3s;
   background-color: #002855;
+  text-decoration: none;
+  color: #d2d2d2;
+  transition: 0.3s;
 }
 
 .sidebar-link-item:hover {
@@ -36,15 +45,6 @@
   margin-left: 14px;
 }
 
-.sidebar-link-item a,
-.sidebar-link-item__active a {
-  text-decoration: none;
-  color: #d2d2d2;
-  flex: 1;
-  transition: 0.3s;
-}
-
-.sidebar-link-item a:hover,
-.sidebar-link-item__active a:hover {
-  color: #fff;
+.active {
+  background-color: red;
 }
