@@ -1,6 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 /src/api/PPCT.json
+/src/api/TCC.json
+/src/utils/PPCTDataFormatted.js
+/src/utils/TCCDataFormatted.js
 
 # dependencies
 /node_modules

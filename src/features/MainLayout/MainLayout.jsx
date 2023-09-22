@@ -6,9 +6,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 const MainLayout = () => (
   <div style={{ display: "flex" }}>
     <Sidebar />
-    <div>
-      <Outlet />
-    </div>
+    <Outlet />
   </div>
 );
 

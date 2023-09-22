@@ -1,0 +1,154 @@
+.chart-container {
+  margin: 1rem 0 2.5rem;
+}
+
+.chart-container h2 {
+  font-size: 1.5rem;
+}
+
+.chart-container span {
+  display: flex;
+  align-items: center;
+  color: #001233;
+  max-width: max-content;
+  font-weight: bold;
+  font-size: 0.8rem;
+  line-height: 0;
+  gap: 0.25rem;
+  margin: 1rem 0 0.5rem;
+  border: 1px solid #001233;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.chart-container img {
+  width: 18px;
+  object-fit: contain;
+  margin-bottom: 1px;
+}
+
+.chart-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.chart-wrapper canvas {
+  max-width: 100%;
+  margin: 12px 0;
+}
+
+/* INPUT RANGE */
+
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 25rem;
+  margin: 0.5rem 0 2.5rem;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #e0e0e0;
+  border-radius: 0.5rem;
+  height: 1rem;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -4px; /* Centers thumb on the track */
+  background-color: #001233;
+  border-radius: 1rem;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  outline: 3px solid #001233;
+  outline-offset: 0.125rem;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+  background-color: #e0e0e0;
+  border-radius: 0.5rem;
+  height: 1rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  background-color: #001233;
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 1rem;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  outline: 3px solid #001233;
+  outline-offset: 0.125rem;
+}
+
+/* INPUT RANGE - FIM */
+
+.chart-btn-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.chart-btn-container a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #001233;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  gap: 0.5rem;
+  color: #001233;
+  font-weight: bold;
+}
+
+.chart-btn-container a img {
+  width: 18px;
+}
+
+.active {
+  background-color: #001233;
+  color: #fff !important;
+  border: none !important;
+}
+
+.chart-btn-download-container {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.chart-btn-download-container a img {
+  width: 14px;
+}
+
+.chart-btn-download-container a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  gap: 0.5rem;
+  color: #fff;
+  font-weight: bold;
+  background-color: #001233;
+}
