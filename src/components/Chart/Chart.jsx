@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable react/prop-types */
 import React from "react";
 
 import { Line } from "react-chartjs-2";
@@ -37,6 +39,9 @@ ChartJS.register(
 // eslint-disable-next-line react/prop-types
 const Chart = ({ options, data, title, id }) => {
   const [modalActive, setModalActive] = React.useState(false);
+  const [labels, setLabels] = React.useState(data.labels);
+
+  const LABELS = data.labels;
 
   const openModal = () => {
     setModalActive(true);
@@ -55,6 +60,11 @@ const Chart = ({ options, data, title, id }) => {
     document.body.style.overflowY = "auto";
   }
 
+  const updateChartOnRange = (event) => {
+    const rangeValue = LABELS.slice(0, event.target.value);
+    setLabels(rangeValue);
+  };
+
   return (
     <div className="chart-container" id={id}>
       <h2>{title}</h2>
@@ -68,11 +78,16 @@ const Chart = ({ options, data, title, id }) => {
       )}
 
       <div className="chart-wrapper">
-        <Line options={options} data={{ ...data }} />
+        <Line options={options} data={{ ...data, labels }} />
       </div>
 
       <div className="chart-range-container">
-        <input type="range" />
+        <input
+          type="range"
+          onInput={updateChartOnRange}
+          min={5}
+          max={LABELS.length}
+        />
       </div>
 
       <div className="chart-btn-container">
