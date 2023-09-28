@@ -7,8 +7,8 @@ import SidebarLinkItem from "./components/SidebarLinkItem";
 import homeIcon from "../../assets/home.png";
 import taxaEvasaoIcon from "../../assets/chart (1).png";
 import aprovacoesTCCIcon from "../../assets/checkmark.png";
-import taxaRetencaoIIcon from "../../assets/analysis.png";
-import taxaRetencaoIIIcon from "../../assets/online-analysis.png";
+/* import taxaRetencaoIIcon from "../../assets/analysis.png";
+import taxaRetencaoIIIcon from "../../assets/online-analysis.png"; */
 import sobreIcon from "../../assets/info.png";
 
 const sideBarLinkItems = [
@@ -30,7 +30,7 @@ const sideBarLinkItems = [
     path: "/aprovacoesTCC",
     icon: aprovacoesTCCIcon,
   },
-  {
+  /* {
     id: "taxasRetencaoI",
     name: "Taxas de Retenção I",
     path: "/taxasRetencaoI",
@@ -41,7 +41,7 @@ const sideBarLinkItems = [
     name: "Taxas de Retenção II",
     path: "/taxasRetencaoII",
     icon: taxaRetencaoIIIcon,
-  },
+  }, */
   {
     id: "sobre",
     name: "Sobre",

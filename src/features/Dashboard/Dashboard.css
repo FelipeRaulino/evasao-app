@@ -1,0 +1,78 @@
+.content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  gap: 1rem;
+}
+
+.main-first {
+  display: flex;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+.main-first-chart-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+.main-first-chart-item h3,
+.main-second h3 {
+  font-size: 1.125rem;
+}
+
+.main-first-chart-item h4,
+.main-second h4 {
+  font-size: 0.875rem;
+  font-weight: normal;
+  margin: 3px 0 10px;
+}
+
+.main-first-chart-item a,
+.main-second a {
+  text-decoration: none;
+  margin: 15px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  gap: 0.5rem;
+  color: #fff;
+  font-weight: bold;
+  background-color: #001233;
+  transition: background-color 250ms ease;
+}
+
+.main-first-chart-item a:hover {
+  background-color: #022566;
+}
+
+.main-first-chart-wrapper,
+.main-second-chart-wrapper {
+  flex: 1;
+}
+
+.main-second {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 15px;
+}
+
+canvas {
+  max-width: 100%;
+}

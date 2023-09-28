@@ -21,6 +21,7 @@ import downloadIcon from "../../assets/downloads.png";
 import infoIcon from "../../assets/info-2.png";
 
 import "./Chart.css";
+import Modal from "./components/Modal/Modal";
 
 ChartJS.register(
   CategoryScale,
@@ -34,43 +35,69 @@ ChartJS.register(
 );
 
 // eslint-disable-next-line react/prop-types
-const Chart = ({ options, data, title }) => (
-  <div className="chart-container">
-    <h2>{title}</h2>
-    <span>
-      <img src={infoIcon} alt="Ícone de informação" />
-      Interações possíveis com o gráfico
-    </span>
-    <div className="chart-wrapper">
-      <Line options={options} data={{ ...data }} />
-    </div>
+const Chart = ({ options, data, title, id }) => {
+  const [modalActive, setModalActive] = React.useState(false);
 
-    <div className="chart-range-container">
-      <input type="range" />
-    </div>
+  const openModal = () => {
+    setModalActive(true);
 
-    <div className="chart-btn-container">
-      <a href="#linha" className="active">
-        <img src={lineChartIcon} alt="Ícone do gráfico em linhas" />
-        Gráfico em linhas
-      </a>
-      <a href="#barra">
-        <img src={barChartIcon} alt="Ícone do gráfico em barras" />
-        Gráfico em barras
-      </a>
-      <a href="#pizza">
-        <img src={pieChartIcon} alt="Ícone do gráfico em pizza" />
-        Gráfico em pizza
-      </a>
-    </div>
+    setTimeout(() => {
+      const modal = document.querySelector(".modal-container");
+      if (modal) {
+        modal.classList.add("show");
+      }
+    }, 10);
+  };
 
-    <div className="chart-btn-download-container">
-      <a href="#download">
-        <img src={downloadIcon} alt="Ícone de download" />
-        Download
-      </a>
+  if (modalActive) {
+    document.body.style.overflowY = "hidden";
+  } else {
+    document.body.style.overflowY = "auto";
+  }
+
+  return (
+    <div className="chart-container" id={id}>
+      <h2>{title}</h2>
+      <button type="button" onClick={openModal}>
+        <img src={infoIcon} alt="Ícone de informação" />
+        Interações possíveis com o gráfico
+      </button>
+
+      {modalActive && (
+        <Modal modalActive={modalActive} setModalActive={setModalActive} />
+      )}
+
+      <div className="chart-wrapper">
+        <Line options={options} data={{ ...data }} />
+      </div>
+
+      <div className="chart-range-container">
+        <input type="range" />
+      </div>
+
+      <div className="chart-btn-container">
+        <a href="#linha" className="active">
+          <img src={lineChartIcon} alt="Ícone do gráfico em linhas" />
+          Gráfico em linhas
+        </a>
+        <a href="#barra">
+          <img src={barChartIcon} alt="Ícone do gráfico em barras" />
+          Gráfico em barras
+        </a>
+        <a href="#pizza">
+          <img src={pieChartIcon} alt="Ícone do gráfico em pizza" />
+          Gráfico em pizza
+        </a>
+      </div>
+
+      <div className="chart-btn-download-container">
+        <a href="#download">
+          <img src={downloadIcon} alt="Ícone de download" />
+          Download
+        </a>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Chart;

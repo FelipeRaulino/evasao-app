@@ -920,33 +920,8 @@ const TCCAprovals = () => (
       options={options[6]}
       data={data[6]}
       title="Relação: Cursos por 2º semestres - TCC II"
+      id="aprovacoesSegundosSemestresTCCII"
     />
-
-    <div className="chart-info-actions">
-      <h3>Ações possíveis de personalização dos dados do gráfico</h3>
-
-      <ul>
-        <li>
-          Clique na descrição de um curso para remover/adicionar seus dados.
-        </li>
-        <li>
-          Arraste o elemento de “range” para aumentar ou diminuir a quantidade
-          de semestres a serem considerados.
-        </li>
-        <li>
-          Passe o mouse por cima de um ponto específico para saber detalhes
-          estatísticos de tal ponto.
-        </li>
-        <li>
-          Mude a forma de visualização do gráfico ao clicar nas opções
-          disponíveis.
-        </li>
-        <li>
-          Deseja apresentar o gráfico para alguém em um formato físico ? Clique
-          no botão de download para exportar o gráfico em um Canvas .png.
-        </li>
-      </ul>
-    </div>
   </div>
 );
 
