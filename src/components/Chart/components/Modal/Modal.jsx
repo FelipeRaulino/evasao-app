@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
 
 import "./Modal.css";
@@ -16,8 +18,11 @@ const Modal = ({ setModalActive }) => {
   };
 
   return (
-    <div className="modal-container">
-      <div className="chart-info-actions">
+    <div className="modal-container" onClick={closeModal}>
+      <div
+        className="chart-info-actions"
+        onClick={(event) => event.stopPropagation()}
+      >
         <button type="button" onClick={closeModal}>
           X
         </button>
@@ -39,9 +44,9 @@ const Modal = ({ setModalActive }) => {
             disponíveis.
           </li>
           <li>
-            Deseja apresentar o gráfico para alguém em um formato físico ?
-            Clique no botão de download para exportar o gráfico em um Canvas
-            .png.
+            Deseja apresentar o gráfico para alguém ? Clique no botão de
+            download para exportar o gráfico como uma imagem{" "}
+            <strong>.png</strong>.
           </li>
         </ul>
       </div>
