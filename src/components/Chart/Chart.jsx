@@ -1,9 +1,11 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React from "react";
 
-import { Line } from "react-chartjs-2";
+import { Bar, Line, Pie } from "react-chartjs-2";
 
 import {
   Chart as ChartJS,
@@ -15,10 +17,15 @@ import {
   SubTitle,
   Tooltip,
   Legend,
+  BarElement,
+  ArcElement,
 } from "chart.js";
 
-import lineChartIcon from "../../assets/chart (1).png";
+import activeLineChartIcon from "../../assets/chart (1).png";
+import lineChartIcon from "../../assets/chart.png";
+import activeBarChartIcon from "../../assets/bar-chart.png";
 import barChartIcon from "../../assets/bar-chart (1).png";
+import activePieChartIcon from "../../assets/pie-chart.png";
 import pieChartIcon from "../../assets/pie-chart (1).png";
 import downloadIcon from "../../assets/downloads.png";
 import infoIcon from "../../assets/info-2.png";
@@ -35,12 +42,14 @@ ChartJS.register(
   SubTitle,
   Tooltip,
   Legend,
+  BarElement,
+  ArcElement,
 );
 
-// eslint-disable-next-line react/prop-types
 const Chart = ({ options, data, title, id }) => {
   const [modalActive, setModalActive] = React.useState(false);
   const [labels, setLabels] = React.useState(data.labels);
+  const [active, setActive] = React.useState("linhas");
   const canvasElement = React.useRef(null);
 
   const LABELS = data.labels;
@@ -87,11 +96,25 @@ const Chart = ({ options, data, title, id }) => {
       )}
 
       <div className="chart-wrapper">
-        <Line
-          options={options}
-          data={{ ...data, labels }}
-          ref={canvasElement}
-        />
+        {active === "linhas" ? (
+          <Line
+            options={options}
+            data={{ ...data, labels }}
+            ref={canvasElement}
+          />
+        ) : active === "barras" ? (
+          <Bar
+            options={options}
+            data={{ ...data, labels }}
+            ref={canvasElement}
+          />
+        ) : (
+          <Pie
+            options={options}
+            data={{ ...data, labels }}
+            ref={canvasElement}
+          />
+        )}
       </div>
 
       <div className="chart-range-container">
@@ -104,16 +127,37 @@ const Chart = ({ options, data, title, id }) => {
       </div>
 
       <div className="chart-btn-container">
-        <a href="#linha" className="active">
-          <img src={lineChartIcon} alt="Ícone do gráfico em linhas" />
+        <a
+          href="#linha"
+          className={active === "linhas" && "active"}
+          onClick={() => setActive("linhas")}
+        >
+          <img
+            src={active === "linhas" ? activeLineChartIcon : lineChartIcon}
+            alt="Ícone do gráfico em linhas"
+          />
           Gráfico em linhas
         </a>
-        <a href="#barra">
-          <img src={barChartIcon} alt="Ícone do gráfico em barras" />
+        <a
+          href="#barra"
+          className={active === "barras" && "active"}
+          onClick={() => setActive("barras")}
+        >
+          <img
+            src={active === "barras" ? activeBarChartIcon : barChartIcon}
+            alt="Ícone do gráfico em barras"
+          />
           Gráfico em barras
         </a>
-        <a href="#pizza">
-          <img src={pieChartIcon} alt="Ícone do gráfico em pizza" />
+        <a
+          href="#pizza"
+          className={active === "pizza" && "active"}
+          onClick={() => setActive("pizza")}
+        >
+          <img
+            src={active === "pizza" ? activePieChartIcon : pieChartIcon}
+            alt="Ícone do gráfico em pizza"
+          />
           Gráfico em pizza
         </a>
       </div>

@@ -118,16 +118,25 @@ input[type="range"]:focus::-moz-range-thumb {
   gap: 0.5rem;
   color: #001233;
   font-weight: bold;
+  transition: background-color 250ms ease;
 }
 
 .chart-btn-container a img {
   width: 18px;
 }
 
+.chart-btn-container a:hover {
+  background-color: #e6e6e6;
+}
+
 .active {
   background-color: #001233;
   color: #fff !important;
   border: none !important;
+}
+
+.active:hover {
+  background-color: #001233 !important;
 }
 
 .chart-btn-download-container {
@@ -150,6 +159,7 @@ input[type="range"]:focus::-moz-range-thumb {
   gap: 0.5rem;
   color: #fff;
   font-weight: bold;
+  font-size: 1rem;
   background-color: #001233;
   cursor: pointer;
   transition: background-color 350ms ease;
