@@ -129,7 +129,7 @@ const Chart = ({ options, data, title, id }) => {
       <div className="chart-btn-container">
         <a
           href="#linha"
-          className={active === "linhas" && "active"}
+          className={active === "linhas" ? "active" : ""}
           onClick={() => setActive("linhas")}
         >
           <img
@@ -140,7 +140,7 @@ const Chart = ({ options, data, title, id }) => {
         </a>
         <a
           href="#barra"
-          className={active === "barras" && "active"}
+          className={active === "barras" ? "active" : ""}
           onClick={() => setActive("barras")}
         >
           <img
@@ -151,7 +151,7 @@ const Chart = ({ options, data, title, id }) => {
         </a>
         <a
           href="#pizza"
-          className={active === "pizza" && "active"}
+          className={active === "pizza" ? "active" : ""}
           onClick={() => setActive("pizza")}
         >
           <img
