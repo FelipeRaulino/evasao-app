@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
 import React from "react";
@@ -40,6 +41,7 @@ ChartJS.register(
 const Chart = ({ options, data, title, id }) => {
   const [modalActive, setModalActive] = React.useState(false);
   const [labels, setLabels] = React.useState(data.labels);
+  const canvasElement = React.useRef(null);
 
   const LABELS = data.labels;
 
@@ -65,6 +67,13 @@ const Chart = ({ options, data, title, id }) => {
     setLabels(rangeValue);
   };
 
+  const handleOnDownload = () => {
+    const shadowA = document.createElement("a");
+    shadowA.href = canvasElement.current.canvas.toDataURL("image/png", 1);
+    shadowA.download = "grafico";
+    shadowA.click();
+  };
+
   return (
     <div className="chart-container" id={id}>
       <h2>{title}</h2>
@@ -78,7 +87,11 @@ const Chart = ({ options, data, title, id }) => {
       )}
 
       <div className="chart-wrapper">
-        <Line options={options} data={{ ...data, labels }} />
+        <Line
+          options={options}
+          data={{ ...data, labels }}
+          ref={canvasElement}
+        />
       </div>
 
       <div className="chart-range-container">
@@ -106,10 +119,10 @@ const Chart = ({ options, data, title, id }) => {
       </div>
 
       <div className="chart-btn-download-container">
-        <a href="#download">
+        <button type="button" onClick={handleOnDownload}>
           <img src={downloadIcon} alt="Ícone de download" />
           Download
-        </a>
+        </button>
       </div>
     </div>
   );
