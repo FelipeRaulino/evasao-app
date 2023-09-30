@@ -263,6 +263,17 @@ export const data = [
         backgroundColor: "red",
       },
       {
+        label: "Design Digital",
+        data: dadosPrimeirosSemestres
+          .filter((item) => item.curso === "DD")
+          .map((item) => {
+            if (Number.isNaN(item.taxa)) return 0;
+            return item.taxa * 100;
+          }),
+        borderColor: "purple",
+        backgroundColor: "purple",
+      },
+      {
         label: "Ciência da Computação",
         data: dadosPrimeirosSemestres
           .filter((item) => item.curso === "CC")
@@ -324,6 +335,17 @@ export const data = [
         backgroundColor: "red",
       },
       {
+        label: "Design Digital",
+        data: dadosSegundoSemestreFormatado
+          .filter((item) => item.curso === "DD")
+          .map((item) => {
+            if (Number.isNaN(item.taxa)) return 0;
+            return item.taxa * 100;
+          }),
+        borderColor: "purple",
+        backgroundColor: "purple",
+      },
+      {
         label: "Ciência da Computação",
         data: dadosSegundoSemestreFormatado
           .filter((item) => item.curso === "CC")
@@ -383,6 +405,17 @@ export const data = [
           }),
         borderColor: "red",
         backgroundColor: "red",
+      },
+      {
+        label: "Design Digital",
+        data: mergedData
+          .filter((item) => item.curso === "DD")
+          .map((item) => {
+            if (Number.isNaN(item.taxa)) return 0;
+            return item.taxa * 100;
+          }),
+        borderColor: "purple",
+        backgroundColor: "purple",
       },
       {
         label: "Ciência da Computação",
