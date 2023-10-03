@@ -5,7 +5,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 
-import { Bar, Line, Pie } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 
 import {
   Chart as ChartJS,
@@ -25,8 +25,6 @@ import activeLineChartIcon from "../../assets/chart (1).png";
 import lineChartIcon from "../../assets/chart.png";
 import activeBarChartIcon from "../../assets/bar-chart.png";
 import barChartIcon from "../../assets/bar-chart (1).png";
-import activePieChartIcon from "../../assets/pie-chart.png";
-import pieChartIcon from "../../assets/pie-chart (1).png";
 import downloadIcon from "../../assets/downloads.png";
 import infoIcon from "../../assets/info-2.png";
 
@@ -102,14 +100,8 @@ const Chart = ({ options, data, title, id }) => {
             data={{ ...data, labels }}
             ref={canvasElement}
           />
-        ) : active === "barras" ? (
-          <Bar
-            options={options}
-            data={{ ...data, labels }}
-            ref={canvasElement}
-          />
         ) : (
-          <Pie
+          <Bar
             options={options}
             data={{ ...data, labels }}
             ref={canvasElement}
@@ -148,17 +140,6 @@ const Chart = ({ options, data, title, id }) => {
             alt="Ícone do gráfico em barras"
           />
           Gráfico em barras
-        </a>
-        <a
-          href="#pizza"
-          className={active === "pizza" ? "active" : ""}
-          onClick={() => setActive("pizza")}
-        >
-          <img
-            src={active === "pizza" ? activePieChartIcon : pieChartIcon}
-            alt="Ícone do gráfico em pizza"
-          />
-          Gráfico em pizza
         </a>
       </div>
 
