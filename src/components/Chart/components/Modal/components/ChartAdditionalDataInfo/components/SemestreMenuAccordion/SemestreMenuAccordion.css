@@ -1,0 +1,37 @@
+.semestre-accordion-container {
+  margin: 20px 0 10px;
+  background-color: #e9effb;
+  border: 1px solid #5e7ebf;
+  border-radius: 4px;
+  padding: 0;
+}
+
+.semestre-accordion-container > header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 15px;
+  transition: background-color 250ms linear;
+}
+
+.semestre-accordion-container > header:hover {
+  background-color: #d2e1fd;
+}
+
+.semestre-accordion-container > header > span {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #3e4352;
+}
+
+.semestre-accordion-container > header > button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.semestre-accordion-container > header > button > img {
+  width: 1rem;
+}

@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React from "react";
 
 import { Bar, Line } from "react-chartjs-2";
@@ -30,6 +29,8 @@ import infoIcon from "../../assets/info-2.png";
 
 import "./Chart.css";
 import Modal from "./components/Modal/Modal";
+import ChartInfo from "./components/Modal/components/ChartInfo/ChartInfo";
+import ChartAdditionalDataInfo from "./components/Modal/components/ChartAdditionalDataInfo/ChartAdditionalDataInfo";
 
 ChartJS.register(
   CategoryScale,
@@ -44,17 +45,16 @@ ChartJS.register(
   ArcElement,
 );
 
-const Chart = ({ options, data, title, id }) => {
-  const [modalActive, setModalActive] = React.useState(false);
+const Chart = ({ options, data, title, id, additionalData }) => {
+  const [modalActive, setModalActive] = React.useState("");
   const [labels, setLabels] = React.useState(data.labels);
   const [active, setActive] = React.useState("linhas");
   const canvasElement = React.useRef(null);
 
   const LABELS = data.labels;
 
-  const openModal = () => {
-    setModalActive(true);
-
+  const openModal = (modalSelected) => {
+    setModalActive(modalSelected);
     setTimeout(() => {
       const modal = document.querySelector(".modal-container");
       if (modal) {
@@ -63,7 +63,20 @@ const Chart = ({ options, data, title, id }) => {
     }, 10);
   };
 
-  if (modalActive) {
+  const closeModal = () => {
+    setModalActive("");
+    setTimeout(() => {
+      const modal = document.querySelector(".modal-container");
+      if (modal) {
+        modal.classList.remove("show");
+      }
+    }, 10);
+  };
+
+  if (
+    modalActive === "chartInfo" ||
+    modalActive === "chartAdditionalDataInfo"
+  ) {
     document.body.style.overflowY = "hidden";
   } else {
     document.body.style.overflowY = "auto";
@@ -84,14 +97,30 @@ const Chart = ({ options, data, title, id }) => {
   return (
     <div className="chart-container" id={id}>
       <h2>{title}</h2>
-      <button type="button" onClick={openModal}>
+      <button type="button" onClick={() => openModal("chartInfo")}>
         <img src={infoIcon} alt="Ícone de informação" />
         Interações possíveis com o gráfico
       </button>
+      <button
+        type="button"
+        onClick={() => openModal("chartAdditionalDataInfo")}
+      >
+        <img src={infoIcon} alt="Ícone de informação" />
+        Dados adicionais
+      </button>
 
-      {modalActive && (
-        <Modal modalActive={modalActive} setModalActive={setModalActive} />
-      )}
+      {modalActive === "chartInfo" ? (
+        <Modal closeModal={closeModal}>
+          <ChartInfo closeModal={closeModal} />
+        </Modal>
+      ) : modalActive === "chartAdditionalDataInfo" ? (
+        <Modal closeModal={closeModal}>
+          <ChartAdditionalDataInfo
+            data={additionalData}
+            closeModal={closeModal}
+          />
+        </Modal>
+      ) : null}
 
       <div className="chart-wrapper">
         {active === "linhas" ? (

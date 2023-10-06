@@ -897,6 +897,89 @@ export const data = [
   },
 ];
 
+const handleOnFormatAdditionalData = (unformattedData) => [
+  {
+    semestre: "2013.1",
+    dados: unformattedData.filter((item) => item.semestre === "2013.1"),
+  },
+  {
+    semestre: "2013.2",
+    dados: unformattedData.filter((item) => item.semestre === "2013.2"),
+  },
+  {
+    semestre: "2014.1",
+    dados: unformattedData.filter((item) => item.semestre === "2014.1"),
+  },
+  {
+    semestre: "2014.2",
+    dados: unformattedData.filter((item) => item.semestre === "2014.2"),
+  },
+  {
+    semestre: "2015.1",
+    dados: unformattedData.filter((item) => item.semestre === "2015.1"),
+  },
+  {
+    semestre: "2015.2",
+    dados: unformattedData.filter((item) => item.semestre === "2015.2"),
+  },
+  {
+    semestre: "2016.1",
+    dados: unformattedData.filter((item) => item.semestre === "2016.1"),
+  },
+  {
+    semestre: "2016.2",
+    dados: unformattedData.filter((item) => item.semestre === "2016.2"),
+  },
+  {
+    semestre: "2017.1",
+    dados: unformattedData.filter((item) => item.semestre === "2017.1"),
+  },
+  {
+    semestre: "2017.2",
+    dados: unformattedData.filter((item) => item.semestre === "2017.2"),
+  },
+  {
+    semestre: "2018.1",
+    dados: unformattedData.filter((item) => item.semestre === "2018.1"),
+  },
+  {
+    semestre: "2018.2",
+    dados: unformattedData.filter((item) => item.semestre === "2018.2"),
+  },
+  {
+    semestre: "2019.1",
+    dados: unformattedData.filter((item) => item.semestre === "2019.1"),
+  },
+  {
+    semestre: "2019.2",
+    dados: unformattedData.filter((item) => item.semestre === "2019.2"),
+  },
+  {
+    semestre: "2020.1",
+    dados: unformattedData.filter((item) => item.semestre === "2020.1"),
+  },
+  {
+    semestre: "2020.2",
+    dados: unformattedData.filter((item) => item.semestre === "2020.2"),
+  },
+  {
+    semestre: "2021.1",
+    dados: unformattedData.filter((item) => item.semestre === "2021.1"),
+  },
+  {
+    semestre: "2021.2",
+    dados: unformattedData.filter((item) => item.semestre === "2021.2"),
+  },
+  {
+    semestre: "2022.1",
+    dados: unformattedData.filter((item) => item.semestre === "2022.1"),
+  },
+  {
+    semestre: "2022.2",
+    dados: unformattedData.filter((item) => item.semestre === "2022.2"),
+  },
+];
+
 const TCCAprovals = () => (
   <div className="content-container">
     <h1>Taxas de Aprovações</h1>
@@ -905,6 +988,9 @@ const TCCAprovals = () => (
       options={options[2]}
       data={data[2]}
       title="Relação: Cursos por semestre - PPCT"
+      additionalData={handleOnFormatAdditionalData(
+        dadosPrimeirosSemestres.concat(dadosSegundoSemestreFormatado),
+      )}
     />
 
     <Chart

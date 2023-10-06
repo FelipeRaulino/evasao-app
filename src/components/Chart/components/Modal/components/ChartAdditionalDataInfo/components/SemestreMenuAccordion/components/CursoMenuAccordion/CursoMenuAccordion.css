@@ -1,0 +1,49 @@
+.curso-accordion {
+  margin: 10px 30px;
+  background-color: #d8e2f5;
+  border: 1px solid #5e7ebf;
+  border-radius: 4px;
+}
+
+.curso-accordion:last-child {
+  margin-bottom: 1rem;
+}
+
+.curso-accordion > header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 250ms linear;
+}
+
+.curso-accordion > header:hover {
+  background-color: #c7d8f7;
+}
+
+.curso-accordion > header > span {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #3e4352;
+}
+
+.curso-accordion > header > button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.curso-accordion > header > button > img {
+  width: 1rem;
+}
+
+.curso-accordion__content {
+  margin-left: 20px;
+}
+
+.curso-accordion__content p {
+  color: #636363;
+  margin: 10px 0;
+}
