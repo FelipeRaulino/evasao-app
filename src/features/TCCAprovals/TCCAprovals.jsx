@@ -980,6 +980,121 @@ const handleOnFormatAdditionalData = (unformattedData) => [
   },
 ];
 
+const handleOnFormatAdditionalDataTCC = (unformattedDataTCC) => [
+  {
+    semestre: "2012.1",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2012.1"),
+  },
+  {
+    semestre: "2012.2",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2012.2"),
+  },
+  {
+    semestre: "2013.1",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2013.1"),
+  },
+  {
+    semestre: "2013.2",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2013.2"),
+  },
+  {
+    semestre: "2014.1",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2014.1"),
+  },
+  {
+    semestre: "2014.2",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2014.2"),
+  },
+  {
+    semestre: "2015.1",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2015.1"),
+  },
+  {
+    semestre: "2015.2",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2015.2"),
+  },
+  {
+    semestre: "2016.1",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2016.1"),
+  },
+  {
+    semestre: "2016.2",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2016.2"),
+  },
+  {
+    semestre: "2017.1",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2017.1"),
+  },
+  {
+    semestre: "2017.2",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2017.2"),
+  },
+  {
+    semestre: "2018.1",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2018.1"),
+  },
+  {
+    semestre: "2018.2",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2018.2"),
+  },
+  {
+    semestre: "2019.1",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2019.1"),
+  },
+  {
+    semestre: "2019.2",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2019.2"),
+  },
+  {
+    semestre: "2020.1",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2020.1"),
+  },
+  {
+    semestre: "2020.2",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2020.2"),
+  },
+  {
+    semestre: "2021.1",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2021.1"),
+  },
+  {
+    semestre: "2021.2",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2021.2"),
+  },
+  {
+    semestre: "2022.1",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2022.1"),
+  },
+  {
+    semestre: "2022.2",
+    dados: unformattedDataTCC.filter((item) => item.semestre === "2022.2"),
+  },
+];
+
+const additionalDataPrimeirosSemestresPPCT = handleOnFormatAdditionalData(
+  dadosPrimeirosSemestres.concat(dadosSegundoSemestreFormatado),
+).filter((item) => item.semestre.includes(".1"));
+
+const additionalDataSegundosSemestresPPCT = handleOnFormatAdditionalData(
+  dadosPrimeirosSemestres.concat(dadosSegundoSemestreFormatado),
+).filter((item) => item.semestre.includes(".2"));
+
+const additionalDataPrimeirosSemestresTCCI = handleOnFormatAdditionalDataTCC(
+  dadosPrimeirosSemestresTCCI.concat(dadosSegundosSemestresTCCI),
+).filter((item) => item.semestre.includes(".1"));
+
+const additionalDataSegundosSemestresTCCI = handleOnFormatAdditionalDataTCC(
+  dadosPrimeirosSemestresTCCI.concat(dadosSegundosSemestresTCCI),
+).filter((item) => item.semestre.includes(".2"));
+
+const additionalDataPrimeirosSemestresTCCII = handleOnFormatAdditionalDataTCC(
+  dadosPrimeirosSemestresTCCII.concat(dadosSegundosSemestresTCCII),
+).filter((item) => item.semestre.includes(".1"));
+
+const additionalDataSegundosSemestresTCCII = handleOnFormatAdditionalDataTCC(
+  dadosPrimeirosSemestresTCCII.concat(dadosSegundosSemestresTCCII),
+).filter((item) => item.semestre.includes(".2"));
+
 const TCCAprovals = () => (
   <div className="content-container">
     <h1>Taxas de Aprovações</h1>
@@ -991,48 +1106,67 @@ const TCCAprovals = () => (
       additionalData={handleOnFormatAdditionalData(
         dadosPrimeirosSemestres.concat(dadosSegundoSemestreFormatado),
       )}
+      additionalDataTitle="PPCT - GERAL"
     />
 
     <Chart
       options={options[0]}
       data={data[0]}
       title="Relação: Cursos por 1º semestres - PPCT"
+      additionalData={additionalDataPrimeirosSemestresPPCT}
+      additionalDataTitle="PPCT - 1º Semestres"
     />
 
     <Chart
       options={options[1]}
       data={data[1]}
       title="Relação: Cursos por 2º semestres - PPCT"
+      additionalData={additionalDataSegundosSemestresPPCT}
+      additionalDataTitle="PPCT - 2º Semestres"
     />
 
     <Chart
       options={options[7]}
       data={data[7]}
       title="Relação: Cursos por semestre - TCC I"
+      additionalData={handleOnFormatAdditionalDataTCC(
+        dadosPrimeirosSemestresTCCI.concat(dadosSegundosSemestresTCCI),
+      )}
+      additionalDataTitle="TCC I - Geral"
     />
 
     <Chart
       options={options[3]}
       data={data[3]}
       title="Relação: Cursos por 1º semestres - TCC I"
+      additionalData={additionalDataPrimeirosSemestresTCCI}
+      additionalDataTitle="TCC I - 1º Semestres"
     />
 
     <Chart
       options={options[4]}
       data={data[4]}
       title="Relação: Cursos por 2º semestres - TCC I"
+      additionalData={additionalDataSegundosSemestresTCCI}
+      additionalDataTitle="TCC I - 2º Semestres"
     />
 
     <Chart
       options={options[8]}
       data={data[8]}
       title="Relação: Cursos por semestre - TCC II"
+      additionalData={handleOnFormatAdditionalDataTCC(
+        dadosPrimeirosSemestresTCCII.concat(dadosSegundosSemestresTCCII),
+      )}
+      additionalDataTitle="TCC II - Geral"
     />
 
     <Chart
       options={options[5]}
       data={data[5]}
       title="Relação: Cursos por 1º semestres - TCC II"
+      additionalData={additionalDataPrimeirosSemestresTCCII}
+      additionalDataTitle="TCC II - 1º Semestres"
     />
 
     <Chart
@@ -1040,6 +1174,8 @@ const TCCAprovals = () => (
       data={data[6]}
       title="Relação: Cursos por 2º semestres - TCC II"
       id="aprovacoesSegundosSemestresTCCII"
+      additionalData={additionalDataSegundosSemestresTCCII}
+      additionalDataTitle="TCC II - 2º Semestres"
     />
   </div>
 );

@@ -45,7 +45,14 @@ ChartJS.register(
   ArcElement,
 );
 
-const Chart = ({ options, data, title, id, additionalData }) => {
+const Chart = ({
+  options,
+  data,
+  title,
+  id,
+  additionalData,
+  additionalDataTitle,
+}) => {
   const [modalActive, setModalActive] = React.useState("");
   const [labels, setLabels] = React.useState(data.labels);
   const [active, setActive] = React.useState("linhas");
@@ -116,6 +123,7 @@ const Chart = ({ options, data, title, id, additionalData }) => {
       ) : modalActive === "chartAdditionalDataInfo" ? (
         <Modal closeModal={closeModal}>
           <ChartAdditionalDataInfo
+            additionalDataTitle={additionalDataTitle}
             data={additionalData}
             closeModal={closeModal}
           />

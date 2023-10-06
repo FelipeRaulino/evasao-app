@@ -45,7 +45,7 @@ import SemestreMenuAccordion from "./components/SemestreMenuAccordion/SemestreMe
   },
 ]; */
 
-const ChartAdditionalDataInfo = ({ closeModal, data }) => {
+const ChartAdditionalDataInfo = ({ closeModal, data, additionalDataTitle }) => {
   const [expandedItem, setExpandedItem] = React.useState(null);
   const [icon, setIcon] = React.useState("plus");
 
@@ -70,6 +70,8 @@ const ChartAdditionalDataInfo = ({ closeModal, data }) => {
       <button type="button" onClick={closeModal}>
         X
       </button>
+
+      <h1>Informações sobre {additionalDataTitle}</h1>
 
       <div className="accordion-menu__content">
         {data.map((semestreData) => (

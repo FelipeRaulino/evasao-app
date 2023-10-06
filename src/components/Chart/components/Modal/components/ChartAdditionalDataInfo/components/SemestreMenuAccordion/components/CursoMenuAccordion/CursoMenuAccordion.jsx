@@ -42,6 +42,14 @@ const CursoMenuAccordion = ({ cursoData, expand, onExpand }) => (
           <strong>Quantidade de matrículas trancadas:</strong>{" "}
           {cursoData.trancados + cursoData.trancadosTotal}
         </p>
+
+        {cursoData.semestre.includes("2020") ||
+        cursoData.semestre.includes("2021") ? (
+          <p>
+            <strong>Quantidade de matrículas suprimidas:</strong>{" "}
+            {cursoData.suprimidos}
+          </p>
+        ) : null}
       </div>
     )}
   </div>
