@@ -9,7 +9,7 @@
 }
 
 .accordion-menu__content {
-  height: 500px;
+  height: 480px;
   overflow-y: scroll;
   padding: 0 10px;
 }

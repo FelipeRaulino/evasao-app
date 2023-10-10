@@ -19,6 +19,7 @@ body,
   height: 100%;
   font-family: "Inter", sans-serif;
   color: #252525;
+  scroll-behavior: smooth;
 }
 
 img {

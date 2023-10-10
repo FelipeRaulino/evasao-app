@@ -897,88 +897,139 @@ export const data = [
   },
 ];
 
-const handleOnFormatAdditionalData = (unformattedData) => [
-  {
-    semestre: "2013.1",
-    dados: unformattedData.filter((item) => item.semestre === "2013.1"),
-  },
-  {
-    semestre: "2013.2",
-    dados: unformattedData.filter((item) => item.semestre === "2013.2"),
-  },
-  {
-    semestre: "2014.1",
-    dados: unformattedData.filter((item) => item.semestre === "2014.1"),
-  },
-  {
-    semestre: "2014.2",
-    dados: unformattedData.filter((item) => item.semestre === "2014.2"),
-  },
-  {
-    semestre: "2015.1",
-    dados: unformattedData.filter((item) => item.semestre === "2015.1"),
-  },
-  {
-    semestre: "2015.2",
-    dados: unformattedData.filter((item) => item.semestre === "2015.2"),
-  },
-  {
-    semestre: "2016.1",
-    dados: unformattedData.filter((item) => item.semestre === "2016.1"),
-  },
-  {
-    semestre: "2016.2",
-    dados: unformattedData.filter((item) => item.semestre === "2016.2"),
-  },
-  {
-    semestre: "2017.1",
-    dados: unformattedData.filter((item) => item.semestre === "2017.1"),
-  },
-  {
-    semestre: "2017.2",
-    dados: unformattedData.filter((item) => item.semestre === "2017.2"),
-  },
-  {
-    semestre: "2018.1",
-    dados: unformattedData.filter((item) => item.semestre === "2018.1"),
-  },
-  {
-    semestre: "2018.2",
-    dados: unformattedData.filter((item) => item.semestre === "2018.2"),
-  },
-  {
-    semestre: "2019.1",
-    dados: unformattedData.filter((item) => item.semestre === "2019.1"),
-  },
-  {
-    semestre: "2019.2",
-    dados: unformattedData.filter((item) => item.semestre === "2019.2"),
-  },
-  {
-    semestre: "2020.1",
-    dados: unformattedData.filter((item) => item.semestre === "2020.1"),
-  },
-  {
-    semestre: "2020.2",
-    dados: unformattedData.filter((item) => item.semestre === "2020.2"),
-  },
-  {
-    semestre: "2021.1",
-    dados: unformattedData.filter((item) => item.semestre === "2021.1"),
-  },
-  {
-    semestre: "2021.2",
-    dados: unformattedData.filter((item) => item.semestre === "2021.2"),
-  },
-  {
-    semestre: "2022.1",
-    dados: unformattedData.filter((item) => item.semestre === "2022.1"),
-  },
-  {
-    semestre: "2022.2",
-    dados: unformattedData.filter((item) => item.semestre === "2022.2"),
-  },
-];
+const handleOnFormatAdditionalData = (unformattedData) => {
+  const additionalData = [
+    {
+      semestre: "2013.1",
+      dados: unformattedData.filter((item) => item.semestre === "2013.1"),
+    },
+    {
+      semestre: "2013.2",
+      dados: unformattedData.filter((item) => item.semestre === "2013.2"),
+    },
+    {
+      semestre: "2014.1",
+      dados: unformattedData.filter((item) => item.semestre === "2014.1"),
+    },
+    {
+      semestre: "2014.2",
+      dados: unformattedData.filter((item) => item.semestre === "2014.2"),
+    },
+    {
+      semestre: "2015.1",
+      dados: unformattedData.filter((item) => item.semestre === "2015.1"),
+    },
+    {
+      semestre: "2015.2",
+      dados: unformattedData.filter((item) => item.semestre === "2015.2"),
+    },
+    {
+      semestre: "2016.1",
+      dados: unformattedData.filter((item) => item.semestre === "2016.1"),
+    },
+    {
+      semestre: "2016.2",
+      dados: unformattedData.filter((item) => item.semestre === "2016.2"),
+    },
+    {
+      semestre: "2017.1",
+      dados: unformattedData.filter((item) => item.semestre === "2017.1"),
+    },
+    {
+      semestre: "2017.2",
+      dados: unformattedData.filter((item) => item.semestre === "2017.2"),
+    },
+    {
+      semestre: "2018.1",
+      dados: unformattedData.filter((item) => item.semestre === "2018.1"),
+    },
+    {
+      semestre: "2018.2",
+      dados: unformattedData.filter((item) => item.semestre === "2018.2"),
+    },
+    {
+      semestre: "2019.1",
+      dados: unformattedData.filter((item) => item.semestre === "2019.1"),
+    },
+    {
+      semestre: "2019.2",
+      dados: unformattedData.filter((item) => item.semestre === "2019.2"),
+    },
+    {
+      semestre: "2020.1",
+      dados: unformattedData.filter((item) => item.semestre === "2020.1"),
+    },
+    {
+      semestre: "2020.2",
+      dados: unformattedData.filter((item) => item.semestre === "2020.2"),
+    },
+    {
+      semestre: "2021.1",
+      dados: unformattedData.filter((item) => item.semestre === "2021.1"),
+    },
+    {
+      semestre: "2021.2",
+      dados: unformattedData.filter((item) => item.semestre === "2021.2"),
+    },
+    {
+      semestre: "2022.1",
+      dados: unformattedData.filter((item) => item.semestre === "2022.1"),
+    },
+    {
+      semestre: "2022.2",
+      dados: unformattedData.filter((item) => item.semestre === "2022.2"),
+    },
+  ];
+
+  additionalData.forEach((element) => {
+    element.dados.push({
+      curso: "Geral",
+      aprovados: element.dados.reduce((acc, item) => {
+        let aprovados = acc;
+        aprovados += item.aprovados;
+        return aprovados;
+      }, 0),
+      cancelados: element.dados.reduce((acc, item) => {
+        let cancelados = acc;
+        cancelados += item.cancelados;
+        return cancelados;
+      }, 0),
+      quantidadeCurso: element.dados.reduce((acc, item) => {
+        let quantidadeCurso = acc;
+        quantidadeCurso += item.quantidadeCurso;
+        return quantidadeCurso;
+      }, 0),
+      reprovados: element.dados.reduce((acc, item) => {
+        let reprovados = acc;
+        reprovados += item.reprovados;
+        return reprovados;
+      }, 0),
+      reprovadosFalta: element.dados.reduce((acc, item) => {
+        let reprovadosFalta = acc;
+        reprovadosFalta += item.reprovadosFalta;
+        return reprovadosFalta;
+      }, 0),
+      suprimidos: element.dados.reduce((acc, item) => {
+        let suprimidos = acc;
+        suprimidos += item.suprimidos;
+        return suprimidos;
+      }, 0),
+      trancados: element.dados.reduce((acc, item) => {
+        let trancados = acc;
+        trancados += item.trancados;
+        return trancados;
+      }, 0),
+      trancadosTotal: element.dados.reduce((acc, item) => {
+        let trancadosTotal = acc;
+        trancadosTotal += item.trancadosTotal;
+        return trancadosTotal;
+      }, 0),
+      semestre: element.semestre,
+    });
+  });
+
+  return additionalData;
+};
 
 const handleOnFormatAdditionalDataTCC = (unformattedDataTCC) => [
   {
@@ -1079,13 +1130,15 @@ const additionalDataSegundosSemestresPPCT = handleOnFormatAdditionalData(
   dadosPrimeirosSemestres.concat(dadosSegundoSemestreFormatado),
 ).filter((item) => item.semestre.includes(".2"));
 
-const additionalDataPrimeirosSemestresTCCI = handleOnFormatAdditionalDataTCC(
-  dadosPrimeirosSemestresTCCI.concat(dadosSegundosSemestresTCCI),
-).filter((item) => item.semestre.includes(".1"));
+export const additionalDataPrimeirosSemestresTCCI =
+  handleOnFormatAdditionalDataTCC(
+    dadosPrimeirosSemestresTCCI.concat(dadosSegundosSemestresTCCI),
+  ).filter((item) => item.semestre.includes(".1"));
 
-const additionalDataSegundosSemestresTCCI = handleOnFormatAdditionalDataTCC(
-  dadosPrimeirosSemestresTCCI.concat(dadosSegundosSemestresTCCI),
-).filter((item) => item.semestre.includes(".2"));
+export const additionalDataSegundosSemestresTCCI =
+  handleOnFormatAdditionalDataTCC(
+    dadosPrimeirosSemestresTCCI.concat(dadosSegundosSemestresTCCI),
+  ).filter((item) => item.semestre.includes(".2"));
 
 const additionalDataPrimeirosSemestresTCCII = handleOnFormatAdditionalDataTCC(
   dadosPrimeirosSemestresTCCII.concat(dadosSegundosSemestresTCCII),

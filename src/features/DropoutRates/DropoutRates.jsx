@@ -649,6 +649,97 @@ export const data = [
   },
 ];
 
+const handleOnFormatAdditionalDataTCC = (unformattedDataTCC) => [
+  {
+    semestre: "2012.1",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2012.1"),
+  },
+  {
+    semestre: "2012.2",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2012.2"),
+  },
+  {
+    semestre: "2013.1",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2013.1"),
+  },
+  {
+    semestre: "2013.2",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2013.2"),
+  },
+  {
+    semestre: "2014.1",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2014.1"),
+  },
+  {
+    semestre: "2014.2",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2014.2"),
+  },
+  {
+    semestre: "2015.1",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2015.1"),
+  },
+  {
+    semestre: "2015.2",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2015.2"),
+  },
+  {
+    semestre: "2016.1",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2016.1"),
+  },
+  {
+    semestre: "2016.2",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2016.2"),
+  },
+  {
+    semestre: "2017.1",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2017.1"),
+  },
+  {
+    semestre: "2017.2",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2017.2"),
+  },
+  {
+    semestre: "2018.1",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2018.1"),
+  },
+  {
+    semestre: "2018.2",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2018.2"),
+  },
+  {
+    semestre: "2019.1",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2019.1"),
+  },
+  {
+    semestre: "2019.2",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2019.2"),
+  },
+  {
+    semestre: "2020.1",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2020.1"),
+  },
+  {
+    semestre: "2020.2",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2020.2"),
+  },
+  {
+    semestre: "2021.1",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2021.1"),
+  },
+  {
+    semestre: "2021.2",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2021.2"),
+  },
+  {
+    semestre: "2022.1",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2022.1"),
+  },
+  {
+    semestre: "2022.2",
+    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2022.2"),
+  },
+];
+
 const DropoutRates = () => (
   <div className="content-container">
     <h1>Taxas de Evasão</h1>
@@ -656,39 +747,59 @@ const DropoutRates = () => (
     <Chart
       data={data[2]}
       options={options[2]}
-      title="Relação Curso por Semestre - TCC I"
+      title="Relação: Curso x Semestre - TCC I (Geral)"
       id="evasaoGeralTCCI"
+      additionalData={handleOnFormatAdditionalDataTCC(taxasEvasaoTCCI)}
+      additionalDataTitle="TCC I - Geral"
     />
 
     <Chart
       data={data[0]}
       options={options[0]}
-      title="Relação Curso por Semestre - TCC I"
+      title="Relação: Curso x Semestre  - TCC I (1º Semestres)"
+      additionalData={handleOnFormatAdditionalDataTCC(taxasEvasaoTCCI).filter(
+        (item) => item.semestre.includes(".1"),
+      )}
+      additionalDataTitle="TCC I - 1º Semestres"
     />
 
     <Chart
       data={data[1]}
       options={options[1]}
-      title="Relação Curso por Semestre - TCC I"
+      title="Relação: Curso x Semestre  - TCC I (2º Semestres)"
+      additionalData={handleOnFormatAdditionalDataTCC(taxasEvasaoTCCI).filter(
+        (item) => item.semestre.includes(".2"),
+      )}
+      additionalDataTitle="TCC I - 2º Semestres"
     />
 
     <Chart
       data={data[5]}
       options={options[5]}
-      title="Relação Curso por Semestre - TCC II"
+      title="Relação: Curso x Semestre  - TCC II (Geral)"
       id="geralTCCII"
+      additionalData={handleOnFormatAdditionalDataTCC(taxasEvasaoTCCII)}
+      additionalDataTitle="TCC II - Geral"
     />
 
     <Chart
       data={data[3]}
       options={options[3]}
-      title="Relação Curso por Semestre - TCC II"
+      title="Relação: Curso x Semestre  - TCC II (1º Semestres)"
+      additionalData={handleOnFormatAdditionalDataTCC(taxasEvasaoTCCII).filter(
+        (item) => item.semestre.includes(".1"),
+      )}
+      additionalDataTitle="TCC II - 1º Semestres"
     />
 
     <Chart
       data={data[4]}
       options={options[4]}
-      title="Relação Curso por Semestre - TCC II"
+      title="Relação: Curso x Semestre  - TCC II (2º Semestres)"
+      additionalData={handleOnFormatAdditionalDataTCC(taxasEvasaoTCCII).filter(
+        (item) => item.semestre.includes(".2"),
+      )}
+      additionalDataTitle="TCC II - 2º Semestres"
     />
   </div>
 );
