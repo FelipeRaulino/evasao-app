@@ -20,7 +20,7 @@ import {
 
 import Chart from "../../components/Chart/Chart";
 
-const mergedData = dadosPrimeirosSemestres.concat(
+const mergedPPCTData = dadosPrimeirosSemestres.concat(
   dadosSegundoSemestreFormatado,
 );
 
@@ -77,7 +77,7 @@ function customSort(a, b) {
   return 0; // Os objetos são iguais
 }
 
-mergedData.sort(customSort);
+mergedPPCTData.sort(customSort);
 
 mergedTCCIData.sort(customSort);
 
@@ -397,7 +397,7 @@ export const data = [
     datasets: [
       {
         label: "Engenharia de Software",
-        data: mergedData
+        data: mergedPPCTData
           .filter((item) => item.curso === "ES")
           .map((item) => {
             if (Number.isNaN(item.taxa)) return 0;
@@ -408,7 +408,7 @@ export const data = [
       },
       {
         label: "Design Digital",
-        data: mergedData
+        data: mergedPPCTData
           .filter((item) => item.curso === "DD")
           .map((item) => {
             if (Number.isNaN(item.taxa)) return 0;
@@ -419,7 +419,7 @@ export const data = [
       },
       {
         label: "Ciência da Computação",
-        data: mergedData
+        data: mergedPPCTData
           .filter((item) => item.curso === "CC")
           .map((item) => {
             if (Number.isNaN(item.taxa)) return 0;
@@ -430,7 +430,7 @@ export const data = [
       },
       {
         label: "Sistemas da Informação",
-        data: mergedData
+        data: mergedPPCTData
           .filter((item) => item.curso === "SI")
           .map((item) => {
             if (Number.isNaN(item.taxa)) return 0;
@@ -441,7 +441,7 @@ export const data = [
       },
       {
         label: "Engenharia da Computação",
-        data: mergedData
+        data: mergedPPCTData
           .filter((item) => item.curso === "EC")
           .map((item) => {
             if (Number.isNaN(item.taxa)) return 0;
@@ -452,7 +452,7 @@ export const data = [
       },
       {
         label: "Redes de Computadores",
-        data: mergedData
+        data: mergedPPCTData
           .filter((item) => item.curso === "RC")
           .map((item) => {
             if (Number.isNaN(item.taxa)) return 0;
@@ -897,89 +897,24 @@ export const data = [
   },
 ];
 
-const handleOnFormatAdditionalData = (unformattedData) => {
-  const additionalData = [
-    {
-      semestre: "2013.1",
-      dados: unformattedData.filter((item) => item.semestre === "2013.1"),
-    },
-    {
-      semestre: "2013.2",
-      dados: unformattedData.filter((item) => item.semestre === "2013.2"),
-    },
-    {
-      semestre: "2014.1",
-      dados: unformattedData.filter((item) => item.semestre === "2014.1"),
-    },
-    {
-      semestre: "2014.2",
-      dados: unformattedData.filter((item) => item.semestre === "2014.2"),
-    },
-    {
-      semestre: "2015.1",
-      dados: unformattedData.filter((item) => item.semestre === "2015.1"),
-    },
-    {
-      semestre: "2015.2",
-      dados: unformattedData.filter((item) => item.semestre === "2015.2"),
-    },
-    {
-      semestre: "2016.1",
-      dados: unformattedData.filter((item) => item.semestre === "2016.1"),
-    },
-    {
-      semestre: "2016.2",
-      dados: unformattedData.filter((item) => item.semestre === "2016.2"),
-    },
-    {
-      semestre: "2017.1",
-      dados: unformattedData.filter((item) => item.semestre === "2017.1"),
-    },
-    {
-      semestre: "2017.2",
-      dados: unformattedData.filter((item) => item.semestre === "2017.2"),
-    },
-    {
-      semestre: "2018.1",
-      dados: unformattedData.filter((item) => item.semestre === "2018.1"),
-    },
-    {
-      semestre: "2018.2",
-      dados: unformattedData.filter((item) => item.semestre === "2018.2"),
-    },
-    {
-      semestre: "2019.1",
-      dados: unformattedData.filter((item) => item.semestre === "2019.1"),
-    },
-    {
-      semestre: "2019.2",
-      dados: unformattedData.filter((item) => item.semestre === "2019.2"),
-    },
-    {
-      semestre: "2020.1",
-      dados: unformattedData.filter((item) => item.semestre === "2020.1"),
-    },
-    {
-      semestre: "2020.2",
-      dados: unformattedData.filter((item) => item.semestre === "2020.2"),
-    },
-    {
-      semestre: "2021.1",
-      dados: unformattedData.filter((item) => item.semestre === "2021.1"),
-    },
-    {
-      semestre: "2021.2",
-      dados: unformattedData.filter((item) => item.semestre === "2021.2"),
-    },
-    {
-      semestre: "2022.1",
-      dados: unformattedData.filter((item) => item.semestre === "2022.1"),
-    },
-    {
-      semestre: "2022.2",
-      dados: unformattedData.filter((item) => item.semestre === "2022.2"),
-    },
-  ];
+const handleOnFormatAdditionalDataPPCT = (unformattedDataPPCT) => {
+  const additionalData = semestreOrder.map((item) => ({
+    semestre: item,
+    dados: unformattedDataPPCT
+      .filter((itemB) => itemB.semestre === item)
+      .map((itemC) => ({
+        semestre: itemC.semestre,
+        curso: itemC.curso,
+        quantidadeCurso: itemC.quantidadeCurso,
+        aprovados: itemC.aprovados,
+        reprovados: itemC.reprovados,
+        reprovadosFalta: itemC.reprovadosFalta,
+        cancelados: itemC.cancelados,
+        trancados: itemC.trancados,
+        trancadosTotal: itemC.trancadosTotal,
+        suprimidos: itemC.suprimidos,
+      })),
+  }));
 
   additionalData.forEach((element) => {
     element.dados.push({
@@ -1031,122 +966,23 @@ const handleOnFormatAdditionalData = (unformattedData) => {
   return additionalData;
 };
 
-const handleOnFormatAdditionalDataTCC = (unformattedDataTCC) => [
-  {
-    semestre: "2012.1",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2012.1"),
-  },
-  {
-    semestre: "2012.2",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2012.2"),
-  },
-  {
-    semestre: "2013.1",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2013.1"),
-  },
-  {
-    semestre: "2013.2",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2013.2"),
-  },
-  {
-    semestre: "2014.1",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2014.1"),
-  },
-  {
-    semestre: "2014.2",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2014.2"),
-  },
-  {
-    semestre: "2015.1",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2015.1"),
-  },
-  {
-    semestre: "2015.2",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2015.2"),
-  },
-  {
-    semestre: "2016.1",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2016.1"),
-  },
-  {
-    semestre: "2016.2",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2016.2"),
-  },
-  {
-    semestre: "2017.1",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2017.1"),
-  },
-  {
-    semestre: "2017.2",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2017.2"),
-  },
-  {
-    semestre: "2018.1",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2018.1"),
-  },
-  {
-    semestre: "2018.2",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2018.2"),
-  },
-  {
-    semestre: "2019.1",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2019.1"),
-  },
-  {
-    semestre: "2019.2",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2019.2"),
-  },
-  {
-    semestre: "2020.1",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2020.1"),
-  },
-  {
-    semestre: "2020.2",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2020.2"),
-  },
-  {
-    semestre: "2021.1",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2021.1"),
-  },
-  {
-    semestre: "2021.2",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2021.2"),
-  },
-  {
-    semestre: "2022.1",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2022.1"),
-  },
-  {
-    semestre: "2022.2",
-    dados: unformattedDataTCC.filter((item) => item.semestre === "2022.2"),
-  },
-];
-
-const additionalDataPrimeirosSemestresPPCT = handleOnFormatAdditionalData(
-  dadosPrimeirosSemestres.concat(dadosSegundoSemestreFormatado),
-).filter((item) => item.semestre.includes(".1"));
-
-const additionalDataSegundosSemestresPPCT = handleOnFormatAdditionalData(
-  dadosPrimeirosSemestres.concat(dadosSegundoSemestreFormatado),
-).filter((item) => item.semestre.includes(".2"));
-
-export const additionalDataPrimeirosSemestresTCCI =
-  handleOnFormatAdditionalDataTCC(
-    dadosPrimeirosSemestresTCCI.concat(dadosSegundosSemestresTCCI),
-  ).filter((item) => item.semestre.includes(".1"));
-
-export const additionalDataSegundosSemestresTCCI =
-  handleOnFormatAdditionalDataTCC(
-    dadosPrimeirosSemestresTCCI.concat(dadosSegundosSemestresTCCI),
-  ).filter((item) => item.semestre.includes(".2"));
-
-const additionalDataPrimeirosSemestresTCCII = handleOnFormatAdditionalDataTCC(
-  dadosPrimeirosSemestresTCCII.concat(dadosSegundosSemestresTCCII),
-).filter((item) => item.semestre.includes(".1"));
-
-const additionalDataSegundosSemestresTCCII = handleOnFormatAdditionalDataTCC(
-  dadosPrimeirosSemestresTCCII.concat(dadosSegundosSemestresTCCII),
-).filter((item) => item.semestre.includes(".2"));
+const handleOnFormatAdditionalDataTCC = (unformattedDataTCC) =>
+  semestreTCCOrder.map((item) => ({
+    semestre: item,
+    dados: unformattedDataTCC
+      .filter((itemB) => itemB.semestre === item)
+      .map((itemC) => ({
+        curso: itemC.curso,
+        quantidadeCurso: itemC.quantidadeCurso,
+        semestre: itemC.semestre,
+        aprovados: itemC.aprovados,
+        reprovados: itemC.reprovados,
+        reprovadosFalta: 0,
+        cancelados: 0,
+        trancados: itemC.trancados,
+        suprimidos: itemC.suprimidos,
+      })),
+  }));
 
 const TCCAprovals = () => (
   <div className="content-container">
@@ -1156,17 +992,17 @@ const TCCAprovals = () => (
       options={options[2]}
       data={data[2]}
       title="Relação: Cursos por semestre - PPCT"
-      additionalData={handleOnFormatAdditionalData(
-        dadosPrimeirosSemestres.concat(dadosSegundoSemestreFormatado),
-      )}
-      additionalDataTitle="PPCT - GERAL"
+      additionalData={handleOnFormatAdditionalDataPPCT(mergedPPCTData)}
+      additionalDataTitle="PPCT - Geral"
     />
 
     <Chart
       options={options[0]}
       data={data[0]}
       title="Relação: Cursos por 1º semestres - PPCT"
-      additionalData={additionalDataPrimeirosSemestresPPCT}
+      additionalData={handleOnFormatAdditionalDataPPCT(mergedPPCTData).filter(
+        (item) => item.semestre.includes(".1"),
+      )}
       additionalDataTitle="PPCT - 1º Semestres"
     />
 
@@ -1174,7 +1010,9 @@ const TCCAprovals = () => (
       options={options[1]}
       data={data[1]}
       title="Relação: Cursos por 2º semestres - PPCT"
-      additionalData={additionalDataSegundosSemestresPPCT}
+      additionalData={handleOnFormatAdditionalDataPPCT(mergedPPCTData).filter(
+        (item) => item.semestre.includes(".2"),
+      )}
       additionalDataTitle="PPCT - 2º Semestres"
     />
 
@@ -1182,9 +1020,7 @@ const TCCAprovals = () => (
       options={options[7]}
       data={data[7]}
       title="Relação: Cursos por semestre - TCC I"
-      additionalData={handleOnFormatAdditionalDataTCC(
-        dadosPrimeirosSemestresTCCI.concat(dadosSegundosSemestresTCCI),
-      )}
+      additionalData={handleOnFormatAdditionalDataTCC(mergedTCCIData)}
       additionalDataTitle="TCC I - Geral"
     />
 
@@ -1192,7 +1028,9 @@ const TCCAprovals = () => (
       options={options[3]}
       data={data[3]}
       title="Relação: Cursos por 1º semestres - TCC I"
-      additionalData={additionalDataPrimeirosSemestresTCCI}
+      additionalData={handleOnFormatAdditionalDataTCC(mergedTCCIData).filter(
+        (item) => item.semestre.includes(".1"),
+      )}
       additionalDataTitle="TCC I - 1º Semestres"
     />
 
@@ -1200,7 +1038,9 @@ const TCCAprovals = () => (
       options={options[4]}
       data={data[4]}
       title="Relação: Cursos por 2º semestres - TCC I"
-      additionalData={additionalDataSegundosSemestresTCCI}
+      additionalData={handleOnFormatAdditionalDataTCC(mergedTCCIData).filter(
+        (item) => item.semestre.includes(".2"),
+      )}
       additionalDataTitle="TCC I - 2º Semestres"
     />
 
@@ -1208,9 +1048,7 @@ const TCCAprovals = () => (
       options={options[8]}
       data={data[8]}
       title="Relação: Cursos por semestre - TCC II"
-      additionalData={handleOnFormatAdditionalDataTCC(
-        dadosPrimeirosSemestresTCCII.concat(dadosSegundosSemestresTCCII),
-      )}
+      additionalData={handleOnFormatAdditionalDataTCC(mergedTCCIIData)}
       additionalDataTitle="TCC II - Geral"
     />
 
@@ -1218,7 +1056,9 @@ const TCCAprovals = () => (
       options={options[5]}
       data={data[5]}
       title="Relação: Cursos por 1º semestres - TCC II"
-      additionalData={additionalDataPrimeirosSemestresTCCII}
+      additionalData={handleOnFormatAdditionalDataTCC(mergedTCCIIData).filter(
+        (item) => item.semestre.includes(".1"),
+      )}
       additionalDataTitle="TCC II - 1º Semestres"
     />
 
@@ -1227,7 +1067,9 @@ const TCCAprovals = () => (
       data={data[6]}
       title="Relação: Cursos por 2º semestres - TCC II"
       id="aprovacoesSegundosSemestresTCCII"
-      additionalData={additionalDataSegundosSemestresTCCII}
+      additionalData={handleOnFormatAdditionalDataTCC(mergedTCCIIData).filter(
+        (item) => item.semestre.includes(".2"),
+      )}
       additionalDataTitle="TCC II - 2º Semestres"
     />
   </div>

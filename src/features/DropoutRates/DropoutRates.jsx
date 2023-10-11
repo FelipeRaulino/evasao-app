@@ -8,7 +8,7 @@ import {
   taxasEvasaoTCCII,
 } from "../../utils/TCCDataFormatted";
 
-import { taxasEvasaoPPCT } from "../../utils/PPCTDataFormatted";
+import { dadosPPCT } from "../../utils/PPCTDataFormatted";
 
 const semestreOrder = [
   "2012.1",
@@ -708,7 +708,7 @@ export const data = [
     datasets: [
       {
         label: "Engenharia de Software",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.curso === "ES")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -720,7 +720,7 @@ export const data = [
       },
       {
         label: "Ciência da Computação",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.curso === "CC")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -732,7 +732,7 @@ export const data = [
       },
       {
         label: "Sistemas da Informação",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.curso === "SI")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -744,7 +744,7 @@ export const data = [
       },
       {
         label: "Engenharia da Computação",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.curso === "EC")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -756,7 +756,7 @@ export const data = [
       },
       {
         label: "Redes de Computadores",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.curso === "RC")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -768,7 +768,7 @@ export const data = [
       },
       {
         label: "Design Digital",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.curso === "DD")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -787,7 +787,7 @@ export const data = [
     datasets: [
       {
         label: "Engenharia de Software",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.semestre.includes(".1") && item.curso === "ES")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -799,7 +799,7 @@ export const data = [
       },
       {
         label: "Ciência da Computação",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.semestre.includes(".1") && item.curso === "CC")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -811,7 +811,7 @@ export const data = [
       },
       {
         label: "Sistemas da Informação",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.semestre.includes(".1") && item.curso === "SI")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -823,7 +823,7 @@ export const data = [
       },
       {
         label: "Engenharia da Computação",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.semestre.includes(".1") && item.curso === "EC")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -835,7 +835,7 @@ export const data = [
       },
       {
         label: "Redes de Computadores",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.semestre.includes(".1") && item.curso === "RC")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -847,7 +847,7 @@ export const data = [
       },
       {
         label: "Design Digital",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.semestre.includes(".1") && item.curso === "DD")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -866,7 +866,7 @@ export const data = [
     datasets: [
       {
         label: "Engenharia de Software",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.semestre.includes(".2") && item.curso === "ES")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -878,7 +878,7 @@ export const data = [
       },
       {
         label: "Ciência da Computação",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.semestre.includes(".2") && item.curso === "CC")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -890,7 +890,7 @@ export const data = [
       },
       {
         label: "Sistemas da Informação",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.semestre.includes(".2") && item.curso === "SI")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -902,7 +902,7 @@ export const data = [
       },
       {
         label: "Engenharia da Computação",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.semestre.includes(".2") && item.curso === "EC")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -914,7 +914,7 @@ export const data = [
       },
       {
         label: "Redes de Computadores",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.semestre.includes(".2") && item.curso === "RC")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -926,7 +926,7 @@ export const data = [
       },
       {
         label: "Design Digital",
-        data: taxasEvasaoPPCT
+        data: dadosPPCT
           .filter((item) => item.semestre.includes(".2") && item.curso === "DD")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
@@ -940,96 +940,44 @@ export const data = [
   },
 ];
 
-const handleOnFormatAdditionalDataTCC = (unformattedDataTCC) => [
-  {
-    semestre: "2012.1",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2012.1"),
-  },
-  {
-    semestre: "2012.2",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2012.2"),
-  },
-  {
-    semestre: "2013.1",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2013.1"),
-  },
-  {
-    semestre: "2013.2",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2013.2"),
-  },
-  {
-    semestre: "2014.1",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2014.1"),
-  },
-  {
-    semestre: "2014.2",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2014.2"),
-  },
-  {
-    semestre: "2015.1",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2015.1"),
-  },
-  {
-    semestre: "2015.2",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2015.2"),
-  },
-  {
-    semestre: "2016.1",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2016.1"),
-  },
-  {
-    semestre: "2016.2",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2016.2"),
-  },
-  {
-    semestre: "2017.1",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2017.1"),
-  },
-  {
-    semestre: "2017.2",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2017.2"),
-  },
-  {
-    semestre: "2018.1",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2018.1"),
-  },
-  {
-    semestre: "2018.2",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2018.2"),
-  },
-  {
-    semestre: "2019.1",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2019.1"),
-  },
-  {
-    semestre: "2019.2",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2019.2"),
-  },
-  {
-    semestre: "2020.1",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2020.1"),
-  },
-  {
-    semestre: "2020.2",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2020.2"),
-  },
-  {
-    semestre: "2021.1",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2021.1"),
-  },
-  {
-    semestre: "2021.2",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2021.2"),
-  },
-  {
-    semestre: "2022.1",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2022.1"),
-  },
-  {
-    semestre: "2022.2",
-    dados: unformattedDataTCC.filter((item) => item.semestreAtual === "2022.2"),
-  },
-];
+const handleOnFormatAdditionalDataTCC = (unformattedDataTCC) =>
+  semestreOrder.map((item) => ({
+    semestre: item,
+    dados: unformattedDataTCC
+      .filter((itemB) => itemB.semestreAtual === item)
+      .map((itemC) => ({
+        curso: itemC.curso,
+        quantidadeCurso: itemC.quantidadeMatriculasSemestreAtual,
+        semestre: itemC.semestreAtual,
+        aprovados: itemC.aprovados,
+        reprovados: itemC.reprovados,
+        reprovadosFalta: 0,
+        cancelados: 0,
+        trancados: itemC.trancados,
+        suprimidos: itemC.suprimidos,
+      })),
+  }));
+
+const handleOnFormatAdditionalDataPPCT = (unformattedDataPPCT) =>
+  semestreOrder
+    .filter((item) => item !== "2012.1" && item !== "2012.2")
+    .map((item) => ({
+      semestre: item,
+      dados: unformattedDataPPCT
+        .filter((itemB) => itemB.semestre === item)
+        .map((itemC) => ({
+          quantidadeCurso: itemC.qtdDeMatriculas,
+          aprovados: itemC.qtdDeAprovados,
+          reprovados: itemC.quantidadeDeReprovados,
+          reprovadosFalta: itemC.reprovadosFalta,
+          cancelados: itemC.cancelados,
+          trancados: itemC.trancados,
+          trancadosTotal: itemC.trancadosTotal,
+          suprimidos: itemC.quantidadeDeSuprimidos,
+          semestre: itemC.semestre,
+          curso: itemC.curso,
+        })),
+    }));
 
 const DropoutRates = () => (
   <div className="content-container">
@@ -1097,6 +1045,8 @@ const DropoutRates = () => (
       data={data[6]}
       options={options[6]}
       title="Relação: Curso x Semestre  - PPCT (Geral)"
+      additionalData={handleOnFormatAdditionalDataPPCT(dadosPPCT)}
+      additionalDataTitle="PPCT - Geral"
     />
 
     <Chart
