@@ -8,6 +8,8 @@ import {
   taxasEvasaoTCCII,
 } from "../../utils/TCCDataFormatted";
 
+import { taxasEvasaoPPCT } from "../../utils/PPCTDataFormatted";
+
 const semestreOrder = [
   "2012.1",
   "2012.2",
@@ -154,6 +156,57 @@ const options = [
         display: true,
         position: "top",
         text: "Geral",
+      },
+    },
+  },
+  {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Taxas de evasão da disciplina de PPCT",
+      },
+      subtitle: {
+        display: true,
+        position: "top",
+        text: "Geral",
+      },
+    },
+  },
+  {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Taxas de evasão da disciplina de PPCT",
+      },
+      subtitle: {
+        display: true,
+        position: "top",
+        text: "1º Semestres",
+      },
+    },
+  },
+  {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Taxas de evasão da disciplina de PPCT",
+      },
+      subtitle: {
+        display: true,
+        position: "top",
+        text: "2º Semestres",
       },
     },
   },
@@ -647,6 +700,244 @@ export const data = [
       },
     ],
   },
+
+  {
+    labels: semestreOrder.filter(
+      (item) => item !== "2012.1" && item !== "2012.2",
+    ),
+    datasets: [
+      {
+        label: "Engenharia de Software",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.curso === "ES")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "red",
+        backgroundColor: "red",
+      },
+      {
+        label: "Ciência da Computação",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.curso === "CC")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "blue",
+        backgroundColor: "blue",
+      },
+      {
+        label: "Sistemas da Informação",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.curso === "SI")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "green",
+        backgroundColor: "green",
+      },
+      {
+        label: "Engenharia da Computação",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.curso === "EC")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "orange",
+        backgroundColor: "orange",
+      },
+      {
+        label: "Redes de Computadores",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.curso === "RC")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "darkgray",
+        backgroundColor: "darkgray",
+      },
+      {
+        label: "Design Digital",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.curso === "DD")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "purple",
+        backgroundColor: "purple",
+      },
+    ],
+  },
+  {
+    labels: semestreOrder.filter(
+      (item) => item !== "2012.1" && item !== "2012.2" && item.includes(".1"),
+    ),
+    datasets: [
+      {
+        label: "Engenharia de Software",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.semestre.includes(".1") && item.curso === "ES")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "red",
+        backgroundColor: "red",
+      },
+      {
+        label: "Ciência da Computação",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.semestre.includes(".1") && item.curso === "CC")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "blue",
+        backgroundColor: "blue",
+      },
+      {
+        label: "Sistemas da Informação",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.semestre.includes(".1") && item.curso === "SI")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "green",
+        backgroundColor: "green",
+      },
+      {
+        label: "Engenharia da Computação",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.semestre.includes(".1") && item.curso === "EC")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "orange",
+        backgroundColor: "orange",
+      },
+      {
+        label: "Redes de Computadores",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.semestre.includes(".1") && item.curso === "RC")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "darkgray",
+        backgroundColor: "darkgray",
+      },
+      {
+        label: "Design Digital",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.semestre.includes(".1") && item.curso === "DD")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "purple",
+        backgroundColor: "purple",
+      },
+    ],
+  },
+  {
+    labels: semestreOrder.filter(
+      (item) => item !== "2012.1" && item !== "2012.2" && item.includes(".2"),
+    ),
+    datasets: [
+      {
+        label: "Engenharia de Software",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.semestre.includes(".2") && item.curso === "ES")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "red",
+        backgroundColor: "red",
+      },
+      {
+        label: "Ciência da Computação",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.semestre.includes(".2") && item.curso === "CC")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "blue",
+        backgroundColor: "blue",
+      },
+      {
+        label: "Sistemas da Informação",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.semestre.includes(".2") && item.curso === "SI")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "green",
+        backgroundColor: "green",
+      },
+      {
+        label: "Engenharia da Computação",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.semestre.includes(".2") && item.curso === "EC")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "orange",
+        backgroundColor: "orange",
+      },
+      {
+        label: "Redes de Computadores",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.semestre.includes(".2") && item.curso === "RC")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "darkgray",
+        backgroundColor: "darkgray",
+      },
+      {
+        label: "Design Digital",
+        data: taxasEvasaoPPCT
+          .filter((item) => item.semestre.includes(".2") && item.curso === "DD")
+          .map((item) => {
+            if (Number.isNaN(item.taxaEvasao)) return 0;
+            if (!Number.isFinite(item.taxaEvasao)) return 0;
+            return item.taxaEvasao;
+          }),
+        borderColor: "purple",
+        backgroundColor: "purple",
+      },
+    ],
+  },
 ];
 
 const handleOnFormatAdditionalDataTCC = (unformattedDataTCC) => [
@@ -800,6 +1091,24 @@ const DropoutRates = () => (
         (item) => item.semestre.includes(".2"),
       )}
       additionalDataTitle="TCC II - 2º Semestres"
+    />
+
+    <Chart
+      data={data[6]}
+      options={options[6]}
+      title="Relação: Curso x Semestre  - PPCT (Geral)"
+    />
+
+    <Chart
+      data={data[7]}
+      options={options[7]}
+      title="Relação: Curso x Semestre  - PPCT (1º Semestres)"
+    />
+
+    <Chart
+      data={data[8]}
+      options={options[8]}
+      title="Relação: Curso x Semestre  - PPCT (2º Semestres)"
     />
   </div>
 );
