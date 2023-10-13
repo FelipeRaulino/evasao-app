@@ -35,3 +35,9 @@
 .semestre-accordion-container > header > button > img {
   width: 1rem;
 }
+
+@media (max-width: 425px) {
+  .semestre-accordion-container > header > span {
+    font-size: 0.75rem;
+  }
+}

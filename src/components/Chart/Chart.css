@@ -47,6 +47,7 @@ input[type="range"] {
   background: transparent;
   cursor: pointer;
   width: 25rem;
+  max-width: 100%;
   margin: 0.5rem 0 2.5rem;
 }
 
@@ -167,4 +168,15 @@ input[type="range"]:focus::-moz-range-thumb {
 
 .chart-btn-download-container button:hover {
   background-color: #022566;
+}
+
+@media (max-width: 425px) {
+  .chart-container h2 {
+    font-size: 1.25rem;
+  }
+
+  .chart-btn-container {
+    gap: 0.35rem;
+    flex-direction: column;
+  }
 }

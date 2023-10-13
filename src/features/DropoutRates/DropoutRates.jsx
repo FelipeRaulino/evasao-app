@@ -10,6 +10,8 @@ import {
 
 import { dadosPPCT } from "../../utils/PPCTDataFormatted";
 
+const windowWidth = window.innerWidth;
+
 const semestreOrder = [
   "2012.1",
   "2012.2",
@@ -62,6 +64,10 @@ const options = [
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 10,
+        },
       },
       title: {
         display: true,
@@ -79,6 +85,10 @@ const options = [
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 10,
+        },
       },
       title: {
         display: true,
@@ -96,6 +106,10 @@ const options = [
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 10,
+        },
       },
       title: {
         display: true,
@@ -113,6 +127,10 @@ const options = [
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 10,
+        },
       },
       title: {
         display: true,
@@ -130,6 +148,10 @@ const options = [
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 10,
+        },
       },
       title: {
         display: true,
@@ -147,6 +169,10 @@ const options = [
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 10,
+        },
       },
       title: {
         display: true,
@@ -164,6 +190,10 @@ const options = [
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 10,
+        },
       },
       title: {
         display: true,
@@ -181,6 +211,10 @@ const options = [
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 10,
+        },
       },
       title: {
         display: true,
@@ -198,6 +232,10 @@ const options = [
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 10,
+        },
       },
       title: {
         display: true,
@@ -217,7 +255,7 @@ export const data = [
     labels: labelsPrimeirosSemestres.filter((item) => item !== "2023.1"),
     datasets: [
       {
-        label: "Engenharia de Software",
+        label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
         data: taxasEvasaoTCCI
           .filter((item) => item.semestreAtual.includes(".1"))
           .filter((item) => item.curso === "Engenharia de Software")
@@ -230,7 +268,7 @@ export const data = [
         backgroundColor: "red",
       },
       {
-        label: "Ciência da Computação",
+        label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
         data: taxasEvasaoTCCI
           .filter((item) => item.semestreAtual.includes(".1"))
           .filter((item) => item.curso === "Ciência da Computação")
@@ -243,7 +281,7 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: "Sistemas da Informação",
+        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
         data: taxasEvasaoTCCI
           .filter((item) => item.semestreAtual.includes(".1"))
           .filter((item) => item.curso === "Sistemas da Informação")
@@ -256,7 +294,7 @@ export const data = [
         backgroundColor: "green",
       },
       {
-        label: "Engenharia da Computação",
+        label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
         data: taxasEvasaoTCCI
           .filter((item) => item.semestreAtual.includes(".1"))
           .filter((item) => item.curso === "Engenharia de Computação")
@@ -269,7 +307,7 @@ export const data = [
         backgroundColor: "orange",
       },
       {
-        label: "Redes de Computadores",
+        label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
         data: taxasEvasaoTCCI
           .filter((item) => item.semestreAtual.includes(".1"))
           .filter((item) => item.curso === "Redes de Computadores")
@@ -282,7 +320,7 @@ export const data = [
         backgroundColor: "darkgray",
       },
       {
-        label: "Design Digital",
+        label: windowWidth >= 426 ? "Design Digital" : "DD",
         data: taxasEvasaoTCCI
           .filter((item) => item.semestreAtual.includes(".1"))
           .filter((item) => item.curso === "Design Digital")
@@ -300,7 +338,7 @@ export const data = [
     labels: labelsSegundosSemestre,
     datasets: [
       {
-        label: "Engenharia de Software",
+        label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
         data: taxasEvasaoTCCI
           .filter((item) => item.semestreAtual.includes(".2"))
           .filter((item) => item.curso === "Engenharia de Software")
@@ -313,7 +351,7 @@ export const data = [
         backgroundColor: "red",
       },
       {
-        label: "Ciência da Computação",
+        label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
         data: taxasEvasaoTCCI
           .filter((item) => item.semestreAtual.includes(".2"))
           .filter((item) => item.curso === "Ciência da Computação")
@@ -326,7 +364,7 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: "Sistemas da Informação",
+        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
         data: taxasEvasaoTCCI
           .filter((item) => item.semestreAtual.includes(".2"))
           .filter((item) => item.curso === "Sistemas da Informação")
@@ -339,7 +377,7 @@ export const data = [
         backgroundColor: "green",
       },
       {
-        label: "Engenharia da Computação",
+        label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
         data: taxasEvasaoTCCI
           .filter((item) => item.semestreAtual.includes(".2"))
           .filter((item) => item.curso === "Engenharia de Computação")
@@ -352,7 +390,7 @@ export const data = [
         backgroundColor: "orange",
       },
       {
-        label: "Redes de Computadores",
+        label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
         data: taxasEvasaoTCCI
           .filter((item) => item.semestreAtual.includes(".2"))
           .filter((item) => item.curso === "Redes de Computadores")
@@ -365,7 +403,7 @@ export const data = [
         backgroundColor: "darkgray",
       },
       {
-        label: "Design Digital",
+        label: windowWidth >= 426 ? "Design Digital" : "DD",
         data: taxasEvasaoTCCI
           .filter((item) => item.semestreAtual.includes(".2"))
           .filter((item) => item.curso === "Design Digital")
@@ -383,7 +421,7 @@ export const data = [
     labels: semestreOrder,
     datasets: [
       {
-        label: "Engenharia de Software",
+        label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
         data: taxasEvasaoTCCI
           .filter((item) => item.curso === "Engenharia de Software")
           .map((item) => {
@@ -395,7 +433,7 @@ export const data = [
         backgroundColor: "red",
       },
       {
-        label: "Ciência da Computação",
+        label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
         data: taxasEvasaoTCCI
           .filter((item) => item.curso === "Ciência da Computação")
           .map((item) => {
@@ -407,7 +445,7 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: "Sistemas da Informação",
+        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
         data: taxasEvasaoTCCI
           .filter((item) => item.curso === "Sistemas da Informação")
           .map((item) => {
@@ -419,7 +457,7 @@ export const data = [
         backgroundColor: "green",
       },
       {
-        label: "Engenharia da Computação",
+        label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
         data: taxasEvasaoTCCI
           .filter((item) => item.curso === "Engenharia de Computação")
           .map((item) => {
@@ -431,7 +469,7 @@ export const data = [
         backgroundColor: "orange",
       },
       {
-        label: "Redes de Computadores",
+        label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
         data: taxasEvasaoTCCI
           .filter((item) => item.curso === "Redes de Computadores")
           .map((item) => {
@@ -443,7 +481,7 @@ export const data = [
         backgroundColor: "darkgray",
       },
       {
-        label: "Design Digital",
+        label: windowWidth >= 426 ? "Design Digital" : "DD",
         data: taxasEvasaoTCCI
           .filter((item) => item.curso === "Design Digital")
           .map((item) => {
@@ -461,7 +499,7 @@ export const data = [
     labels: labelsPrimeirosSemestres.filter((item) => item !== "2023.1"),
     datasets: [
       {
-        label: "Engenharia de Software",
+        label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
         data: taxasEvasaoTCCII
           .filter((item) => item.semestreAtual.includes(".1"))
           .filter((item) => item.curso === "Engenharia de Software")
@@ -474,7 +512,7 @@ export const data = [
         backgroundColor: "red",
       },
       {
-        label: "Ciência da Computação",
+        label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
         data: taxasEvasaoTCCII
           .filter((item) => item.semestreAtual.includes(".1"))
           .filter((item) => item.curso === "Ciência da Computação")
@@ -487,7 +525,7 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: "Sistemas da Informação",
+        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
         data: taxasEvasaoTCCII
           .filter((item) => item.semestreAtual.includes(".1"))
           .filter((item) => item.curso === "Sistemas da Informação")
@@ -500,7 +538,7 @@ export const data = [
         backgroundColor: "green",
       },
       {
-        label: "Engenharia da Computação",
+        label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
         data: taxasEvasaoTCCII
           .filter((item) => item.semestreAtual.includes(".1"))
           .filter((item) => item.curso === "Engenharia de Computação")
@@ -513,7 +551,7 @@ export const data = [
         backgroundColor: "orange",
       },
       {
-        label: "Redes de Computadores",
+        label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
         data: taxasEvasaoTCCII
           .filter((item) => item.semestreAtual.includes(".1"))
           .filter((item) => item.curso === "Redes de Computadores")
@@ -526,7 +564,7 @@ export const data = [
         backgroundColor: "darkgray",
       },
       {
-        label: "Design Digital",
+        label: windowWidth >= 426 ? "Design Digital" : "DD",
         data: taxasEvasaoTCCII
           .filter((item) => item.semestreAtual.includes(".1"))
           .filter((item) => item.curso === "Design Digital")
@@ -544,7 +582,7 @@ export const data = [
     labels: labelsSegundosSemestre,
     datasets: [
       {
-        label: "Engenharia de Software",
+        label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
         data: taxasEvasaoTCCII
           .filter((item) => item.semestreAtual.includes(".2"))
           .filter((item) => item.curso === "Engenharia de Software")
@@ -557,7 +595,7 @@ export const data = [
         backgroundColor: "red",
       },
       {
-        label: "Ciência da Computação",
+        label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
         data: taxasEvasaoTCCII
           .filter((item) => item.semestreAtual.includes(".2"))
           .filter((item) => item.curso === "Ciência da Computação")
@@ -570,7 +608,7 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: "Sistemas da Informação",
+        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
         data: taxasEvasaoTCCII
           .filter((item) => item.semestreAtual.includes(".2"))
           .filter((item) => item.curso === "Sistemas da Informação")
@@ -583,7 +621,7 @@ export const data = [
         backgroundColor: "green",
       },
       {
-        label: "Engenharia da Computação",
+        label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
         data: taxasEvasaoTCCII
           .filter((item) => item.semestreAtual.includes(".2"))
           .filter((item) => item.curso === "Engenharia de Computação")
@@ -596,7 +634,7 @@ export const data = [
         backgroundColor: "orange",
       },
       {
-        label: "Redes de Computadores",
+        label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
         data: taxasEvasaoTCCII
           .filter((item) => item.semestreAtual.includes(".2"))
           .filter((item) => item.curso === "Redes de Computadores")
@@ -609,7 +647,7 @@ export const data = [
         backgroundColor: "darkgray",
       },
       {
-        label: "Design Digital",
+        label: windowWidth >= 426 ? "Design Digital" : "DD",
         data: taxasEvasaoTCCII
           .filter((item) => item.semestreAtual.includes(".2"))
           .filter((item) => item.curso === "Design Digital")
@@ -627,7 +665,7 @@ export const data = [
     labels: semestreOrder,
     datasets: [
       {
-        label: "Engenharia de Software",
+        label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
         data: taxasEvasaoTCCII
           .filter((item) => item.curso === "Engenharia de Software")
           .map((item) => {
@@ -639,7 +677,7 @@ export const data = [
         backgroundColor: "red",
       },
       {
-        label: "Ciência da Computação",
+        label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
         data: taxasEvasaoTCCII
           .filter((item) => item.curso === "Ciência da Computação")
           .map((item) => {
@@ -651,7 +689,7 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: "Sistemas da Informação",
+        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
         data: taxasEvasaoTCCII
           .filter((item) => item.curso === "Sistemas da Informação")
           .map((item) => {
@@ -663,7 +701,7 @@ export const data = [
         backgroundColor: "green",
       },
       {
-        label: "Engenharia da Computação",
+        label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
         data: taxasEvasaoTCCII
           .filter((item) => item.curso === "Engenharia de Computação")
           .map((item) => {
@@ -675,7 +713,7 @@ export const data = [
         backgroundColor: "orange",
       },
       {
-        label: "Redes de Computadores",
+        label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
         data: taxasEvasaoTCCII
           .filter((item) => item.curso === "Redes de Computadores")
           .map((item) => {
@@ -687,7 +725,7 @@ export const data = [
         backgroundColor: "darkgray",
       },
       {
-        label: "Design Digital",
+        label: windowWidth >= 426 ? "Design Digital" : "DD",
         data: taxasEvasaoTCCII
           .filter((item) => item.curso === "Design Digital")
           .map((item) => {
@@ -707,7 +745,7 @@ export const data = [
     ),
     datasets: [
       {
-        label: "Engenharia de Software",
+        label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
         data: dadosPPCT
           .filter((item) => item.curso === "ES")
           .map((item) => {
@@ -719,7 +757,7 @@ export const data = [
         backgroundColor: "red",
       },
       {
-        label: "Ciência da Computação",
+        label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
         data: dadosPPCT
           .filter((item) => item.curso === "CC")
           .map((item) => {
@@ -731,7 +769,7 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: "Sistemas da Informação",
+        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
         data: dadosPPCT
           .filter((item) => item.curso === "SI")
           .map((item) => {
@@ -743,7 +781,7 @@ export const data = [
         backgroundColor: "green",
       },
       {
-        label: "Engenharia da Computação",
+        label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
         data: dadosPPCT
           .filter((item) => item.curso === "EC")
           .map((item) => {
@@ -755,7 +793,7 @@ export const data = [
         backgroundColor: "orange",
       },
       {
-        label: "Redes de Computadores",
+        label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
         data: dadosPPCT
           .filter((item) => item.curso === "RC")
           .map((item) => {
@@ -767,7 +805,7 @@ export const data = [
         backgroundColor: "darkgray",
       },
       {
-        label: "Design Digital",
+        label: windowWidth >= 426 ? "Design Digital" : "DD",
         data: dadosPPCT
           .filter((item) => item.curso === "DD")
           .map((item) => {
@@ -786,7 +824,7 @@ export const data = [
     ),
     datasets: [
       {
-        label: "Engenharia de Software",
+        label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
         data: dadosPPCT
           .filter((item) => item.semestre.includes(".1") && item.curso === "ES")
           .map((item) => {
@@ -798,7 +836,7 @@ export const data = [
         backgroundColor: "red",
       },
       {
-        label: "Ciência da Computação",
+        label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
         data: dadosPPCT
           .filter((item) => item.semestre.includes(".1") && item.curso === "CC")
           .map((item) => {
@@ -810,7 +848,7 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: "Sistemas da Informação",
+        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
         data: dadosPPCT
           .filter((item) => item.semestre.includes(".1") && item.curso === "SI")
           .map((item) => {
@@ -822,7 +860,7 @@ export const data = [
         backgroundColor: "green",
       },
       {
-        label: "Engenharia da Computação",
+        label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
         data: dadosPPCT
           .filter((item) => item.semestre.includes(".1") && item.curso === "EC")
           .map((item) => {
@@ -834,7 +872,7 @@ export const data = [
         backgroundColor: "orange",
       },
       {
-        label: "Redes de Computadores",
+        label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
         data: dadosPPCT
           .filter((item) => item.semestre.includes(".1") && item.curso === "RC")
           .map((item) => {
@@ -846,7 +884,7 @@ export const data = [
         backgroundColor: "darkgray",
       },
       {
-        label: "Design Digital",
+        label: windowWidth >= 426 ? "Design Digital" : "DD",
         data: dadosPPCT
           .filter((item) => item.semestre.includes(".1") && item.curso === "DD")
           .map((item) => {
@@ -865,7 +903,7 @@ export const data = [
     ),
     datasets: [
       {
-        label: "Engenharia de Software",
+        label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
         data: dadosPPCT
           .filter((item) => item.semestre.includes(".2") && item.curso === "ES")
           .map((item) => {
@@ -877,7 +915,7 @@ export const data = [
         backgroundColor: "red",
       },
       {
-        label: "Ciência da Computação",
+        label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
         data: dadosPPCT
           .filter((item) => item.semestre.includes(".2") && item.curso === "CC")
           .map((item) => {
@@ -889,7 +927,7 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: "Sistemas da Informação",
+        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
         data: dadosPPCT
           .filter((item) => item.semestre.includes(".2") && item.curso === "SI")
           .map((item) => {
@@ -901,7 +939,7 @@ export const data = [
         backgroundColor: "green",
       },
       {
-        label: "Engenharia da Computação",
+        label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
         data: dadosPPCT
           .filter((item) => item.semestre.includes(".2") && item.curso === "EC")
           .map((item) => {
@@ -913,7 +951,7 @@ export const data = [
         backgroundColor: "orange",
       },
       {
-        label: "Redes de Computadores",
+        label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
         data: dadosPPCT
           .filter((item) => item.semestre.includes(".2") && item.curso === "RC")
           .map((item) => {
@@ -925,7 +963,7 @@ export const data = [
         backgroundColor: "darkgray",
       },
       {
-        label: "Design Digital",
+        label: windowWidth >= 426 ? "Design Digital" : "DD",
         data: dadosPPCT
           .filter((item) => item.semestre.includes(".2") && item.curso === "DD")
           .map((item) => {

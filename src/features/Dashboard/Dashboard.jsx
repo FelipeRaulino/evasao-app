@@ -88,6 +88,10 @@ const options = [
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 10,
+        },
       },
       title: {
         display: true,
@@ -105,6 +109,10 @@ const options = [
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 10,
+        },
       },
       title: {
         display: true,
@@ -122,6 +130,10 @@ const options = [
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 10,
+        },
       },
       title: {
         display: true,
@@ -141,7 +153,7 @@ const data = [
     labels: semestreOrder,
     datasets: [
       {
-        label: "Engenharia de Software",
+        label: "ES",
         data: taxasEvasaoTCCII
           .filter((item) => item.curso === "Engenharia de Software")
           .map((item) => {
@@ -153,7 +165,7 @@ const data = [
         backgroundColor: "red",
       },
       {
-        label: "Ciência da Computação",
+        label: "CC",
         data: taxasEvasaoTCCII
           .filter((item) => item.curso === "Ciência da Computação")
           .map((item) => {
@@ -165,7 +177,7 @@ const data = [
         backgroundColor: "blue",
       },
       {
-        label: "Sistemas da Informação",
+        label: "SI",
         data: taxasEvasaoTCCII
           .filter((item) => item.curso === "Sistemas da Informação")
           .map((item) => {
@@ -177,7 +189,7 @@ const data = [
         backgroundColor: "green",
       },
       {
-        label: "Engenharia da Computação",
+        label: "EC",
         data: taxasEvasaoTCCII
           .filter((item) => item.curso === "Engenharia de Computação")
           .map((item) => {
@@ -189,7 +201,7 @@ const data = [
         backgroundColor: "orange",
       },
       {
-        label: "Redes de Computadores",
+        label: "RC",
         data: taxasEvasaoTCCII
           .filter((item) => item.curso === "Redes de Computadores")
           .map((item) => {
@@ -201,7 +213,7 @@ const data = [
         backgroundColor: "darkgray",
       },
       {
-        label: "Design Digital",
+        label: "DD",
         data: taxasEvasaoTCCII
           .filter((item) => item.curso === "Design Digital")
           .map((item) => {
@@ -218,7 +230,7 @@ const data = [
     labels: labelsSegundosSemestreTCC,
     datasets: [
       {
-        label: "Engenharia de Software",
+        label: "ES",
         data: dadosSegundosSemestresTCCII
           .filter((item) => item.curso === "Engenharia de Software")
           .map((item) => {
@@ -229,7 +241,7 @@ const data = [
         backgroundColor: "red",
       },
       {
-        label: "Ciência da Computação",
+        label: "CC",
         data: dadosSegundosSemestresTCCII
           .filter((item) => item.curso === "Ciência da Computação")
           .map((item) => {
@@ -240,7 +252,7 @@ const data = [
         backgroundColor: "blue",
       },
       {
-        label: "Sistemas da Informação",
+        label: "SI",
         data: dadosSegundosSemestresTCCII
           .filter((item) => item.curso === "Sistemas de Informação")
           .map((item) => {
@@ -251,7 +263,7 @@ const data = [
         backgroundColor: "green",
       },
       {
-        label: "Engenharia de Computação",
+        label: "EC",
         data: dadosSegundosSemestresTCCII
           .filter((item) => item.curso === "Engenharia de Computação")
           .map((item) => {
@@ -262,7 +274,7 @@ const data = [
         backgroundColor: "orange",
       },
       {
-        label: "Redes de Computadores",
+        label: "RC",
         data: dadosSegundosSemestresTCCII
           .filter((item) => item.curso === "Redes de Computadores")
           .map((item) => {
@@ -273,7 +285,7 @@ const data = [
         backgroundColor: "darkgray",
       },
       {
-        label: "Design Digital",
+        label: "DD",
         data: dadosSegundosSemestresTCCII
           .filter((item) => item.curso === "Design Digital")
           .map((item) => {
@@ -289,7 +301,7 @@ const data = [
     labels: semestreOrder,
     datasets: [
       {
-        label: "Engenharia de Software",
+        label: "ES",
         data: taxasEvasaoTCCI
           .filter((item) => item.curso === "Engenharia de Software")
           .map((item) => {
@@ -301,7 +313,7 @@ const data = [
         backgroundColor: "red",
       },
       {
-        label: "Ciência da Computação",
+        label: "CC",
         data: taxasEvasaoTCCI
           .filter((item) => item.curso === "Ciência da Computação")
           .map((item) => {
@@ -313,7 +325,7 @@ const data = [
         backgroundColor: "blue",
       },
       {
-        label: "Sistemas da Informação",
+        label: "SI",
         data: taxasEvasaoTCCI
           .filter((item) => item.curso === "Sistemas da Informação")
           .map((item) => {
@@ -325,7 +337,7 @@ const data = [
         backgroundColor: "green",
       },
       {
-        label: "Engenharia da Computação",
+        label: "EC",
         data: taxasEvasaoTCCI
           .filter((item) => item.curso === "Engenharia de Computação")
           .map((item) => {
@@ -337,7 +349,7 @@ const data = [
         backgroundColor: "orange",
       },
       {
-        label: "Redes de Computadores",
+        label: "RC",
         data: taxasEvasaoTCCI
           .filter((item) => item.curso === "Redes de Computadores")
           .map((item) => {
@@ -349,7 +361,7 @@ const data = [
         backgroundColor: "darkgray",
       },
       {
-        label: "Design Digital",
+        label: "DD",
         data: taxasEvasaoTCCI
           .filter((item) => item.curso === "Design Digital")
           .map((item) => {
@@ -366,7 +378,7 @@ const data = [
 
 const Dashboard = () => (
   <div className="content-container">
-    <h1>Tela Inicial</h1>
+    <h1>Dashboard</h1>
     <section className="main-container">
       <div className="main-first">
         <div className="main-first-chart-item">

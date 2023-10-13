@@ -40,3 +40,9 @@ li {
   flex: 1;
   min-height: 100vh;
 }
+
+@media (max-width: 425px) {
+  .content-container {
+    padding: 1.5rem 0.5rem;
+  }
+}

@@ -42,3 +42,13 @@
 .modal-container > div > button:hover {
   background-color: #022566;
 }
+
+@media (max-width: 425px) {
+  .modal-container > div > button {
+    width: 35px;
+    height: 35px;
+    font-size: 0.8rem;
+    top: -18px;
+    right: -12px;
+  }
+}

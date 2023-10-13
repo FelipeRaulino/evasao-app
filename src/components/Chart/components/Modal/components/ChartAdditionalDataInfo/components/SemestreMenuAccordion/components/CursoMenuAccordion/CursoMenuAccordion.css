@@ -47,3 +47,18 @@
   color: #636363;
   margin: 10px 0;
 }
+
+@media (max-width: 425px) {
+  .curso-accordion {
+    margin: 10px;
+  }
+
+  .curso-accordion > header > span {
+    font-size: 0.75rem;
+  }
+
+  .curso-accordion__content {
+    font-size: 0.75rem;
+    margin-left: 5px;
+  }
+}

@@ -76,3 +76,26 @@
 canvas {
   max-width: 100%;
 }
+
+@media (max-width: 950px) {
+  .main-first {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .main-container {
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .main-container {
+    padding: 5px;
+  }
+
+  .content-container h1 {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+}
