@@ -78,6 +78,77 @@ const options = [
         position: "top",
         text: "1º Semestres",
       },
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            let label = context.dataset.label || "";
+
+            if (label) {
+              label += ": ";
+            }
+
+            if (context.parsed.y !== null) {
+              label += `${context.parsed.y.toFixed(1)}%`;
+            }
+
+            return label;
+          },
+          afterBody: (context) => {
+            if (context.length === 1) {
+              const semestre = context[0].label;
+              const curso = context[0].dataset.label;
+
+              const data = taxasEvasaoTCCI.filter(
+                (item) =>
+                  item.semestreAtual === semestre && item.curso === curso,
+              );
+
+              return `\t\t\t\tMatrículas do semestre seguinte : ${data[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual: ${data[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados: ${data[0].aprovados}`;
+            }
+
+            let labelFormatted = "";
+            let cursoSigla = "";
+
+            context.forEach((item) => {
+              const semestreItem = item.label;
+              const cursoItem = item.dataset.label;
+
+              const dataItem = taxasEvasaoTCCI.filter(
+                (itemB) =>
+                  itemB.semestreAtual === semestreItem &&
+                  itemB.curso === cursoItem,
+              );
+
+              switch (cursoItem) {
+                case "Engenharia de Software":
+                  cursoSigla = "ES";
+                  break;
+                case "Engenharia de Computação":
+                  cursoSigla = "EC";
+                  break;
+                case "Redes de Computadores":
+                  cursoSigla = "RC";
+                  break;
+                case "Ciência da Computação":
+                  cursoSigla = "CC";
+                  break;
+                case "Design Digital":
+                  cursoSigla = "DD";
+                  break;
+                case "Sistemas de Informação":
+                  cursoSigla = "SI";
+                  break;
+                default:
+                  break;
+              }
+
+              labelFormatted += `\t\t\t\tMatrículas do semestre seguinte (${cursoSigla})): ${dataItem[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual (${cursoSigla}): ${dataItem[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados (${cursoSigla}): ${dataItem[0].aprovados}\n\n`;
+            });
+
+            return labelFormatted;
+          },
+        },
+      },
     },
   },
   {
@@ -99,6 +170,77 @@ const options = [
         position: "top",
         text: "2º Semestres",
       },
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            let label = context.dataset.label || "";
+
+            if (label) {
+              label += ": ";
+            }
+
+            if (context.parsed.y !== null) {
+              label += `${context.parsed.y.toFixed(1)}%`;
+            }
+
+            return label;
+          },
+          afterBody: (context) => {
+            if (context.length === 1) {
+              const semestre = context[0].label;
+              const curso = context[0].dataset.label;
+
+              const data = taxasEvasaoTCCI.filter(
+                (item) =>
+                  item.semestreAtual === semestre && item.curso === curso,
+              );
+
+              return `\t\t\t\tMatrículas do semestre seguinte : ${data[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual: ${data[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados: ${data[0].aprovados}`;
+            }
+
+            let labelFormatted = "";
+            let cursoSigla = "";
+
+            context.forEach((item) => {
+              const semestreItem = item.label;
+              const cursoItem = item.dataset.label;
+
+              const dataItem = taxasEvasaoTCCI.filter(
+                (itemB) =>
+                  itemB.semestreAtual === semestreItem &&
+                  itemB.curso === cursoItem,
+              );
+
+              switch (cursoItem) {
+                case "Engenharia de Software":
+                  cursoSigla = "ES";
+                  break;
+                case "Engenharia de Computação":
+                  cursoSigla = "EC";
+                  break;
+                case "Redes de Computadores":
+                  cursoSigla = "RC";
+                  break;
+                case "Ciência da Computação":
+                  cursoSigla = "CC";
+                  break;
+                case "Design Digital":
+                  cursoSigla = "DD";
+                  break;
+                case "Sistemas de Informação":
+                  cursoSigla = "SI";
+                  break;
+                default:
+                  break;
+              }
+
+              labelFormatted += `\t\t\t\tMatrículas do semestre seguinte (${cursoSigla})): ${dataItem[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual (${cursoSigla}): ${dataItem[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados (${cursoSigla}): ${dataItem[0].aprovados}\n\n`;
+            });
+
+            return labelFormatted;
+          },
+        },
+      },
     },
   },
   {
@@ -119,6 +261,77 @@ const options = [
         display: true,
         position: "top",
         text: "Geral",
+      },
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            let label = context.dataset.label || "";
+
+            if (label) {
+              label += ": ";
+            }
+
+            if (context.parsed.y !== null) {
+              label += `${context.parsed.y.toFixed(1)}%`;
+            }
+
+            return label;
+          },
+          afterBody: (context) => {
+            if (context.length === 1) {
+              const semestre = context[0].label;
+              const curso = context[0].dataset.label;
+
+              const data = taxasEvasaoTCCI.filter(
+                (item) =>
+                  item.semestreAtual === semestre && item.curso === curso,
+              );
+
+              return `\t\t\t\tMatrículas do semestre seguinte : ${data[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual: ${data[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados: ${data[0].aprovados}`;
+            }
+
+            let labelFormatted = "";
+            let cursoSigla = "";
+
+            context.forEach((item) => {
+              const semestreItem = item.label;
+              const cursoItem = item.dataset.label;
+
+              const dataItem = taxasEvasaoTCCI.filter(
+                (itemB) =>
+                  itemB.semestreAtual === semestreItem &&
+                  itemB.curso === cursoItem,
+              );
+
+              switch (cursoItem) {
+                case "Engenharia de Software":
+                  cursoSigla = "ES";
+                  break;
+                case "Engenharia de Computação":
+                  cursoSigla = "EC";
+                  break;
+                case "Redes de Computadores":
+                  cursoSigla = "RC";
+                  break;
+                case "Ciência da Computação":
+                  cursoSigla = "CC";
+                  break;
+                case "Design Digital":
+                  cursoSigla = "DD";
+                  break;
+                case "Sistemas de Informação":
+                  cursoSigla = "SI";
+                  break;
+                default:
+                  break;
+              }
+
+              labelFormatted += `\t\t\t\tMatrículas do semestre seguinte (${cursoSigla})): ${dataItem[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual (${cursoSigla}): ${dataItem[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados (${cursoSigla}): ${dataItem[0].aprovados}\n\n`;
+            });
+
+            return labelFormatted;
+          },
+        },
       },
     },
   },
@@ -141,6 +354,77 @@ const options = [
         position: "top",
         text: "1º Semestres",
       },
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            let label = context.dataset.label || "";
+
+            if (label) {
+              label += ": ";
+            }
+
+            if (context.parsed.y !== null) {
+              label += `${context.parsed.y.toFixed(1)}%`;
+            }
+
+            return label;
+          },
+          afterBody: (context) => {
+            if (context.length === 1) {
+              const semestre = context[0].label;
+              const curso = context[0].dataset.label;
+
+              const data = taxasEvasaoTCCII.filter(
+                (item) =>
+                  item.semestreAtual === semestre && item.curso === curso,
+              );
+
+              return `\t\t\t\tMatrículas do semestre seguinte : ${data[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual: ${data[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados: ${data[0].aprovados}`;
+            }
+
+            let labelFormatted = "";
+            let cursoSigla = "";
+
+            context.forEach((item) => {
+              const semestreItem = item.label;
+              const cursoItem = item.dataset.label;
+
+              const dataItem = taxasEvasaoTCCII.filter(
+                (itemB) =>
+                  itemB.semestreAtual === semestreItem &&
+                  itemB.curso === cursoItem,
+              );
+
+              switch (cursoItem) {
+                case "Engenharia de Software":
+                  cursoSigla = "ES";
+                  break;
+                case "Engenharia de Computação":
+                  cursoSigla = "EC";
+                  break;
+                case "Redes de Computadores":
+                  cursoSigla = "RC";
+                  break;
+                case "Ciência da Computação":
+                  cursoSigla = "CC";
+                  break;
+                case "Design Digital":
+                  cursoSigla = "DD";
+                  break;
+                case "Sistemas de Informação":
+                  cursoSigla = "SI";
+                  break;
+                default:
+                  break;
+              }
+
+              labelFormatted += `\t\t\t\tMatrículas do semestre seguinte (${cursoSigla})): ${dataItem[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual (${cursoSigla}): ${dataItem[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados (${cursoSigla}): ${dataItem[0].aprovados}\n\n`;
+            });
+
+            return labelFormatted;
+          },
+        },
+      },
     },
   },
   {
@@ -162,6 +446,77 @@ const options = [
         position: "top",
         text: "2º Semestres",
       },
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            let label = context.dataset.label || "";
+
+            if (label) {
+              label += ": ";
+            }
+
+            if (context.parsed.y !== null) {
+              label += `${context.parsed.y.toFixed(1)}%`;
+            }
+
+            return label;
+          },
+          afterBody: (context) => {
+            if (context.length === 1) {
+              const semestre = context[0].label;
+              const curso = context[0].dataset.label;
+
+              const data = taxasEvasaoTCCII.filter(
+                (item) =>
+                  item.semestreAtual === semestre && item.curso === curso,
+              );
+
+              return `\t\t\t\tMatrículas do semestre seguinte : ${data[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual: ${data[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados: ${data[0].aprovados}`;
+            }
+
+            let labelFormatted = "";
+            let cursoSigla = "";
+
+            context.forEach((item) => {
+              const semestreItem = item.label;
+              const cursoItem = item.dataset.label;
+
+              const dataItem = taxasEvasaoTCCII.filter(
+                (itemB) =>
+                  itemB.semestreAtual === semestreItem &&
+                  itemB.curso === cursoItem,
+              );
+
+              switch (cursoItem) {
+                case "Engenharia de Software":
+                  cursoSigla = "ES";
+                  break;
+                case "Engenharia de Computação":
+                  cursoSigla = "EC";
+                  break;
+                case "Redes de Computadores":
+                  cursoSigla = "RC";
+                  break;
+                case "Ciência da Computação":
+                  cursoSigla = "CC";
+                  break;
+                case "Design Digital":
+                  cursoSigla = "DD";
+                  break;
+                case "Sistemas de Informação":
+                  cursoSigla = "SI";
+                  break;
+                default:
+                  break;
+              }
+
+              labelFormatted += `\t\t\t\tMatrículas do semestre seguinte (${cursoSigla})): ${dataItem[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual (${cursoSigla}): ${dataItem[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados (${cursoSigla}): ${dataItem[0].aprovados}\n\n`;
+            });
+
+            return labelFormatted;
+          },
+        },
+      },
     },
   },
   {
@@ -183,6 +538,77 @@ const options = [
         position: "top",
         text: "Geral",
       },
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            let label = context.dataset.label || "";
+
+            if (label) {
+              label += ": ";
+            }
+
+            if (context.parsed.y !== null) {
+              label += `${context.parsed.y.toFixed(1)}%`;
+            }
+
+            return label;
+          },
+          afterBody: (context) => {
+            if (context.length === 1) {
+              const semestre = context[0].label;
+              const curso = context[0].dataset.label;
+
+              const data = taxasEvasaoTCCII.filter(
+                (item) =>
+                  item.semestreAtual === semestre && item.curso === curso,
+              );
+
+              return `\t\t\t\tMatrículas do semestre seguinte : ${data[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual: ${data[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados: ${data[0].aprovados}`;
+            }
+
+            let labelFormatted = "";
+            let cursoSigla = "";
+
+            context.forEach((item) => {
+              const semestreItem = item.label;
+              const cursoItem = item.dataset.label;
+
+              const dataItem = taxasEvasaoTCCII.filter(
+                (itemB) =>
+                  itemB.semestreAtual === semestreItem &&
+                  itemB.curso === cursoItem,
+              );
+
+              switch (cursoItem) {
+                case "Engenharia de Software":
+                  cursoSigla = "ES";
+                  break;
+                case "Engenharia de Computação":
+                  cursoSigla = "EC";
+                  break;
+                case "Redes de Computadores":
+                  cursoSigla = "RC";
+                  break;
+                case "Ciência da Computação":
+                  cursoSigla = "CC";
+                  break;
+                case "Design Digital":
+                  cursoSigla = "DD";
+                  break;
+                case "Sistemas de Informação":
+                  cursoSigla = "SI";
+                  break;
+                default:
+                  break;
+              }
+
+              labelFormatted += `\t\t\t\tMatrículas do semestre seguinte (${cursoSigla})): ${dataItem[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual (${cursoSigla}): ${dataItem[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados (${cursoSigla}): ${dataItem[0].aprovados}\n\n`;
+            });
+
+            return labelFormatted;
+          },
+        },
+      },
     },
   },
   {
@@ -203,6 +629,97 @@ const options = [
         display: true,
         position: "top",
         text: "Geral",
+      },
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            let label = context.dataset.label || "";
+
+            if (label) {
+              label += ": ";
+            }
+
+            if (context.parsed.y !== null) {
+              label += `${context.parsed.y.toFixed(1)}%`;
+            }
+
+            return label;
+          },
+          afterBody: (context) => {
+            if (context.length === 1) {
+              const semestre = context[0].label;
+              let curso = context[0].dataset.label;
+
+              switch (curso) {
+                case "Engenharia de Software":
+                  curso = "ES";
+                  break;
+                case "Engenharia de Computação":
+                  curso = "EC";
+                  break;
+                case "Redes de Computadores":
+                  curso = "RC";
+                  break;
+                case "Ciência da Computação":
+                  curso = "CC";
+                  break;
+                case "Design Digital":
+                  curso = "DD";
+                  break;
+                case "Sistemas de Informação":
+                  curso = "SI";
+                  break;
+                default:
+                  break;
+              }
+
+              const data = dadosPPCT.filter(
+                (item) => item.semestre === semestre && item.curso === curso,
+              );
+
+              return `\t\t\t\tMatrículas do semestre seguinte : ${data[0].qtdDeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual: ${data[0].qtdDeMatriculas}\n\t\t\t\tAprovados: ${data[0].qtdDeAprovados}`;
+            }
+
+            let labelFormatted = "";
+
+            context.forEach((item) => {
+              const semestreItem = item.label;
+              let cursoItem = item.dataset.label;
+
+              switch (cursoItem) {
+                case "Engenharia de Software":
+                  cursoItem = "ES";
+                  break;
+                case "Engenharia de Computação":
+                  cursoItem = "EC";
+                  break;
+                case "Redes de Computadores":
+                  cursoItem = "RC";
+                  break;
+                case "Ciência da Computação":
+                  cursoItem = "CC";
+                  break;
+                case "Design Digital":
+                  cursoItem = "DD";
+                  break;
+                case "Sistemas de Informação":
+                  cursoItem = "SI";
+                  break;
+                default:
+                  break;
+              }
+
+              const dataItem = dadosPPCT.filter(
+                (itemB) =>
+                  itemB.semestre === semestreItem && itemB.curso === cursoItem,
+              );
+
+              labelFormatted += `\t\t\t\tMatrículas do semestre seguinte (${dataItem[0].curso})): ${dataItem[0].qtdDeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual (${dataItem[0].curso}): ${dataItem[0].qtdDeMatriculas}\n\t\t\t\tAprovados (${dataItem[0].curso}): ${dataItem[0].qtdDeAprovados}\n\n`;
+            });
+
+            return labelFormatted;
+          },
+        },
       },
     },
   },
@@ -225,6 +742,97 @@ const options = [
         position: "top",
         text: "1º Semestres",
       },
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            let label = context.dataset.label || "";
+
+            if (label) {
+              label += ": ";
+            }
+
+            if (context.parsed.y !== null) {
+              label += `${context.parsed.y.toFixed(1)}%`;
+            }
+
+            return label;
+          },
+          afterBody: (context) => {
+            if (context.length === 1) {
+              const semestre = context[0].label;
+              let curso = context[0].dataset.label;
+
+              switch (curso) {
+                case "Engenharia de Software":
+                  curso = "ES";
+                  break;
+                case "Engenharia de Computação":
+                  curso = "EC";
+                  break;
+                case "Redes de Computadores":
+                  curso = "RC";
+                  break;
+                case "Ciência da Computação":
+                  curso = "CC";
+                  break;
+                case "Design Digital":
+                  curso = "DD";
+                  break;
+                case "Sistemas de Informação":
+                  curso = "SI";
+                  break;
+                default:
+                  break;
+              }
+
+              const data = dadosPPCT.filter(
+                (item) => item.semestre === semestre && item.curso === curso,
+              );
+
+              return `\t\t\t\tMatrículas do semestre seguinte : ${data[0].qtdDeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual: ${data[0].qtdDeMatriculas}\n\t\t\t\tAprovados: ${data[0].qtdDeAprovados}`;
+            }
+
+            let labelFormatted = "";
+
+            context.forEach((item) => {
+              const semestreItem = item.label;
+              let cursoItem = item.dataset.label;
+
+              switch (cursoItem) {
+                case "Engenharia de Software":
+                  cursoItem = "ES";
+                  break;
+                case "Engenharia de Computação":
+                  cursoItem = "EC";
+                  break;
+                case "Redes de Computadores":
+                  cursoItem = "RC";
+                  break;
+                case "Ciência da Computação":
+                  cursoItem = "CC";
+                  break;
+                case "Design Digital":
+                  cursoItem = "DD";
+                  break;
+                case "Sistemas de Informação":
+                  cursoItem = "SI";
+                  break;
+                default:
+                  break;
+              }
+
+              const dataItem = dadosPPCT.filter(
+                (itemB) =>
+                  itemB.semestre === semestreItem && itemB.curso === cursoItem,
+              );
+
+              labelFormatted += `\t\t\t\tMatrículas do semestre seguinte (${dataItem[0].curso})): ${dataItem[0].qtdDeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual (${dataItem[0].curso}): ${dataItem[0].qtdDeMatriculas}\n\t\t\t\tAprovados (${dataItem[0].curso}): ${dataItem[0].qtdDeAprovados}\n\n`;
+            });
+
+            return labelFormatted;
+          },
+        },
+      },
     },
   },
   {
@@ -245,6 +853,97 @@ const options = [
         display: true,
         position: "top",
         text: "2º Semestres",
+      },
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            let label = context.dataset.label || "";
+
+            if (label) {
+              label += ": ";
+            }
+
+            if (context.parsed.y !== null) {
+              label += `${context.parsed.y.toFixed(1)}%`;
+            }
+
+            return label;
+          },
+          afterBody: (context) => {
+            if (context.length === 1) {
+              const semestre = context[0].label;
+              let curso = context[0].dataset.label;
+
+              switch (curso) {
+                case "Engenharia de Software":
+                  curso = "ES";
+                  break;
+                case "Engenharia de Computação":
+                  curso = "EC";
+                  break;
+                case "Redes de Computadores":
+                  curso = "RC";
+                  break;
+                case "Ciência da Computação":
+                  curso = "CC";
+                  break;
+                case "Design Digital":
+                  curso = "DD";
+                  break;
+                case "Sistemas de Informação":
+                  curso = "SI";
+                  break;
+                default:
+                  break;
+              }
+
+              const data = dadosPPCT.filter(
+                (item) => item.semestre === semestre && item.curso === curso,
+              );
+
+              return `\t\t\t\tMatrículas do semestre seguinte : ${data[0].qtdDeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual: ${data[0].qtdDeMatriculas}\n\t\t\t\tAprovados: ${data[0].qtdDeAprovados}`;
+            }
+
+            let labelFormatted = "";
+
+            context.forEach((item) => {
+              const semestreItem = item.label;
+              let cursoItem = item.dataset.label;
+
+              switch (cursoItem) {
+                case "Engenharia de Software":
+                  cursoItem = "ES";
+                  break;
+                case "Engenharia de Computação":
+                  cursoItem = "EC";
+                  break;
+                case "Redes de Computadores":
+                  cursoItem = "RC";
+                  break;
+                case "Ciência da Computação":
+                  cursoItem = "CC";
+                  break;
+                case "Design Digital":
+                  cursoItem = "DD";
+                  break;
+                case "Sistemas de Informação":
+                  cursoItem = "SI";
+                  break;
+                default:
+                  break;
+              }
+
+              const dataItem = dadosPPCT.filter(
+                (itemB) =>
+                  itemB.semestre === semestreItem && itemB.curso === cursoItem,
+              );
+
+              labelFormatted += `\t\t\t\tMatrículas do semestre seguinte (${dataItem[0].curso})): ${dataItem[0].qtdDeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual (${dataItem[0].curso}): ${dataItem[0].qtdDeMatriculas}\n\t\t\t\tAprovados (${dataItem[0].curso}): ${dataItem[0].qtdDeAprovados}\n\n`;
+            });
+
+            return labelFormatted;
+          },
+        },
       },
     },
   },
@@ -281,10 +980,10 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
+        label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
         data: taxasEvasaoTCCI
           .filter((item) => item.semestreAtual.includes(".1"))
-          .filter((item) => item.curso === "Sistemas da Informação")
+          .filter((item) => item.curso === "Sistemas de Informação")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
             if (!Number.isFinite(item.taxaEvasao)) return 0;
@@ -364,10 +1063,10 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
+        label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
         data: taxasEvasaoTCCI
           .filter((item) => item.semestreAtual.includes(".2"))
-          .filter((item) => item.curso === "Sistemas da Informação")
+          .filter((item) => item.curso === "Sistemas de Informação")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
             if (!Number.isFinite(item.taxaEvasao)) return 0;
@@ -445,9 +1144,9 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
+        label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
         data: taxasEvasaoTCCI
-          .filter((item) => item.curso === "Sistemas da Informação")
+          .filter((item) => item.curso === "Sistemas de Informação")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
             if (!Number.isFinite(item.taxaEvasao)) return 0;
@@ -525,10 +1224,10 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
+        label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
         data: taxasEvasaoTCCII
           .filter((item) => item.semestreAtual.includes(".1"))
-          .filter((item) => item.curso === "Sistemas da Informação")
+          .filter((item) => item.curso === "Sistemas de Informação")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
             if (!Number.isFinite(item.taxaEvasao)) return 0;
@@ -608,10 +1307,10 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
+        label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
         data: taxasEvasaoTCCII
           .filter((item) => item.semestreAtual.includes(".2"))
-          .filter((item) => item.curso === "Sistemas da Informação")
+          .filter((item) => item.curso === "Sistemas de Informação")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
             if (!Number.isFinite(item.taxaEvasao)) return 0;
@@ -689,9 +1388,9 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
+        label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
         data: taxasEvasaoTCCII
-          .filter((item) => item.curso === "Sistemas da Informação")
+          .filter((item) => item.curso === "Sistemas de Informação")
           .map((item) => {
             if (Number.isNaN(item.taxaEvasao)) return 0;
             if (!Number.isFinite(item.taxaEvasao)) return 0;
@@ -769,7 +1468,7 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
+        label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
         data: dadosPPCT
           .filter((item) => item.curso === "SI")
           .map((item) => {
@@ -848,7 +1547,7 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
+        label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
         data: dadosPPCT
           .filter((item) => item.semestre.includes(".1") && item.curso === "SI")
           .map((item) => {
@@ -927,7 +1626,7 @@ export const data = [
         backgroundColor: "blue",
       },
       {
-        label: windowWidth >= 426 ? "Sistemas da Informação" : "SI",
+        label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
         data: dadosPPCT
           .filter((item) => item.semestre.includes(".2") && item.curso === "SI")
           .map((item) => {
