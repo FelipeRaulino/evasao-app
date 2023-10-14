@@ -16,9 +16,7 @@ const ChartInfo = ({ closeModal }) => (
     </button>
     <h3>Ações possíveis de personalização dos dados do gráfico</h3>
     <ul>
-      <li>
-        Clique na descrição de um curso para remover/adicionar seus dados.
-      </li>
+      <li>Clique na legenda de um curso para remover/adicionar seus dados.</li>
       <li>
         Arraste o elemento de “range” para aumentar ou diminuir a quantidade de
         semestres a serem considerados.
