@@ -1,17 +1,19 @@
 import React from "react";
 
+import {
+  AiFillHome,
+  AiFillCloseCircle,
+  AiFillInfoCircle,
+  AiOutlineAreaChart,
+} from "react-icons/ai";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 import { RiMenu2Line } from "react-icons/ri";
 
 import "./Sidebar.css";
-import logoUFC from "../../assets/logo-ufc.png";
-import SidebarLinkItem from "./components/SidebarLinkItem/SidebarLinkItem";
 
-import homeIcon from "../../assets/home.png";
-import taxaEvasaoIcon from "../../assets/chart (1).png";
-import aprovacoesTCCIcon from "../../assets/checkmark.png";
-/* import taxaRetencaoIIcon from "../../assets/analysis.png";
-import taxaRetencaoIIIcon from "../../assets/online-analysis.png"; */
-import sobreIcon from "../../assets/info.png";
+import logoUFC from "../../assets/logo-ufc.png";
+
+import SidebarLinkItem from "./components/SidebarLinkItem/SidebarLinkItem";
 import SidebarMobileExpanded from "./components/SidebarMobileExpanded/SidebarMobileExpanded";
 
 const sideBarLinkItems = [
@@ -19,37 +21,31 @@ const sideBarLinkItems = [
     id: "dashboard",
     name: "Tela Inicial",
     path: "/",
-    icon: homeIcon,
+    icon: AiFillHome,
   },
   {
-    id: "taxaEvasao",
+    id: "taxasEvasao",
     name: "Taxas de Evasão",
-    path: "/taxaEvasao",
-    icon: taxaEvasaoIcon,
+    path: "/taxasEvasao",
+    icon: AiOutlineAreaChart,
   },
   {
-    id: "aprovacoesTCC",
+    id: "taxasAprovacoes",
     name: "Taxas de Aprovações",
-    path: "/aprovacoesTCC",
-    icon: aprovacoesTCCIcon,
-  },
-  /* {
-    id: "taxasRetencaoI",
-    name: "Taxas de Retenção I",
-    path: "/taxasRetencaoI",
-    icon: taxaRetencaoIIcon,
+    path: "/taxasAprovacoes",
+    icon: BsFillCheckCircleFill,
   },
   {
-    id: "taxasRetencaoII",
-    name: "Taxas de Retenção II",
-    path: "/taxasRetencaoII",
-    icon: taxaRetencaoIIIcon,
-  }, */
+    id: "taxasReprovacoes",
+    name: "Taxas de Reprovações",
+    path: "/taxasReprovacoes",
+    icon: AiFillCloseCircle,
+  },
   {
     id: "sobre",
     name: "Sobre",
     path: "/sobre",
-    icon: sobreIcon,
+    icon: AiFillInfoCircle,
   },
 ];
 
@@ -67,7 +63,7 @@ const Sidebar = () => {
       <div className="sidebar-container">
         <div className="sidebar-header">
           <img src={logoUFC} alt="Logo UFC" />
-          <h1>Evasão de TCC</h1>
+          <h1>Evasão App</h1>
         </div>
 
         <div className="sidebar-content">
@@ -81,7 +77,7 @@ const Sidebar = () => {
           <div>
             <img src={logoUFC} alt="Logo UFC" />
           </div>
-          <h1>Evasão de TCC</h1>
+          <h1>Evasão App</h1>
         </header>
         <RiMenu2Line
           size="2rem"

@@ -46,11 +46,6 @@
   width: 35px;
 }
 
-.sidebar-mobile > header > div > img {
-  max-width: 100%;
-  object-fit: contain;
-}
-
 .sidebar-mobile > header > h1 {
   font-size: 1.125rem;
   color: #fff;

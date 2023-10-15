@@ -1,5 +1,6 @@
 .sidebar-link-item {
   display: flex;
+  align-items: center;
   gap: 15px;
   padding: 20px 0;
   position: relative;
@@ -15,6 +16,7 @@
 
 .sidebar-link-item__active {
   display: flex;
+  align-items: center;
   gap: 10px;
   padding: 20px 0;
   position: relative;
@@ -39,8 +41,7 @@
   top: 0px;
 }
 
-.sidebar-link-item img,
-.sidebar-link-item__active img {
-  width: 18px;
-  margin-left: 14px;
+.sidebar-link-item svg,
+.sidebar-link-item__active svg {
+  margin-left: 1rem;
 }

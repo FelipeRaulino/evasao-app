@@ -1548,23 +1548,27 @@ export const data = [
 ];
 
 const handleOnFormatAdditionalDataPPCT = (unformattedDataPPCT) => {
-  const additionalData = semestreOrder.map((item) => ({
-    semestre: item,
-    dados: unformattedDataPPCT
-      .filter((itemB) => itemB.semestre === item)
-      .map((itemC) => ({
-        semestre: itemC.semestre,
-        curso: itemC.curso,
-        quantidadeCurso: itemC.quantidadeCurso,
-        aprovados: itemC.aprovados,
-        reprovados: itemC.reprovados,
-        reprovadosFalta: itemC.reprovadosFalta,
-        cancelados: itemC.cancelados,
-        trancados: itemC.trancados,
-        trancadosTotal: itemC.trancadosTotal,
-        suprimidos: itemC.suprimidos,
-      })),
-  }));
+  const additionalData = semestreOrder.map((item) => {
+    return {
+      semestre: item,
+      dados: unformattedDataPPCT
+        .filter((itemB) => itemB.semestre === item)
+        .map((itemC) => {
+          return {
+            semestre: itemC.semestre,
+            curso: itemC.curso,
+            quantidadeCurso: itemC.quantidadeCurso,
+            aprovados: itemC.aprovados,
+            reprovados: itemC.reprovados,
+            reprovadosFalta: itemC.reprovadosFalta,
+            cancelados: itemC.cancelados,
+            trancados: itemC.trancados,
+            trancadosTotal: itemC.trancadosTotal,
+            suprimidos: itemC.suprimidos,
+          };
+        }),
+    };
+  });
 
   additionalData.forEach((element) => {
     element.dados.push({
@@ -1617,22 +1621,26 @@ const handleOnFormatAdditionalDataPPCT = (unformattedDataPPCT) => {
 };
 
 const handleOnFormatAdditionalDataTCC = (unformattedDataTCC) =>
-  semestreTCCOrder.map((item) => ({
-    semestre: item,
-    dados: unformattedDataTCC
-      .filter((itemB) => itemB.semestre === item)
-      .map((itemC) => ({
-        curso: itemC.curso,
-        quantidadeCurso: itemC.quantidadeCurso,
-        semestre: itemC.semestre,
-        aprovados: itemC.aprovados,
-        reprovados: itemC.reprovados,
-        reprovadosFalta: 0,
-        cancelados: 0,
-        trancados: itemC.trancados,
-        suprimidos: itemC.suprimidos,
-      })),
-  }));
+  semestreTCCOrder.map((item) => {
+    return {
+      semestre: item,
+      dados: unformattedDataTCC
+        .filter((itemB) => itemB.semestre === item)
+        .map((itemC) => {
+          return {
+            curso: itemC.curso,
+            quantidadeCurso: itemC.quantidadeCurso,
+            semestre: itemC.semestre,
+            aprovados: itemC.aprovados,
+            reprovados: itemC.reprovados,
+            reprovadosFalta: 0,
+            cancelados: 0,
+            trancados: itemC.trancados,
+            suprimidos: itemC.suprimidos,
+          };
+        }),
+    };
+  });
 
 const TCCAprovals = () => (
   <div className="content-container">

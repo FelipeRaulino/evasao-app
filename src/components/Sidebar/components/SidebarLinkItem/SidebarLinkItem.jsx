@@ -12,7 +12,7 @@ const SidebarLinkItem = ({ item }) => (
       isActive ? "sidebar-link-item__active" : "sidebar-link-item"
     }
   >
-    <img src={item.icon} alt="Home Icon" />
+    <item.icon size="22px" />
     {item.name}
   </NavLink>
 );

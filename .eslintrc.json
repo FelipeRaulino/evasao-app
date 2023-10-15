@@ -15,6 +15,11 @@
         "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
       }
+    ],
+    "arrow-body-style": [
+      "error",
+      "as-needed",
+      { "requireReturnForObjectLiteral": true }
     ]
   }
 }
