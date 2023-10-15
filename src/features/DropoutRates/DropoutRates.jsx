@@ -1678,43 +1678,51 @@ export const data = [
 ];
 
 const handleOnFormatAdditionalDataTCC = (unformattedDataTCC) =>
-  semestreOrder.map((item) => ({
-    semestre: item,
-    dados: unformattedDataTCC
-      .filter((itemB) => itemB.semestreAtual === item)
-      .map((itemC) => ({
-        curso: itemC.curso,
-        quantidadeCurso: itemC.quantidadeMatriculasSemestreAtual,
-        semestre: itemC.semestreAtual,
-        aprovados: itemC.aprovados,
-        reprovados: itemC.reprovados,
-        reprovadosFalta: 0,
-        cancelados: 0,
-        trancados: itemC.trancados,
-        suprimidos: itemC.suprimidos,
-      })),
-  }));
+  semestreOrder.map((item) => {
+    return {
+      semestre: item,
+      dados: unformattedDataTCC
+        .filter((itemB) => itemB.semestreAtual === item)
+        .map((itemC) => {
+          return {
+            curso: itemC.curso,
+            quantidadeCurso: itemC.quantidadeMatriculasSemestreAtual,
+            semestre: itemC.semestreAtual,
+            aprovados: itemC.aprovados,
+            reprovados: itemC.reprovados,
+            reprovadosFalta: 0,
+            cancelados: 0,
+            trancados: itemC.trancados,
+            suprimidos: itemC.suprimidos,
+          };
+        }),
+    };
+  });
 
 const handleOnFormatAdditionalDataPPCT = (unformattedDataPPCT) =>
   semestreOrder
     .filter((item) => item !== "2012.1" && item !== "2012.2")
-    .map((item) => ({
-      semestre: item,
-      dados: unformattedDataPPCT
-        .filter((itemB) => itemB.semestre === item)
-        .map((itemC) => ({
-          quantidadeCurso: itemC.qtdDeMatriculas,
-          aprovados: itemC.qtdDeAprovados,
-          reprovados: itemC.quantidadeDeReprovados,
-          reprovadosFalta: itemC.reprovadosFalta,
-          cancelados: itemC.cancelados,
-          trancados: itemC.trancados,
-          trancadosTotal: itemC.trancadosTotal,
-          suprimidos: itemC.quantidadeDeSuprimidos,
-          semestre: itemC.semestre,
-          curso: itemC.curso,
-        })),
-    }));
+    .map((item) => {
+      return {
+        semestre: item,
+        dados: unformattedDataPPCT
+          .filter((itemB) => itemB.semestre === item)
+          .map((itemC) => {
+            return {
+              quantidadeCurso: itemC.qtdDeMatriculas,
+              aprovados: itemC.qtdDeAprovados,
+              reprovados: itemC.quantidadeDeReprovados,
+              reprovadosFalta: itemC.reprovadosFalta,
+              cancelados: itemC.cancelados,
+              trancados: itemC.trancados,
+              trancadosTotal: itemC.trancadosTotal,
+              suprimidos: itemC.quantidadeDeSuprimidos,
+              semestre: itemC.semestre,
+              curso: itemC.curso,
+            };
+          }),
+      };
+    });
 
 const DropoutRates = () => (
   <div className="content-container">
