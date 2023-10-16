@@ -233,10 +233,14 @@ function calculaTaxaEvasaoCurso(dados, semestre, curso) {
       quantidadeTrancadosSemestreAtual) /
     quantidadeMatriculasSemestreAtual;
 
+  const taxaReprovados =
+    quantidadeReprovadosSemestreAtual / quantidadeMatriculasSemestreAtual;
+
   const dadosFormatado = {
     curso,
     taxaEvasao,
     taxaEvasaoII,
+    taxaReprovados,
     semestreAtual: semestre,
     semestreSeguinte,
     quantidadeMatriculasSemestreAtual,

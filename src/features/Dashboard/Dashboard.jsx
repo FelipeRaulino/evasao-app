@@ -387,7 +387,7 @@ const Dashboard = () => (
           <div className="main-first-chart-wrapper">
             <Line options={options[0]} data={data[0]} />
           </div>
-          <NavHashLink to="/taxaEvasao#geralTCCII">
+          <NavHashLink to="/taxasEvasao#geralTCCII">
             Conferir em detalhes
           </NavHashLink>
         </div>
@@ -397,7 +397,7 @@ const Dashboard = () => (
           <div className="main-first-chart-wrapper">
             <Line options={options[1]} data={data[1]} />
           </div>
-          <NavHashLink to="/aprovacoesTCC#aprovacoesSegundosSemestresTCCII">
+          <NavHashLink to="/taxasAprovacoes#aprovacoesSegundosSemestresTCCII">
             Conferir em detalhes
           </NavHashLink>
         </div>
@@ -408,7 +408,7 @@ const Dashboard = () => (
         <div className="main-second-chart-wrapper">
           <Line options={options[2]} data={data[2]} />
         </div>
-        <NavHashLink to="/taxaEvasao#evasaoGeralTCCI">
+        <NavHashLink to="/taxasEvasao#evasaoGeralTCCI">
           Conferir em detalhes
         </NavHashLink>
       </div>
