@@ -1,6 +1,7 @@
 import React from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Analytics } from "@vercel/analytics";
 
 import MainLayout from "./features/MainLayout/MainLayout";
 import Dashboard from "./features/Dashboard/Dashboard";
@@ -22,6 +23,7 @@ const App = () => (
         </Route>
       </Routes>
     </BrowserRouter>
+    <Analytics />
   </div>
 );
 
