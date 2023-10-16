@@ -3,8 +3,9 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
 import React from "react";
-
 import { Bar, Line } from "react-chartjs-2";
+import { AiFillInfoCircle } from "react-icons/ai";
+import { BsFillClipboard2DataFill } from "react-icons/bs";
 
 import {
   Chart as ChartJS,
@@ -25,7 +26,6 @@ import lineChartIcon from "../../assets/chart.png";
 import activeBarChartIcon from "../../assets/bar-chart.png";
 import barChartIcon from "../../assets/bar-chart (1).png";
 import downloadIcon from "../../assets/downloads.png";
-import infoIcon from "../../assets/info-2.png";
 
 import "./Chart.css";
 import Modal from "./components/Modal/Modal";
@@ -104,16 +104,17 @@ const Chart = ({
   return (
     <div className="chart-container" id={id}>
       <h2>{title}</h2>
+
       <button type="button" onClick={() => openModal("chartInfo")}>
-        <img src={infoIcon} alt="Ícone de informação" />
-        Interações possíveis com o gráfico
+        <AiFillInfoCircle size="1.125rem" />
+        Clique aqui para saber mais sobre o gráfico
       </button>
       <button
         type="button"
         onClick={() => openModal("chartAdditionalDataInfo")}
       >
-        <img src={infoIcon} alt="Ícone de informação" />
-        Dados adicionais
+        <BsFillClipboard2DataFill size="1.125rem" />
+        Veja dados adicionais
       </button>
 
       {modalActive === "chartInfo" ? (

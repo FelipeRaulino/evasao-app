@@ -20,6 +20,12 @@
   padding: 0.25rem 0.5rem;
   border-radius: 20px;
   cursor: pointer;
+  background-color: #fff;
+  transition: background-color 200ms linear;
+}
+
+.chart-container > button:hover {
+  background-color: #e6e6e6;
 }
 
 .chart-container img {

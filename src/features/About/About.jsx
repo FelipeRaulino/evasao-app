@@ -1,8 +1,6 @@
 import React from "react";
 
 import formulaAprovacoesTCC from "../../assets/aprovacao-tcc.png";
-import formulaTaxaRetencaoI from "../../assets/taxa_retencao-i.png";
-import formulaTaxaRetencaoII from "../../assets/taxa_retencao-II.png";
 
 import "./About.css";
 
@@ -59,52 +57,6 @@ const About = () => (
         </div>
         <div className="section-formula-img">
           <img src={formulaAprovacoesTCC} alt="Fórmula de Aprovações de TCC" />
-        </div>
-      </div>
-      <div className="section-container">
-        <h3 className="section-title">Taxa de Retenção I</h3>
-        <p>
-          Ao calcular a taxa de retenção I, será possível saber e acompanhar o
-          histórico de retenção de discentes em um determinado semestre aplicado
-          ao contexto do projeto, ou seja, TCC I, TCC II e PPCT. Com esse
-          indicador é possível estimar a qualidade de um programa acadêmico em
-          manter os alunos no curso dentro do período de tempo esperado.
-        </p>
-        <div className="section-formula-description">
-          <p>TRI = Taxa de retenção I</p>
-          <p>
-            NM = Matrículas de discentes acima do prazo padrão do curso no
-            semestre
-          </p>
-          <p>NMT = Matrículas de discentes no semestre</p>
-        </div>
-        <div className="section-formula-img">
-          <img
-            src={formulaTaxaRetencaoI}
-            alt="Fórmula de Taxa de Retenção I de TCC"
-          />
-        </div>
-      </div>
-      <div className="section-container">
-        <h3 className="section-title">Taxa de Retenção II</h3>
-        <p>
-          A Taxa de Retenção II é bem parecida com a I, porém leva-se em
-          consideração os alunos que ultrapassaram o prazo máximo estabelecido
-          para a conclusão do curso.
-        </p>
-        <div className="section-formula-description">
-          <p>TRII = Taxa de retenção II</p>
-          <p>
-            NM = Matrículas de discentes acima do prazo máximo do curso no
-            semestre
-          </p>
-          <p>NMT = Matrículas de discentes no semestre</p>
-        </div>
-        <div className="section-formula-img">
-          <img
-            src={formulaTaxaRetencaoII}
-            alt="Fórmula de Taxa de Retenção II"
-          />
         </div>
       </div>
     </div>
