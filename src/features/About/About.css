@@ -6,6 +6,19 @@
   margin-bottom: 30px;
 }
 
+.section-container p {
+  margin-top: 8px;
+  max-width: 800px;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+.section-container a {
+  text-decoration: none;
+  color: #040885;
+  font-weight: bold;
+}
+
 .section-container:last-child {
   margin-bottom: 0px;
 }
@@ -23,6 +36,27 @@
   color: #424242;
 }
 
+.section-formula-img {
+  max-width: 800px;
+}
+
 .section-formula-img img {
   margin: 0 auto;
+}
+
+.section-additional-info {
+  margin: 1rem 0 3.5rem 1.5rem;
+  border-left: 2px solid #4f4f58;
+  padding: 10px;
+}
+
+.section-additional-info p {
+  margin-top: 8px;
+  max-width: calc(800px - 1.5rem);
+  line-height: 1.4;
+  text-align: justify;
+}
+
+.section-additional-info h4 {
+  font-size: 1.125rem;
 }

@@ -61,15 +61,17 @@ const Sidebar = () => {
   return (
     <>
       <div className="sidebar-container">
-        <div className="sidebar-header">
-          <img src={logoUFC} alt="Logo UFC" />
-          <h1>Evasão App</h1>
-        </div>
+        <div className="sidebar-content-container">
+          <div className="sidebar-header">
+            <img src={logoUFC} alt="Logo UFC" />
+            <h1>Evasão App</h1>
+          </div>
 
-        <div className="sidebar-content">
-          {sideBarLinkItems.map((item) => (
-            <SidebarLinkItem key={item.id} item={item} />
-          ))}
+          <div className="sidebar-content">
+            {sideBarLinkItems.map((item) => (
+              <SidebarLinkItem key={item.id} item={item} />
+            ))}
+          </div>
         </div>
       </div>
       <div className="sidebar-mobile">

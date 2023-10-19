@@ -345,9 +345,10 @@ taxasEvasaoTCCII
     const taxaAprovados = aprovados / quantidadeMatriculasSemestreAtual;
     const taxaReprovados = reprovados / quantidadeMatriculasSemestreAtual;
     const taxaEvasao =
-      1 -
-      quantidadeMatriculasSemestreSeguinte /
-        (quantidadeMatriculasSemestreAtual - aprovados);
+      100 -
+      (quantidadeMatriculasSemestreSeguinte /
+        (quantidadeMatriculasSemestreAtual - aprovados)) *
+        100;
 
     const suprimidos = taxasEvasaoTCCII
       .filter(

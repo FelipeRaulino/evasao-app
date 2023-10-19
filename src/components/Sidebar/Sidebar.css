@@ -7,6 +7,11 @@
   min-height: 100vh;
 }
 
+.sidebar-content-container {
+  position: sticky;
+  top: 0;
+}
+
 .sidebar-header {
   display: flex;
   flex-direction: column;
