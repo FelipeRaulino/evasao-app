@@ -8,7 +8,7 @@ import {
   handleOnFormatAdditionalDataTCC,
 } from "../../utils/ChartOptions";
 
-import { dadosPPCT } from "../../utils/PPCTDataFormatted";
+import dadosPPCT from "../../utils/PPCTDataFormatted";
 import {
   taxasEvasaoTCCI,
   taxasEvasaoTCCII,
@@ -19,9 +19,18 @@ const DropoutRates = () => (
     <h1>Taxas de Evasão</h1>
 
     <Chart
+      data={data.TCCIData[3]}
+      options={options.TCCIOptions[3]}
+      title="Relação: UFC[Quixadá] x Semestre - TCC I (Todos os semestres)"
+      id="evasaoGeralTCCI"
+      additionalData={handleOnFormatAdditionalDataTCC(taxasEvasaoTCCI)}
+      additionalDataTitle="TCC I - Todos os semestres"
+    />
+
+    <Chart
       data={data.TCCIData[0]}
       options={options.TCCIOptions[0]}
-      title="Relação: Curso x Semestre - TCC I (Geral)"
+      title="Relação: Curso x Semestre - TCC I (Todos os semestres)"
       id="evasaoGeralTCCI"
       additionalData={handleOnFormatAdditionalDataTCC(taxasEvasaoTCCI)}
       additionalDataTitle="TCC I - Geral"
@@ -48,9 +57,18 @@ const DropoutRates = () => (
     />
 
     <Chart
+      data={data.TCCIIData[3]}
+      options={options.TCCIIOptions[3]}
+      title="Relação: UFC[Quixadá] x Semestre  - TCC II (Todos os semestres)"
+      id="TCC-II-UFC-Dropouts"
+      additionalData={handleOnFormatAdditionalDataTCC(taxasEvasaoTCCII)}
+      additionalDataTitle="TCC II - Geral"
+    />
+
+    <Chart
       data={data.TCCIIData[0]}
       options={options.TCCIIOptions[0]}
-      title="Relação: Curso x Semestre  - TCC II (Geral)"
+      title="Relação: Curso x Semestre  - TCC II (Todos os semestres)"
       id="geralTCCII"
       additionalData={handleOnFormatAdditionalDataTCC(taxasEvasaoTCCII)}
       additionalDataTitle="TCC II - Geral"
@@ -77,9 +95,17 @@ const DropoutRates = () => (
     />
 
     <Chart
+      data={data.PPCTData[3]}
+      options={options.PPCTOptions[3]}
+      title="Relação: UFC[Quixadá] x Semestre  - PPCT (Todos os semestres)"
+      additionalData={handleOnFormatAdditionalDataPPCT(dadosPPCT)}
+      additionalDataTitle="PPCT - Todos os semestres"
+    />
+
+    <Chart
       data={data.PPCTData[0]}
       options={options.PPCTOptions[0]}
-      title="Relação: Curso x Semestre  - PPCT (Geral)"
+      title="Relação: Curso x Semestre  - PPCT (Todos os semestres)"
       additionalData={handleOnFormatAdditionalDataPPCT(dadosPPCT)}
       additionalDataTitle="PPCT - Geral"
     />

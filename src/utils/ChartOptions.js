@@ -1,4 +1,5 @@
-import { dadosPPCT } from "./PPCTDataFormatted";
+/* eslint-disable no-param-reassign */
+import dadosPPCT from "./PPCTDataFormatted";
 import { taxasEvasaoTCCI, taxasEvasaoTCCII } from "./TCCDataFormatted";
 
 const windowWidth = window.innerWidth;
@@ -22,7 +23,7 @@ export const reprovalRatesOptions = {
         subtitle: {
           display: true,
           position: "top",
-          text: "Geral",
+          text: "Todos os semestres",
         },
         tooltip: {
           callbacks: {
@@ -396,7 +397,7 @@ export const reprovalRatesOptions = {
         subtitle: {
           display: true,
           position: "top",
-          text: "Geral",
+          text: "Todos os semestres",
         },
         tooltip: {
           callbacks: {
@@ -416,7 +417,32 @@ export const reprovalRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCI.filter(
                   (item) =>
@@ -430,7 +456,32 @@ export const reprovalRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCI.filter(
                   (itemB) =>
@@ -484,7 +535,32 @@ export const reprovalRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCI.filter(
                   (item) =>
@@ -498,7 +574,32 @@ export const reprovalRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCI.filter(
                   (itemB) =>
@@ -552,7 +653,32 @@ export const reprovalRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCI.filter(
                   (item) =>
@@ -566,7 +692,150 @@ export const reprovalRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
+
+                const dataItem = taxasEvasaoTCCI.filter(
+                  (itemB) =>
+                    itemB.semestreAtual === semestreItem &&
+                    itemB.curso === cursoItem,
+                );
+
+                labelFormatted += `\n\tQuantidade de Matrículas (${dataItem[0].curso}): ${dataItem[0].quantidadeMatriculasSemestreAtual}\n\tReprovados (${dataItem[0].curso}): ${dataItem[0].reprovados}`;
+              });
+
+              return labelFormatted;
+            },
+          },
+        },
+      },
+    },
+    {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+          labels: {
+            boxWidth: 10,
+            boxHeight: 10,
+          },
+        },
+        title: {
+          display: true,
+          text: "Taxas de reprovações da atividade de TCC I",
+        },
+        subtitle: {
+          display: true,
+          position: "top",
+          text: "Todos os semestres",
+        },
+        tooltip: {
+          callbacks: {
+            label: (context) => {
+              let label = context.dataset.label || "";
+
+              if (label) {
+                label += ": ";
+              }
+
+              if (context.parsed.y !== null) {
+                label += `${context.parsed.y.toFixed(1)}%`;
+              }
+
+              return label;
+            },
+            afterBody: (context) => {
+              if (context.length === 1) {
+                const semestre = context[0].label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
+
+                const data = taxasEvasaoTCCI.filter(
+                  (item) =>
+                    item.semestreAtual === semestre && item.curso === curso,
+                );
+
+                return `\t\t\t\tQuantidade de Matrículas: ${data[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tReprovados: ${data[0].reprovados}`;
+              }
+
+              let labelFormatted = "";
+
+              context.forEach((item) => {
+                const semestreItem = item.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCI.filter(
                   (itemB) =>
@@ -602,7 +871,7 @@ export const reprovalRatesOptions = {
         subtitle: {
           display: true,
           position: "top",
-          text: "Geral",
+          text: "Todos os semestres",
         },
         tooltip: {
           callbacks: {
@@ -811,7 +1080,7 @@ export const approvalRatesOptions = {
         subtitle: {
           display: true,
           position: "top",
-          text: "Geral",
+          text: "Todos os semestres",
         },
         tooltip: {
           callbacks: {
@@ -1133,8 +1402,6 @@ export const approvalRatesOptions = {
         },
       },
     },
-  ],
-  TCCIOptions: [
     {
       responsive: true,
       plugins: {
@@ -1147,12 +1414,12 @@ export const approvalRatesOptions = {
         },
         title: {
           display: true,
-          text: "Taxas de aprovações da atividade de TCC I",
+          text: "Taxas de aprovações da disciplina de PPCT",
         },
         subtitle: {
           display: true,
           position: "top",
-          text: "Geral",
+          text: "Todos os semestres",
         },
         tooltip: {
           callbacks: {
@@ -1172,7 +1439,147 @@ export const approvalRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                switch (curso) {
+                  case "Engenharia de Software":
+                    curso = "ES";
+                    break;
+                  case "Engenharia de Computação":
+                    curso = "EC";
+                    break;
+                  case "Redes de Computadores":
+                    curso = "RC";
+                    break;
+                  case "Ciência da Computação":
+                    curso = "CC";
+                    break;
+                  case "Design Digital":
+                    curso = "DD";
+                    break;
+                  case "Sistemas de Informação":
+                    curso = "SI";
+                    break;
+                  default:
+                    break;
+                }
+
+                const data = dadosPPCT.filter(
+                  (item) => item.semestre === semestre && item.curso === curso,
+                );
+
+                return `\t\t\t\tQuantidade de Matrículas: ${data[0].qtdDeMatriculas}\n\t\t\t\tAprovados: ${data[0].qtdDeAprovados}`;
+              }
+
+              let labelFormatted = "";
+
+              context.forEach((item) => {
+                const semestreItem = item.label;
+                let cursoItem = item.dataset.label;
+
+                switch (cursoItem) {
+                  case "Engenharia de Software":
+                    cursoItem = "ES";
+                    break;
+                  case "Engenharia de Computação":
+                    cursoItem = "EC";
+                    break;
+                  case "Redes de Computadores":
+                    cursoItem = "RC";
+                    break;
+                  case "Ciência da Computação":
+                    cursoItem = "CC";
+                    break;
+                  case "Design Digital":
+                    cursoItem = "DD";
+                    break;
+                  case "Sistemas de Informação":
+                    cursoItem = "SI";
+                    break;
+                  default:
+                    break;
+                }
+
+                const dataItem = dadosPPCT.filter(
+                  (itemB) =>
+                    itemB.semestre === semestreItem &&
+                    itemB.curso === cursoItem,
+                );
+
+                labelFormatted += `\n\tQuantidade de Matrículas (${dataItem[0].curso}): ${dataItem[0].qtdDeMatriculas}\n\tAprovados (${dataItem[0].curso}): ${dataItem[0].qtdDeAprovados}`;
+              });
+
+              return labelFormatted;
+            },
+          },
+        },
+      },
+    },
+  ],
+  TCCIOptions: [
+    {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+          labels: {
+            boxWidth: 10,
+            boxHeight: 10,
+          },
+        },
+        title: {
+          display: true,
+          text: "Taxas de aprovações da atividade de TCC I",
+        },
+        subtitle: {
+          display: true,
+          position: "top",
+          text: "Todos os semestres",
+        },
+        tooltip: {
+          callbacks: {
+            label: (context) => {
+              let label = context.dataset.label || "";
+
+              if (label) {
+                label += ": ";
+              }
+
+              if (context.parsed.y !== null) {
+                label += `${context.parsed.y.toFixed(1)}%`;
+              }
+
+              return label;
+            },
+            afterBody: (context) => {
+              if (context.length === 1) {
+                const semestre = context[0].label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCI.filter(
                   (item) =>
@@ -1186,7 +1593,32 @@ export const approvalRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCI.filter(
                   (itemB) =>
@@ -1240,7 +1672,32 @@ export const approvalRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCI.filter(
                   (item) =>
@@ -1254,7 +1711,32 @@ export const approvalRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCI.filter(
                   (itemB) =>
@@ -1308,7 +1790,32 @@ export const approvalRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCI.filter(
                   (item) =>
@@ -1322,7 +1829,150 @@ export const approvalRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
+
+                const dataItem = taxasEvasaoTCCI.filter(
+                  (itemB) =>
+                    itemB.semestreAtual === semestreItem &&
+                    itemB.curso === cursoItem,
+                );
+
+                labelFormatted += `\n\tQuantidade de Matrículas (${dataItem[0].curso}): ${dataItem[0].quantidadeMatriculasSemestreAtual}\n\tAprovados (${dataItem[0].curso}): ${dataItem[0].aprovados}`;
+              });
+
+              return labelFormatted;
+            },
+          },
+        },
+      },
+    },
+    {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+          labels: {
+            boxWidth: 10,
+            boxHeight: 10,
+          },
+        },
+        title: {
+          display: true,
+          text: "Taxas de aprovações da atividade de TCC I",
+        },
+        subtitle: {
+          display: true,
+          position: "top",
+          text: "Todos os semestres",
+        },
+        tooltip: {
+          callbacks: {
+            label: (context) => {
+              let label = context.dataset.label || "";
+
+              if (label) {
+                label += ": ";
+              }
+
+              if (context.parsed.y !== null) {
+                label += `${context.parsed.y.toFixed(1)}%`;
+              }
+
+              return label;
+            },
+            afterBody: (context) => {
+              if (context.length === 1) {
+                const semestre = context[0].label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
+
+                const data = taxasEvasaoTCCI.filter(
+                  (item) =>
+                    item.semestreAtual === semestre && item.curso === curso,
+                );
+
+                return `\t\t\t\tQuantidade de Matrículas: ${data[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados: ${data[0].aprovados}`;
+              }
+
+              let labelFormatted = "";
+
+              context.forEach((item) => {
+                const semestreItem = item.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCI.filter(
                   (itemB) =>
@@ -1358,7 +2008,7 @@ export const approvalRatesOptions = {
         subtitle: {
           display: true,
           position: "top",
-          text: "Geral",
+          text: "Todos os semestres",
         },
         tooltip: {
           callbacks: {
@@ -1378,7 +2028,32 @@ export const approvalRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCII.filter(
                   (item) =>
@@ -1392,7 +2067,32 @@ export const approvalRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCII.filter(
                   (itemB) =>
@@ -1446,7 +2146,32 @@ export const approvalRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCII.filter(
                   (item) =>
@@ -1460,7 +2185,32 @@ export const approvalRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCII.filter(
                   (itemB) =>
@@ -1514,7 +2264,32 @@ export const approvalRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCII.filter(
                   (item) =>
@@ -1528,7 +2303,150 @@ export const approvalRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
+
+                const dataItem = taxasEvasaoTCCII.filter(
+                  (itemB) =>
+                    itemB.semestreAtual === semestreItem &&
+                    itemB.curso === cursoItem,
+                );
+
+                labelFormatted += `\n\tQuantidade de Matrículas (${dataItem[0].curso}): ${dataItem[0].quantidadeMatriculasSemestreAtual}\n\tAprovados (${dataItem[0].curso}): ${dataItem[0].aprovados}`;
+              });
+
+              return labelFormatted;
+            },
+          },
+        },
+      },
+    },
+    {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+          labels: {
+            boxWidth: 10,
+            boxHeight: 10,
+          },
+        },
+        title: {
+          display: true,
+          text: "Taxas de aprovações da atividade de TCC II",
+        },
+        subtitle: {
+          display: true,
+          position: "top",
+          text: "Todos os semestres",
+        },
+        tooltip: {
+          callbacks: {
+            label: (context) => {
+              let label = context.dataset.label || "";
+
+              if (label) {
+                label += ": ";
+              }
+
+              if (context.parsed.y !== null) {
+                label += `${context.parsed.y.toFixed(1)}%`;
+              }
+
+              return label;
+            },
+            afterBody: (context) => {
+              if (context.length === 1) {
+                const semestre = context[0].label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
+
+                const data = taxasEvasaoTCCII.filter(
+                  (item) =>
+                    item.semestreAtual === semestre && item.curso === curso,
+                );
+
+                return `\t\t\t\tQuantidade de Matrículas: ${data[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados: ${data[0].aprovados}`;
+              }
+
+              let labelFormatted = "";
+
+              context.forEach((item) => {
+                const semestreItem = item.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCII.filter(
                   (itemB) =>
@@ -1567,7 +2485,7 @@ export const dropoutRatesOptions = {
         subtitle: {
           display: true,
           position: "top",
-          text: "Geral",
+          text: "Todos os semestres",
         },
         tooltip: {
           callbacks: {
@@ -1889,8 +2807,6 @@ export const dropoutRatesOptions = {
         },
       },
     },
-  ],
-  TCCIOptions: [
     {
       responsive: true,
       plugins: {
@@ -1903,12 +2819,12 @@ export const dropoutRatesOptions = {
         },
         title: {
           display: true,
-          text: "Taxas de evasão da atividade TCC I",
+          text: "Taxas de evasão da disciplina de PPCT",
         },
         subtitle: {
           display: true,
           position: "top",
-          text: "Geral",
+          text: "Todos os semestres",
         },
         tooltip: {
           callbacks: {
@@ -1928,7 +2844,147 @@ export const dropoutRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                switch (curso) {
+                  case "Engenharia de Software":
+                    curso = "ES";
+                    break;
+                  case "Engenharia de Computação":
+                    curso = "EC";
+                    break;
+                  case "Redes de Computadores":
+                    curso = "RC";
+                    break;
+                  case "Ciência da Computação":
+                    curso = "CC";
+                    break;
+                  case "Design Digital":
+                    curso = "DD";
+                    break;
+                  case "Sistemas de Informação":
+                    curso = "SI";
+                    break;
+                  default:
+                    break;
+                }
+
+                const data = dadosPPCT.filter(
+                  (item) => item.semestre === semestre && item.curso === curso,
+                );
+
+                return `\t\t\t\tMatrículas do semestre seguinte : ${data[0].qtdDeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual: ${data[0].qtdDeMatriculas}\n\t\t\t\tAprovados: ${data[0].qtdDeAprovados}`;
+              }
+
+              let labelFormatted = "";
+
+              context.forEach((item) => {
+                const semestreItem = item.label;
+                let cursoItem = item.dataset.label;
+
+                switch (cursoItem) {
+                  case "Engenharia de Software":
+                    cursoItem = "ES";
+                    break;
+                  case "Engenharia de Computação":
+                    cursoItem = "EC";
+                    break;
+                  case "Redes de Computadores":
+                    cursoItem = "RC";
+                    break;
+                  case "Ciência da Computação":
+                    cursoItem = "CC";
+                    break;
+                  case "Design Digital":
+                    cursoItem = "DD";
+                    break;
+                  case "Sistemas de Informação":
+                    cursoItem = "SI";
+                    break;
+                  default:
+                    break;
+                }
+
+                const dataItem = dadosPPCT.filter(
+                  (itemB) =>
+                    itemB.semestre === semestreItem &&
+                    itemB.curso === cursoItem,
+                );
+
+                labelFormatted += `\t\t\t\tMatrículas do semestre seguinte (${dataItem[0].curso})): ${dataItem[0].qtdDeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual (${dataItem[0].curso}): ${dataItem[0].qtdDeMatriculas}\n\t\t\t\tAprovados (${dataItem[0].curso}): ${dataItem[0].qtdDeAprovados}\n\n`;
+              });
+
+              return labelFormatted;
+            },
+          },
+        },
+      },
+    },
+  ],
+  TCCIOptions: [
+    {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+          labels: {
+            boxWidth: 10,
+            boxHeight: 10,
+          },
+        },
+        title: {
+          display: true,
+          text: "Taxas de evasão da atividade TCC I",
+        },
+        subtitle: {
+          display: true,
+          position: "top",
+          text: "Todos os semestres",
+        },
+        tooltip: {
+          callbacks: {
+            label: (context) => {
+              let label = context.dataset.label || "";
+
+              if (label) {
+                label += ": ";
+              }
+
+              if (context.parsed.y !== null) {
+                label += `${context.parsed.y.toFixed(1)}%`;
+              }
+
+              return label;
+            },
+            afterBody: (context) => {
+              if (context.length === 1) {
+                const semestre = context[0].label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCI.filter(
                   (item) =>
@@ -1943,7 +2999,32 @@ export const dropoutRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCI.filter(
                   (itemB) =>
@@ -2020,7 +3101,32 @@ export const dropoutRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCI.filter(
                   (item) =>
@@ -2035,7 +3141,32 @@ export const dropoutRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCI.filter(
                   (itemB) =>
@@ -2112,7 +3243,32 @@ export const dropoutRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCI.filter(
                   (item) =>
@@ -2127,7 +3283,174 @@ export const dropoutRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
+
+                const dataItem = taxasEvasaoTCCI.filter(
+                  (itemB) =>
+                    itemB.semestreAtual === semestreItem &&
+                    itemB.curso === cursoItem,
+                );
+
+                switch (cursoItem) {
+                  case "Engenharia de Software":
+                    cursoSigla = "ES";
+                    break;
+                  case "Engenharia de Computação":
+                    cursoSigla = "EC";
+                    break;
+                  case "Redes de Computadores":
+                    cursoSigla = "RC";
+                    break;
+                  case "Ciência da Computação":
+                    cursoSigla = "CC";
+                    break;
+                  case "Design Digital":
+                    cursoSigla = "DD";
+                    break;
+                  case "Sistemas de Informação":
+                    cursoSigla = "SI";
+                    break;
+                  default:
+                    break;
+                }
+
+                labelFormatted += `\t\t\t\tMatrículas do semestre seguinte (${cursoSigla})): ${dataItem[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual (${cursoSigla}): ${dataItem[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados (${cursoSigla}): ${dataItem[0].aprovados}\n\n`;
+              });
+
+              return labelFormatted;
+            },
+          },
+        },
+      },
+    },
+    {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+          labels: {
+            boxWidth: 10,
+            boxHeight: 10,
+          },
+        },
+        title: {
+          display: true,
+          text: "Taxas de evasão da atividade TCC I",
+        },
+        subtitle: {
+          display: true,
+          position: "top",
+          text: "Todos os semestres",
+        },
+        tooltip: {
+          callbacks: {
+            label: (context) => {
+              let label = context.dataset.label || "";
+
+              if (label) {
+                label += ": ";
+              }
+
+              if (context.parsed.y !== null) {
+                label += `${context.parsed.y.toFixed(1)}%`;
+              }
+
+              return label;
+            },
+            afterBody: (context) => {
+              if (context.length === 1) {
+                const semestre = context[0].label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
+
+                const data = taxasEvasaoTCCI.filter(
+                  (item) =>
+                    item.semestreAtual === semestre && item.curso === curso,
+                );
+
+                return `\t\t\t\tMatrículas do semestre seguinte : ${data[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual: ${data[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados: ${data[0].aprovados}`;
+              }
+
+              let labelFormatted = "";
+              let cursoSigla = "";
+
+              context.forEach((item) => {
+                const semestreItem = item.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCI.filter(
                   (itemB) =>
@@ -2186,7 +3509,7 @@ export const dropoutRatesOptions = {
         subtitle: {
           display: true,
           position: "top",
-          text: "Geral",
+          text: "Todos os semestres",
         },
         tooltip: {
           callbacks: {
@@ -2206,7 +3529,32 @@ export const dropoutRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCII.filter(
                   (item) =>
@@ -2221,7 +3569,32 @@ export const dropoutRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCII.filter(
                   (itemB) =>
@@ -2298,7 +3671,32 @@ export const dropoutRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCII.filter(
                   (item) =>
@@ -2313,7 +3711,32 @@ export const dropoutRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCII.filter(
                   (itemB) =>
@@ -2390,7 +3813,32 @@ export const dropoutRatesOptions = {
             afterBody: (context) => {
               if (context.length === 1) {
                 const semestre = context[0].label;
-                const curso = context[0].dataset.label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const data = taxasEvasaoTCCII.filter(
                   (item) =>
@@ -2405,7 +3853,174 @@ export const dropoutRatesOptions = {
 
               context.forEach((item) => {
                 const semestreItem = item.label;
-                const cursoItem = item.dataset.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
+
+                const dataItem = taxasEvasaoTCCII.filter(
+                  (itemB) =>
+                    itemB.semestreAtual === semestreItem &&
+                    itemB.curso === cursoItem,
+                );
+
+                switch (cursoItem) {
+                  case "Engenharia de Software":
+                    cursoSigla = "ES";
+                    break;
+                  case "Engenharia de Computação":
+                    cursoSigla = "EC";
+                    break;
+                  case "Redes de Computadores":
+                    cursoSigla = "RC";
+                    break;
+                  case "Ciência da Computação":
+                    cursoSigla = "CC";
+                    break;
+                  case "Design Digital":
+                    cursoSigla = "DD";
+                    break;
+                  case "Sistemas de Informação":
+                    cursoSigla = "SI";
+                    break;
+                  default:
+                    break;
+                }
+
+                labelFormatted += `\t\t\t\tMatrículas do semestre seguinte (${cursoSigla})): ${dataItem[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual (${cursoSigla}): ${dataItem[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados (${cursoSigla}): ${dataItem[0].aprovados}\n\n`;
+              });
+
+              return labelFormatted;
+            },
+          },
+        },
+      },
+    },
+    {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+          labels: {
+            boxWidth: 10,
+            boxHeight: 10,
+          },
+        },
+        title: {
+          display: true,
+          text: "Taxas de evasão da atividade TCC II",
+        },
+        subtitle: {
+          display: true,
+          position: "top",
+          text: "Todos os semestres",
+        },
+        tooltip: {
+          callbacks: {
+            label: (context) => {
+              let label = context.dataset.label || "";
+
+              if (label) {
+                label += ": ";
+              }
+
+              if (context.parsed.y !== null) {
+                label += `${context.parsed.y.toFixed(1)}%`;
+              }
+
+              return label;
+            },
+            afterBody: (context) => {
+              if (context.length === 1) {
+                const semestre = context[0].label;
+                let curso = context[0].dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (curso) {
+                    case "ES":
+                      curso = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      curso = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      curso = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      curso = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      curso = "Design Digital";
+                      break;
+                    case "SI":
+                      curso = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
+
+                const data = taxasEvasaoTCCII.filter(
+                  (item) =>
+                    item.semestreAtual === semestre && item.curso === curso,
+                );
+
+                return `\t\t\t\tMatrículas do semestre seguinte : ${data[0].quantidadeMatriculasSemestreSeguinte}\n\t\t\t\tMatrículas do semestre atual: ${data[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tAprovados: ${data[0].aprovados}`;
+              }
+
+              let labelFormatted = "";
+              let cursoSigla = "";
+
+              context.forEach((item) => {
+                const semestreItem = item.label;
+                let cursoItem = item.dataset.label;
+
+                if (windowWidth <= 700) {
+                  switch (cursoItem) {
+                    case "ES":
+                      cursoItem = "Engenharia de Software";
+                      break;
+                    case "EC":
+                      cursoItem = "Engenharia de Computação";
+                      break;
+                    case "RC":
+                      cursoItem = "Redes de Computadores";
+                      break;
+                    case "CC":
+                      cursoItem = "Ciência da Computação";
+                      break;
+                    case "DD":
+                      cursoItem = "Design Digital";
+                      break;
+                    case "SI":
+                      cursoItem = "Sistemas de Informação";
+                      break;
+                    default:
+                      break;
+                  }
+                }
 
                 const dataItem = taxasEvasaoTCCII.filter(
                   (itemB) =>
@@ -2456,7 +4071,7 @@ export const reprovalRatesData = {
         .map((item) => item.semestre),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: dadosPPCT
             .filter((item) => item.curso === "ES")
             .map((item) => {
@@ -2467,7 +4082,7 @@ export const reprovalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: dadosPPCT
             .filter((item) => item.curso === "DD")
             .map((item) => {
@@ -2478,7 +4093,7 @@ export const reprovalRatesData = {
           backgroundColor: "purple",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: dadosPPCT
             .filter((item) => item.curso === "CC")
             .map((item) => {
@@ -2489,7 +4104,7 @@ export const reprovalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: dadosPPCT
             .filter((item) => item.curso === "SI")
             .map((item) => {
@@ -2500,7 +4115,7 @@ export const reprovalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: dadosPPCT
             .filter((item) => item.curso === "EC")
             .map((item) => {
@@ -2511,7 +4126,7 @@ export const reprovalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: dadosPPCT
             .filter((item) => item.curso === "RC")
             .map((item) => {
@@ -2529,7 +4144,7 @@ export const reprovalRatesData = {
         .map((item) => item.semestre),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "ES",
@@ -2542,7 +4157,7 @@ export const reprovalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "DD",
@@ -2555,7 +4170,7 @@ export const reprovalRatesData = {
           backgroundColor: "purple",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "CC",
@@ -2568,7 +4183,7 @@ export const reprovalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "SI",
@@ -2581,7 +4196,7 @@ export const reprovalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "EC",
@@ -2594,7 +4209,7 @@ export const reprovalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "RC",
@@ -2614,7 +4229,7 @@ export const reprovalRatesData = {
         .map((item) => item.semestre),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "ES",
@@ -2627,7 +4242,7 @@ export const reprovalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "DD",
@@ -2640,7 +4255,7 @@ export const reprovalRatesData = {
           backgroundColor: "purple",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "CC",
@@ -2653,7 +4268,7 @@ export const reprovalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "SI",
@@ -2666,7 +4281,7 @@ export const reprovalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "EC",
@@ -2679,7 +4294,7 @@ export const reprovalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "RC",
@@ -2701,7 +4316,7 @@ export const reprovalRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Engenharia de Software")
             .map((item) => {
@@ -2712,7 +4327,7 @@ export const reprovalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Ciência da Computação")
             .map((item) => {
@@ -2723,7 +4338,7 @@ export const reprovalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Sistemas de Informação")
             .map((item) => {
@@ -2734,7 +4349,7 @@ export const reprovalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Engenharia de Computação")
             .map((item) => {
@@ -2745,7 +4360,7 @@ export const reprovalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Redes de Computadores")
             .map((item) => {
@@ -2756,7 +4371,7 @@ export const reprovalRatesData = {
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Design Digital")
             .map((item) => {
@@ -2778,7 +4393,7 @@ export const reprovalRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -2793,7 +4408,7 @@ export const reprovalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -2808,7 +4423,7 @@ export const reprovalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -2823,7 +4438,7 @@ export const reprovalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -2838,7 +4453,7 @@ export const reprovalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -2853,7 +4468,7 @@ export const reprovalRatesData = {
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -2879,7 +4494,7 @@ export const reprovalRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -2894,7 +4509,7 @@ export const reprovalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -2909,7 +4524,7 @@ export const reprovalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -2924,7 +4539,7 @@ export const reprovalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -2939,7 +4554,7 @@ export const reprovalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -2954,7 +4569,7 @@ export const reprovalRatesData = {
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -2967,6 +4582,24 @@ export const reprovalRatesData = {
             }),
           borderColor: "darkblue",
           backgroundColor: "darkblue",
+        },
+      ],
+    },
+    {
+      labels: taxasEvasaoTCCI
+        .filter((item) => item.curso === "Geral")
+        .map((item) => item.semestreAtual),
+      datasets: [
+        {
+          label: "Geral",
+          data: taxasEvasaoTCCI
+            .filter((item) => item.curso === "Geral")
+            .map((item) => {
+              if (Number.isNaN(item.taxaReprovados)) return 0;
+              return item.taxaReprovados * 100;
+            }),
+          borderColor: "#000123",
+          backgroundColor: "#000123",
         },
       ],
     },
@@ -2982,7 +4615,7 @@ export const reprovalRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Engenharia de Software")
             .map((item) => {
@@ -2993,7 +4626,7 @@ export const reprovalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Ciência da Computação")
             .map((item) => {
@@ -3004,7 +4637,7 @@ export const reprovalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Sistemas de Informação")
             .map((item) => {
@@ -3015,7 +4648,7 @@ export const reprovalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Engenharia de Computação")
             .map((item) => {
@@ -3026,7 +4659,7 @@ export const reprovalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Redes de Computadores")
             .map((item) => {
@@ -3037,7 +4670,7 @@ export const reprovalRatesData = {
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Design Digital")
             .map((item) => {
@@ -3059,7 +4692,7 @@ export const reprovalRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3074,7 +4707,7 @@ export const reprovalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3089,7 +4722,7 @@ export const reprovalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3104,7 +4737,7 @@ export const reprovalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3119,7 +4752,7 @@ export const reprovalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3134,7 +4767,7 @@ export const reprovalRatesData = {
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3160,7 +4793,7 @@ export const reprovalRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3175,7 +4808,7 @@ export const reprovalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3190,7 +4823,7 @@ export const reprovalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3205,7 +4838,7 @@ export const reprovalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3220,7 +4853,7 @@ export const reprovalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3235,7 +4868,7 @@ export const reprovalRatesData = {
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3248,6 +4881,24 @@ export const reprovalRatesData = {
             }),
           borderColor: "darkblue",
           backgroundColor: "darkblue",
+        },
+      ],
+    },
+    {
+      labels: taxasEvasaoTCCII
+        .filter((item) => item.curso === "Geral")
+        .map((item) => item.semestreAtual),
+      datasets: [
+        {
+          label: "Geral",
+          data: taxasEvasaoTCCII
+            .filter((item) => item.curso === "Geral")
+            .map((item) => {
+              if (Number.isNaN(item.taxaReprovados)) return 0;
+              return item.taxaReprovados * 100;
+            }),
+          borderColor: "#000123",
+          backgroundColor: "#000123",
         },
       ],
     },
@@ -3262,7 +4913,7 @@ export const approvalRatesData = {
         .map((item) => item.semestre),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: dadosPPCT
             .filter((item) => item.curso === "ES")
             .map((item) => {
@@ -3273,7 +4924,7 @@ export const approvalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: dadosPPCT
             .filter((item) => item.curso === "DD")
             .map((item) => {
@@ -3284,7 +4935,7 @@ export const approvalRatesData = {
           backgroundColor: "purple",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: dadosPPCT
             .filter((item) => item.curso === "CC")
             .map((item) => {
@@ -3295,7 +4946,7 @@ export const approvalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: dadosPPCT
             .filter((item) => item.curso === "SI")
             .map((item) => {
@@ -3306,7 +4957,7 @@ export const approvalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: dadosPPCT
             .filter((item) => item.curso === "EC")
             .map((item) => {
@@ -3317,7 +4968,7 @@ export const approvalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: dadosPPCT
             .filter((item) => item.curso === "RC")
             .map((item) => {
@@ -3335,7 +4986,7 @@ export const approvalRatesData = {
         .map((item) => item.semestre),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "ES",
@@ -3348,7 +4999,7 @@ export const approvalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "DD",
@@ -3361,7 +5012,7 @@ export const approvalRatesData = {
           backgroundColor: "purple",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "CC",
@@ -3374,7 +5025,7 @@ export const approvalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "SI",
@@ -3387,7 +5038,7 @@ export const approvalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "EC",
@@ -3400,7 +5051,7 @@ export const approvalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "RC",
@@ -3420,7 +5071,7 @@ export const approvalRatesData = {
         .map((item) => item.semestre),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "ES",
@@ -3433,7 +5084,7 @@ export const approvalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "DD",
@@ -3446,7 +5097,7 @@ export const approvalRatesData = {
           backgroundColor: "purple",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "CC",
@@ -3459,7 +5110,7 @@ export const approvalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "SI",
@@ -3472,7 +5123,7 @@ export const approvalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "EC",
@@ -3485,7 +5136,7 @@ export const approvalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "RC",
@@ -3499,6 +5150,24 @@ export const approvalRatesData = {
         },
       ],
     },
+    {
+      labels: dadosPPCT
+        .filter((item) => item.curso === "Geral")
+        .map((item) => item.semestre),
+      datasets: [
+        {
+          label: "Geral",
+          data: dadosPPCT
+            .filter((item) => item.curso === "Geral")
+            .map((item) => {
+              if (Number.isNaN(item.taxaAprovados)) return 0;
+              return item.taxaAprovados * 100;
+            }),
+          borderColor: "#000123",
+          backgroundColor: "#000123",
+        },
+      ],
+    },
   ],
   TCCIData: [
     {
@@ -3507,7 +5176,7 @@ export const approvalRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Engenharia de Software")
             .map((item) => {
@@ -3518,7 +5187,7 @@ export const approvalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Ciência da Computação")
             .map((item) => {
@@ -3529,7 +5198,7 @@ export const approvalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Sistemas de Informação")
             .map((item) => {
@@ -3540,7 +5209,7 @@ export const approvalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Engenharia de Computação")
             .map((item) => {
@@ -3551,7 +5220,7 @@ export const approvalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Redes de Computadores")
             .map((item) => {
@@ -3562,7 +5231,7 @@ export const approvalRatesData = {
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Design Digital")
             .map((item) => {
@@ -3584,7 +5253,7 @@ export const approvalRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -3599,7 +5268,7 @@ export const approvalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -3614,7 +5283,7 @@ export const approvalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -3629,7 +5298,7 @@ export const approvalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -3644,7 +5313,7 @@ export const approvalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -3659,7 +5328,7 @@ export const approvalRatesData = {
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -3685,7 +5354,7 @@ export const approvalRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -3700,7 +5369,7 @@ export const approvalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -3715,7 +5384,7 @@ export const approvalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -3730,7 +5399,7 @@ export const approvalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -3745,7 +5414,7 @@ export const approvalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -3760,7 +5429,7 @@ export const approvalRatesData = {
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCI
             .filter(
               (item) =>
@@ -3773,6 +5442,24 @@ export const approvalRatesData = {
             }),
           borderColor: "darkblue",
           backgroundColor: "darkblue",
+        },
+      ],
+    },
+    {
+      labels: taxasEvasaoTCCI
+        .filter((item) => item.curso === "Geral")
+        .map((item) => item.semestreAtual),
+      datasets: [
+        {
+          label: "Geral",
+          data: taxasEvasaoTCCI
+            .filter((item) => item.curso === "Geral")
+            .map((item) => {
+              if (Number.isNaN(item.taxaAprovados)) return 0;
+              return item.taxaAprovados * 100;
+            }),
+          borderColor: "#000123",
+          backgroundColor: "#000123",
         },
       ],
     },
@@ -3784,7 +5471,7 @@ export const approvalRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Engenharia de Software")
             .map((item) => {
@@ -3795,7 +5482,7 @@ export const approvalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Ciência da Computação")
             .map((item) => {
@@ -3806,7 +5493,7 @@ export const approvalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Sistemas de Informação")
             .map((item) => {
@@ -3817,7 +5504,7 @@ export const approvalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Engenharia de Computação")
             .map((item) => {
@@ -3828,7 +5515,7 @@ export const approvalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Redes de Computadores")
             .map((item) => {
@@ -3839,7 +5526,7 @@ export const approvalRatesData = {
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Design Digital")
             .map((item) => {
@@ -3861,7 +5548,7 @@ export const approvalRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3876,7 +5563,7 @@ export const approvalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3891,7 +5578,7 @@ export const approvalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3906,7 +5593,7 @@ export const approvalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3921,7 +5608,7 @@ export const approvalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3936,7 +5623,7 @@ export const approvalRatesData = {
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3962,7 +5649,7 @@ export const approvalRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3977,7 +5664,7 @@ export const approvalRatesData = {
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -3992,7 +5679,7 @@ export const approvalRatesData = {
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4007,7 +5694,7 @@ export const approvalRatesData = {
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4022,7 +5709,7 @@ export const approvalRatesData = {
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4037,7 +5724,7 @@ export const approvalRatesData = {
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4050,6 +5737,24 @@ export const approvalRatesData = {
             }),
           borderColor: "darkblue",
           backgroundColor: "darkblue",
+        },
+      ],
+    },
+    {
+      labels: taxasEvasaoTCCII
+        .filter((item) => item.curso === "Geral")
+        .map((item) => item.semestreAtual),
+      datasets: [
+        {
+          label: "Geral",
+          data: taxasEvasaoTCCII
+            .filter((item) => item.curso === "Geral")
+            .map((item) => {
+              if (Number.isNaN(item.taxaAprovados)) return 0;
+              return item.taxaAprovados * 100;
+            }),
+          borderColor: "#000123",
+          backgroundColor: "#000123",
         },
       ],
     },
@@ -4064,73 +5769,79 @@ export const dropoutRatesData = {
         .map((item) => item.semestre),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: dadosPPCT
             .filter((item) => item.curso === "ES")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "red",
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: dadosPPCT
             .filter((item) => item.curso === "CC")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "blue",
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: dadosPPCT
             .filter((item) => item.curso === "SI")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "green",
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: dadosPPCT
             .filter((item) => item.curso === "EC")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "orange",
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: dadosPPCT
             .filter((item) => item.curso === "RC")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "darkgray",
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: dadosPPCT
             .filter((item) => item.curso === "DD")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "purple",
           backgroundColor: "purple",
@@ -4143,7 +5854,7 @@ export const dropoutRatesData = {
         .map((item) => item.semestre),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "ES",
@@ -4151,13 +5862,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "red",
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "CC",
@@ -4165,13 +5877,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "blue",
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "SI",
@@ -4179,13 +5892,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "green",
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "EC",
@@ -4193,13 +5907,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "orange",
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "RC",
@@ -4207,13 +5922,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "darkgray",
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".1") && item.curso === "DD",
@@ -4221,7 +5937,8 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "purple",
           backgroundColor: "purple",
@@ -4234,7 +5951,7 @@ export const dropoutRatesData = {
         .map((item) => item.semestre),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "ES",
@@ -4242,13 +5959,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "red",
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "CC",
@@ -4256,13 +5974,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "blue",
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "SI",
@@ -4270,13 +5989,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "green",
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "EC",
@@ -4284,13 +6004,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "orange",
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "RC",
@@ -4298,13 +6019,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "darkgray",
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: dadosPPCT
             .filter(
               (item) => item.semestre.includes(".2") && item.curso === "DD",
@@ -4312,10 +6034,31 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "purple",
           backgroundColor: "purple",
+        },
+      ],
+    },
+    {
+      labels: dadosPPCT
+        .filter((item) => item.curso === "Geral")
+        .map((item) => item.semestre),
+      datasets: [
+        {
+          label: "Geral",
+          data: dadosPPCT
+            .filter((item) => item.curso === "Geral")
+            .map((item) => {
+              if (Number.isNaN(item.taxaEvasao)) return 0;
+              if (!Number.isFinite(item.taxaEvasao)) return 0;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
+            }),
+          borderColor: "#000123",
+          backgroundColor: "#000123",
         },
       ],
     },
@@ -4327,73 +6070,79 @@ export const dropoutRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Engenharia de Software")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "red",
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Ciência da Computação")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "blue",
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Sistemas de Informação")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "green",
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Engenharia de Computação")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "orange",
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Redes de Computadores")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "darkgray",
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCI
             .filter((item) => item.curso === "Design Digital")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "purple",
           backgroundColor: "purple",
@@ -4410,79 +6159,85 @@ export const dropoutRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
-          data: taxasEvasaoTCCII
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
+          data: taxasEvasaoTCCI
             .filter((item) => item.semestreAtual.includes(".1"))
             .filter((item) => item.curso === "Engenharia de Software")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "red",
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
-          data: taxasEvasaoTCCII
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
+          data: taxasEvasaoTCCI
             .filter((item) => item.semestreAtual.includes(".1"))
             .filter((item) => item.curso === "Ciência da Computação")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "blue",
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
-          data: taxasEvasaoTCCII
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
+          data: taxasEvasaoTCCI
             .filter((item) => item.semestreAtual.includes(".1"))
             .filter((item) => item.curso === "Sistemas de Informação")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "green",
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
-          data: taxasEvasaoTCCII
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
+          data: taxasEvasaoTCCI
             .filter((item) => item.semestreAtual.includes(".1"))
             .filter((item) => item.curso === "Engenharia de Computação")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "orange",
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
-          data: taxasEvasaoTCCII
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
+          data: taxasEvasaoTCCI
             .filter((item) => item.semestreAtual.includes(".1"))
             .filter((item) => item.curso === "Redes de Computadores")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "darkgray",
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
-          data: taxasEvasaoTCCII
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
+          data: taxasEvasaoTCCI
             .filter((item) => item.semestreAtual.includes(".1"))
             .filter((item) => item.curso === "Design Digital")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "purple",
           backgroundColor: "purple",
@@ -4499,82 +6254,108 @@ export const dropoutRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
-          data: taxasEvasaoTCCII
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
+          data: taxasEvasaoTCCI
             .filter((item) => item.semestreAtual.includes(".2"))
             .filter((item) => item.curso === "Engenharia de Software")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "red",
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
-          data: taxasEvasaoTCCII
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
+          data: taxasEvasaoTCCI
             .filter((item) => item.semestreAtual.includes(".2"))
             .filter((item) => item.curso === "Ciência da Computação")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "blue",
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
-          data: taxasEvasaoTCCII
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
+          data: taxasEvasaoTCCI
             .filter((item) => item.semestreAtual.includes(".2"))
             .filter((item) => item.curso === "Sistemas de Informação")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "green",
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
-          data: taxasEvasaoTCCII
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
+          data: taxasEvasaoTCCI
             .filter((item) => item.semestreAtual.includes(".2"))
             .filter((item) => item.curso === "Engenharia de Computação")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "orange",
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
-          data: taxasEvasaoTCCII
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
+          data: taxasEvasaoTCCI
             .filter((item) => item.semestreAtual.includes(".2"))
             .filter((item) => item.curso === "Redes de Computadores")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "darkgray",
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
-          data: taxasEvasaoTCCII
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
+          data: taxasEvasaoTCCI
             .filter((item) => item.semestreAtual.includes(".2"))
             .filter((item) => item.curso === "Design Digital")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "purple",
           backgroundColor: "purple",
+        },
+      ],
+    },
+    {
+      labels: taxasEvasaoTCCI
+        .filter((item) => item.curso === "Geral")
+        .map((item) => item.semestreAtual),
+      datasets: [
+        {
+          label: "Geral",
+          data: taxasEvasaoTCCI
+            .filter((item) => item.curso === "Geral")
+            .map((item) => {
+              if (Number.isNaN(item.taxaEvasao)) return 0;
+              if (!Number.isFinite(item.taxaEvasao)) return 0;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
+            }),
+          borderColor: "#000123",
+          backgroundColor: "#000123",
         },
       ],
     },
@@ -4586,73 +6367,79 @@ export const dropoutRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Engenharia de Software")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "red",
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Ciência da Computação")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "blue",
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Sistemas de Informação")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "green",
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Engenharia de Computação")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "orange",
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Redes de Computadores")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "darkgray",
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCII
             .filter((item) => item.curso === "Design Digital")
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "purple",
           backgroundColor: "purple",
@@ -4669,7 +6456,7 @@ export const dropoutRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4679,13 +6466,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "red",
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4695,13 +6483,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "blue",
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4711,13 +6500,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "green",
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4727,13 +6517,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "orange",
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4743,13 +6534,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "darkgray",
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4759,7 +6551,8 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "purple",
           backgroundColor: "purple",
@@ -4776,7 +6569,7 @@ export const dropoutRatesData = {
         .map((item) => item.semestreAtual),
       datasets: [
         {
-          label: windowWidth >= 426 ? "Engenharia de Software" : "ES",
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4786,13 +6579,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "red",
           backgroundColor: "red",
         },
         {
-          label: windowWidth >= 426 ? "Ciência da Computação" : "CC",
+          label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4802,13 +6596,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "blue",
           backgroundColor: "blue",
         },
         {
-          label: windowWidth >= 426 ? "Sistemas de Informação" : "SI",
+          label: windowWidth >= 700 ? "Sistemas de Informação" : "SI",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4818,13 +6613,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "green",
           backgroundColor: "green",
         },
         {
-          label: windowWidth >= 426 ? "Engenharia de Computação" : "EC",
+          label: windowWidth >= 700 ? "Engenharia de Computação" : "EC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4834,13 +6630,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "orange",
           backgroundColor: "orange",
         },
         {
-          label: windowWidth >= 426 ? "Redes de Computadores" : "RC",
+          label: windowWidth >= 700 ? "Redes de Computadores" : "RC",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4850,13 +6647,14 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "darkgray",
           backgroundColor: "darkgray",
         },
         {
-          label: windowWidth >= 426 ? "Design Digital" : "DD",
+          label: windowWidth >= 700 ? "Design Digital" : "DD",
           data: taxasEvasaoTCCII
             .filter(
               (item) =>
@@ -4866,10 +6664,56 @@ export const dropoutRatesData = {
             .map((item) => {
               if (Number.isNaN(item.taxaEvasao)) return 0;
               if (!Number.isFinite(item.taxaEvasao)) return 0;
-              return item.taxaEvasao;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
             }),
           borderColor: "purple",
           backgroundColor: "purple",
+        },
+      ],
+    },
+    {
+      labels: taxasEvasaoTCCII
+        .filter((item) => item.curso === "Geral")
+        .map((item) => item.semestreAtual),
+      datasets: [
+        {
+          label: "Geral",
+          data: taxasEvasaoTCCII
+            .filter((item) => item.curso === "Geral")
+            .map((item) => {
+              if (Number.isNaN(item.taxaEvasao)) return 0;
+              if (!Number.isFinite(item.taxaEvasao)) return 0;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
+            }),
+          borderColor: "#000123",
+          backgroundColor: "#000123",
+        },
+      ],
+    },
+  ],
+};
+
+export const generalDropoutRatesData = {
+  TCCIData: [
+    {
+      labels: taxasEvasaoTCCI
+        .filter((item) => item.curso === "Engenharia de Software")
+        .map((item) => item.semestreAtual),
+      datasets: [
+        {
+          label: windowWidth >= 700 ? "Engenharia de Software" : "ES",
+          data: taxasEvasaoTCCI
+            .filter((item) => item.curso === "Engenharia de Software")
+            .map((item) => {
+              if (Number.isNaN(item.taxaEvasao)) return 0;
+              if (!Number.isFinite(item.taxaEvasao)) return 0;
+              if (item.taxaEvasao < 0) return 0;
+              return item.taxaEvasao * 100;
+            }),
+          borderColor: "red",
+          backgroundColor: "red",
         },
       ],
     },
@@ -4902,50 +6746,12 @@ export const handleOnFormatAdditionalDataPPCT = (unformattedDataPPCT) => {
       };
     });
 
-  additionalData.forEach((element) => {
-    element.dados.push({
-      curso: "Geral",
-      aprovados: element.dados.reduce((acc, item) => {
-        let aprovados = acc;
-        aprovados += item.aprovados;
-        return aprovados;
-      }, 0),
-      cancelados: element.dados.reduce((acc, item) => {
-        let cancelados = acc;
-        cancelados += item.cancelados;
-        return cancelados;
-      }, 0),
-      quantidadeCurso: element.dados.reduce((acc, item) => {
-        let quantidadeCurso = acc;
-        quantidadeCurso += item.quantidadeCurso;
-        return quantidadeCurso;
-      }, 0),
-      reprovados: element.dados.reduce((acc, item) => {
-        let reprovados = acc;
-        reprovados += item.reprovados;
-        return reprovados;
-      }, 0),
-      reprovadosFalta: element.dados.reduce((acc, item) => {
-        let reprovadosFalta = acc;
-        reprovadosFalta += item.reprovadosFalta;
-        return reprovadosFalta;
-      }, 0),
-      suprimidos: element.dados.reduce((acc, item) => {
-        let suprimidos = acc;
-        suprimidos += item.suprimidos;
-        return suprimidos;
-      }, 0),
-      trancados: element.dados.reduce((acc, item) => {
-        let trancados = acc;
-        trancados += item.trancados;
-        return trancados;
-      }, 0),
-      trancadosTotal: element.dados.reduce((acc, item) => {
-        let trancadosTotal = acc;
-        trancadosTotal += item.trancadosTotal;
-        return trancadosTotal;
-      }, 0),
-      semestre: element.semestre,
+  additionalData.forEach((semestre) => {
+    semestre.dados.sort((a, b) => {
+      if (a.curso === "Geral") return -1;
+      if (b.curso === "Geral") return 1;
+
+      return a.curso.localeCompare(b.curso);
     });
   });
 
@@ -4977,50 +6783,12 @@ export const handleOnFormatAdditionalDataTCC = (unformattedDataTCC) => {
       };
     });
 
-  additionalData.forEach((element) => {
-    element.dados.push({
-      curso: "Geral",
-      aprovados: element.dados.reduce((acc, item) => {
-        let aprovados = acc;
-        aprovados += item.aprovados;
-        return aprovados;
-      }, 0),
-      cancelados: element.dados.reduce((acc, item) => {
-        let cancelados = acc;
-        cancelados += item.cancelados;
-        return cancelados;
-      }, 0),
-      quantidadeCurso: element.dados.reduce((acc, item) => {
-        let quantidadeCurso = acc;
-        quantidadeCurso += item.quantidadeCurso;
-        return quantidadeCurso;
-      }, 0),
-      reprovados: element.dados.reduce((acc, item) => {
-        let reprovados = acc;
-        reprovados += item.reprovados;
-        return reprovados;
-      }, 0),
-      reprovadosFalta: element.dados.reduce((acc, item) => {
-        let reprovadosFalta = acc;
-        reprovadosFalta += item.reprovadosFalta;
-        return reprovadosFalta;
-      }, 0),
-      suprimidos: element.dados.reduce((acc, item) => {
-        let suprimidos = acc;
-        suprimidos += item.suprimidos;
-        return suprimidos;
-      }, 0),
-      trancados: element.dados.reduce((acc, item) => {
-        let trancados = acc;
-        trancados += item.trancados;
-        return trancados;
-      }, 0),
-      trancadosTotal: element.dados.reduce((acc, item) => {
-        let trancadosTotal = acc;
-        trancadosTotal += item.trancadosTotal;
-        return trancadosTotal;
-      }, 0),
-      semestre: element.semestre,
+  additionalData.forEach((semestre) => {
+    semestre.dados.sort((a, b) => {
+      if (a.curso === "Geral") return -1;
+      if (b.curso === "Geral") return 1;
+
+      return a.curso.localeCompare(b.curso);
     });
   });
 

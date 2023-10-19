@@ -22,6 +22,8 @@ import {
   dropoutRatesOptions,
   approvalRatesData,
   approvalRatesOptions,
+  reprovalRatesOptions,
+  reprovalRatesData,
 } from "../../utils/ChartOptions";
 
 ChartJS.register(
@@ -41,42 +43,42 @@ const Dashboard = () => (
     <section className="main-container">
       <div className="main-first">
         <div className="main-first-chart-item">
-          <h3>Taxas de evasão</h3>
-          <h4>Relação: Semestre por curso - TCC II</h4>
+          <h3>Taxas de aprovações</h3>
+          <h4>Relação: UFC[Quixadá] x Semestre - TCC II</h4>
           <div className="main-first-chart-wrapper">
             <Line
-              options={dropoutRatesOptions.TCCIIOptions[0]}
-              data={dropoutRatesData.TCCIIData[0]}
+              options={approvalRatesOptions.TCCIIOptions[3]}
+              data={approvalRatesData.TCCIIData[3]}
             />
           </div>
-          <NavHashLink to="/taxasEvasao#geralTCCII">
+          <NavHashLink to="/taxasAprovacoes#TCC-II-UFC-Approvals">
             Conferir em detalhes
           </NavHashLink>
         </div>
         <div className="main-first-chart-item">
-          <h3>Taxas de aprovações</h3>
-          <h4>Relação: Cursos por 2º semestres - TCC II</h4>
+          <h3>Taxas de reprovações</h3>
+          <h4>Relação: UFC[Quixadá] x Semestres - TCC II</h4>
           <div className="main-first-chart-wrapper">
             <Line
-              options={approvalRatesOptions.TCCIIOptions[1]}
-              data={approvalRatesData.TCCIIData[1]}
+              options={reprovalRatesOptions.TCCIIOptions[3]}
+              data={reprovalRatesData.TCCIIData[3]}
             />
           </div>
-          <NavHashLink to="/taxasAprovacoes#aprovacoesSegundosSemestresTCCII">
+          <NavHashLink to="/taxasReprovacoes#TCC-II-UFC-Reprovals">
             Conferir em detalhes
           </NavHashLink>
         </div>
       </div>
       <div className="main-second">
         <h3>Taxas de evasão</h3>
-        <h4>Relação: Semestre por curso - TCC I</h4>
+        <h4>Relação: UFC[Quixadá] por semestre - TCC II</h4>
         <div className="main-second-chart-wrapper">
           <Line
-            options={dropoutRatesOptions.TCCIOptions[2]}
-            data={dropoutRatesData.TCCIData[2]}
+            options={dropoutRatesOptions.TCCIIOptions[3]}
+            data={dropoutRatesData.TCCIIData[3]}
           />
         </div>
-        <NavHashLink to="/taxasEvasao#evasaoGeralTCCI">
+        <NavHashLink to="/taxasEvasao#TCC-II-UFC-Dropouts">
           Conferir em detalhes
         </NavHashLink>
       </div>

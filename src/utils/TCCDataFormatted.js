@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
 const TCCData = require("../api/TCC.json");
@@ -23,6 +24,21 @@ export function ProximoSemestre(semestre) {
   }
 
   return String(`${anoAtual}.${semestreAtual}`);
+}
+
+export function semestreAnterior(semestre) {
+  const partes = semestre.split(".");
+  let ano = parseInt(partes[0], 10);
+  let numeroSemestre = parseInt(partes[1], 10);
+
+  if (numeroSemestre === 1) {
+    ano -= 1;
+    numeroSemestre = 2;
+  } else {
+    numeroSemestre += 1;
+  }
+
+  return `${ano}.${numeroSemestre}`;
 }
 
 function calculaTaxaEvasaoCurso(dados, semestre, curso) {
@@ -72,8 +88,9 @@ function calculaTaxaEvasaoCurso(dados, semestre, curso) {
   ).length;
 
   const taxaEvasao =
+    1 -
     quantidadeMatriculasSemestreSeguinte /
-    (quantidadeMatriculasSemestreAtual - quantidadeAprovadosSemestreAtual);
+      (quantidadeMatriculasSemestreAtual - quantidadeAprovadosSemestreAtual);
 
   const taxaEvasaoII =
     (quantidadeSuprimidosSemestreAtual +
@@ -138,3 +155,245 @@ for (let i = 2012; i <= 2022; i += 1) {
   calculaTaxaEvasaoCurso(TCC_II, String(`${i}.1`), "Design Digital");
   calculaTaxaEvasaoCurso(TCC_II, String(`${i}.2`), "Design Digital");
 }
+
+for (let i = 2012; i <= 2022; i += 1) {
+  taxasEvasaoTCCI.push({
+    curso: "Geral",
+    semestreAtual: `${String(i)}.1`,
+  });
+
+  taxasEvasaoTCCI.push({
+    curso: "Geral",
+    semestreAtual: `${String(i)}.2`,
+  });
+
+  taxasEvasaoTCCII.push({
+    curso: "Geral",
+    semestreAtual: `${String(i)}.1`,
+  });
+
+  taxasEvasaoTCCII.push({
+    curso: "Geral",
+    semestreAtual: `${String(i)}.2`,
+  });
+}
+
+taxasEvasaoTCCI
+  .filter((item) => item.curso === "Geral")
+  .forEach((itemA) => {
+    const semestreSeguinte = ProximoSemestre(itemA.semestreAtual);
+
+    const aprovados = taxasEvasaoTCCI
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === itemA.semestreAtual &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let aprovadosItem = acc;
+        aprovadosItem += itemC.aprovados;
+        return aprovadosItem;
+      }, 0);
+
+    const reprovados = taxasEvasaoTCCI
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === itemA.semestreAtual &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let reprovadosItem = acc;
+        reprovadosItem += itemC.reprovados;
+        return reprovadosItem;
+      }, 0);
+
+    const quantidadeMatriculasSemestreAtual = taxasEvasaoTCCI
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === itemA.semestreAtual &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let quantidadeMatriculasSemestreAtualItem = acc;
+        quantidadeMatriculasSemestreAtualItem +=
+          itemC.quantidadeMatriculasSemestreAtual;
+        return quantidadeMatriculasSemestreAtualItem;
+      }, 0);
+
+    const quantidadeMatriculasSemestreSeguinte = taxasEvasaoTCCI
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === semestreSeguinte && itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let quantidadeMatriculasSemestreSeguinteItem = acc;
+        quantidadeMatriculasSemestreSeguinteItem +=
+          itemC.quantidadeMatriculasSemestreAtual;
+        return quantidadeMatriculasSemestreSeguinteItem;
+      }, 0);
+
+    const taxaAprovados = aprovados / quantidadeMatriculasSemestreAtual;
+    const taxaReprovados = reprovados / quantidadeMatriculasSemestreAtual;
+    const taxaEvasao =
+      1 -
+      quantidadeMatriculasSemestreSeguinte /
+        (quantidadeMatriculasSemestreAtual - aprovados);
+
+    const suprimidos = taxasEvasaoTCCI
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === itemA.semestreAtual &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let suprimidosItem = acc;
+        suprimidosItem += itemC.suprimidos;
+        return suprimidosItem;
+      }, 0);
+
+    const excluidos = taxasEvasaoTCCI
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === itemA.semestreAtual &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let excluidosItem = acc;
+        excluidosItem += itemC.suprimidos;
+        return excluidosItem;
+      }, 0);
+
+    const trancados = taxasEvasaoTCCI
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === itemA.semestreAtual &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let trancadosItem = acc;
+        trancadosItem += itemC.suprimidos;
+        return trancadosItem;
+      }, 0);
+
+    itemA.aprovados = aprovados;
+    itemA.reprovados = reprovados;
+    itemA.quantidadeMatriculasSemestreAtual = quantidadeMatriculasSemestreAtual;
+    itemA.quantidadeMatriculasSemestreSeguinte =
+      quantidadeMatriculasSemestreSeguinte;
+    itemA.suprimidos = suprimidos;
+    itemA.excluidos = excluidos;
+    itemA.trancados = trancados;
+    itemA.taxaAprovados = taxaAprovados;
+    itemA.taxaReprovados = taxaReprovados;
+    itemA.taxaEvasao = taxaEvasao;
+  });
+
+taxasEvasaoTCCII
+  .filter((item) => item.curso === "Geral")
+  .forEach((itemA) => {
+    const semestreSeguinte = ProximoSemestre(itemA.semestreAtual);
+
+    const aprovados = taxasEvasaoTCCII
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === itemA.semestreAtual &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let aprovadosItem = acc;
+        aprovadosItem += itemC.aprovados;
+        return aprovadosItem;
+      }, 0);
+
+    const reprovados = taxasEvasaoTCCII
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === itemA.semestreAtual &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let reprovadosItem = acc;
+        reprovadosItem += itemC.reprovados;
+        return reprovadosItem;
+      }, 0);
+
+    const quantidadeMatriculasSemestreAtual = taxasEvasaoTCCII
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === itemA.semestreAtual &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let quantidadeMatriculasSemestreAtualItem = acc;
+        quantidadeMatriculasSemestreAtualItem +=
+          itemC.quantidadeMatriculasSemestreAtual;
+        return quantidadeMatriculasSemestreAtualItem;
+      }, 0);
+
+    const quantidadeMatriculasSemestreSeguinte = taxasEvasaoTCCII
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === semestreSeguinte && itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let quantidadeMatriculasSemestreSeguinteItem = acc;
+        quantidadeMatriculasSemestreSeguinteItem +=
+          itemC.quantidadeMatriculasSemestreAtual;
+        return quantidadeMatriculasSemestreSeguinteItem;
+      }, 0);
+
+    const taxaAprovados = aprovados / quantidadeMatriculasSemestreAtual;
+    const taxaReprovados = reprovados / quantidadeMatriculasSemestreAtual;
+    const taxaEvasao =
+      1 -
+      quantidadeMatriculasSemestreSeguinte /
+        (quantidadeMatriculasSemestreAtual - aprovados);
+
+    const suprimidos = taxasEvasaoTCCII
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === itemA.semestreAtual &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let suprimidosItem = acc;
+        suprimidosItem += itemC.suprimidos;
+        return suprimidosItem;
+      }, 0);
+
+    const excluidos = taxasEvasaoTCCII
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === itemA.semestreAtual &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let excluidosItem = acc;
+        excluidosItem += itemC.suprimidos;
+        return excluidosItem;
+      }, 0);
+
+    const trancados = taxasEvasaoTCCII
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === itemA.semestreAtual &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let trancadosItem = acc;
+        trancadosItem += itemC.suprimidos;
+        return trancadosItem;
+      }, 0);
+
+    itemA.aprovados = aprovados;
+    itemA.reprovados = reprovados;
+    itemA.quantidadeMatriculasSemestreAtual = quantidadeMatriculasSemestreAtual;
+    itemA.quantidadeMatriculasSemestreSeguinte =
+      quantidadeMatriculasSemestreSeguinte;
+    itemA.suprimidos = suprimidos;
+    itemA.excluidos = excluidos;
+    itemA.trancados = trancados;
+    itemA.taxaAprovados = taxaAprovados;
+    itemA.taxaReprovados = taxaReprovados;
+    itemA.taxaEvasao = taxaEvasao;
+  });

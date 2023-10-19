@@ -3,147 +3,7 @@ import { ProximoSemestre } from "./TCCDataFormatted";
 
 const PPCTData = require("../api/PPCT.json");
 
-const primeiroSemestreArray = [];
-const segundoSemestreArray = [];
-export const dadosPPCT = [];
-
-const distribuiEmSemestres = (dados, ano) => {
-  const primeiroSemestre = [];
-  const segundoSemestre = [];
-
-  dados
-    .filter((item) => item.data_de_cadastro.includes(ano))
-    .forEach((item) => {
-      const dataDeCadastro = new Date(item.data_de_cadastro);
-      const mes = dataDeCadastro.getMonth();
-
-      if (mes <= 5) primeiroSemestre.push(item);
-      else segundoSemestre.push(item);
-    });
-
-  return {
-    primeiroSemestre,
-    segundoSemestre,
-  };
-};
-
-const calculaTaxaPorSemestre = (dadosSemestre, curso) => {
-  const quantidadeCurso = dadosSemestre.filter((item) => item.Curso === curso);
-
-  const aprovados = quantidadeCurso.filter(
-    (item) => item.Situação === "APROVADO",
-  ).length;
-
-  const reprovados = quantidadeCurso.filter(
-    (item) => item.Situação === "REPROVADO",
-  ).length;
-
-  const suprimidos = quantidadeCurso.filter(
-    (item) => item.Situação === "SUPRIMIDO",
-  ).length;
-
-  const reprovadosFalta = quantidadeCurso.filter(
-    (item) => item.Situação === "REP. FALTA",
-  ).length;
-
-  const trancados = quantidadeCurso.filter(
-    (item) => item.Situação === "TRANCADO",
-  ).length;
-
-  const trancadosTotal = quantidadeCurso.filter(
-    (item) => item.Situação === "TRANCADO - TOTAL",
-  ).length;
-
-  const cancelados = quantidadeCurso.filter(
-    (item) => item.Situação === "CANCELADO",
-  ).length;
-
-  const taxa = aprovados / quantidadeCurso.length;
-
-  return {
-    taxa,
-    quantidadeCurso: quantidadeCurso.length,
-    aprovados,
-    reprovados,
-    reprovadosFalta,
-    suprimidos,
-    trancados,
-    trancadosTotal,
-    cancelados,
-  };
-};
-
-const calculaTaxasPorCurso = (dados, curso, ano) => {
-  const { primeiroSemestre, segundoSemestre } = distribuiEmSemestres(
-    dados,
-    ano,
-  );
-
-  const {
-    taxa: taxaPrimeiroSemestre,
-    aprovados,
-    reprovados,
-    quantidadeCurso,
-    cancelados,
-    reprovadosFalta,
-    suprimidos,
-    trancados,
-    trancadosTotal,
-  } = calculaTaxaPorSemestre(primeiroSemestre, curso);
-  const {
-    taxa: taxaSegundoSemestre,
-    aprovados: aprovadosSegundoSemestre,
-    reprovados: reprovadosSegundoSemestre,
-    quantidadeCurso: quantidadeCursoSegundoSemestre,
-    cancelados: canceladosSegundoSemestre,
-    reprovadosFalta: reprovadosFaltaSegundoSemestre,
-    suprimidos: suprimidosSegundoSemestre,
-    trancados: trancadosSegundoSemestre,
-    trancadosTotal: trancadosTotalSegundoSemestre,
-  } = calculaTaxaPorSemestre(segundoSemestre, curso);
-
-  const dadosPrimeiroSemestreFormatado = {
-    curso,
-    taxa: taxaPrimeiroSemestre,
-    semestre: `${ano}.1`,
-    semestreSeguinte: ProximoSemestre(`${ano}.1`),
-    aprovados,
-    reprovados,
-    quantidadeCurso,
-    cancelados,
-    reprovadosFalta,
-    suprimidos,
-    trancados,
-    trancadosTotal,
-  };
-
-  const dadosSegundoSemestreFormatado = {
-    curso,
-    taxa: taxaSegundoSemestre,
-    semestre: `${ano}.2`,
-    semestreSeguinte: ProximoSemestre(`${ano}.2`),
-    aprovados: aprovadosSegundoSemestre,
-    reprovados: reprovadosSegundoSemestre,
-    quantidadeCurso: quantidadeCursoSegundoSemestre,
-    cancelados: canceladosSegundoSemestre,
-    reprovadosFalta: reprovadosFaltaSegundoSemestre,
-    suprimidos: suprimidosSegundoSemestre,
-    trancados: trancadosSegundoSemestre,
-    trancadosTotal: trancadosTotalSegundoSemestre,
-  };
-
-  primeiroSemestreArray.push({ ...dadosPrimeiroSemestreFormatado });
-  segundoSemestreArray.push({ ...dadosSegundoSemestreFormatado });
-};
-
-for (let i = 2013; i <= 2023; i += 1) {
-  calculaTaxasPorCurso(PPCTData, "ES", String(i));
-  calculaTaxasPorCurso(PPCTData, "SI", String(i));
-  calculaTaxasPorCurso(PPCTData, "CC", String(i));
-  calculaTaxasPorCurso(PPCTData, "RC", String(i));
-  calculaTaxasPorCurso(PPCTData, "EC", String(i));
-  calculaTaxasPorCurso(PPCTData, "DD", String(i));
-}
+const dadosPPCT = [];
 
 const formatandoSemestres = (dados, ano) => {
   dados
@@ -219,8 +79,9 @@ const calculaTaxaEvasaoCurso = (dados, semestre, curso) => {
   ).length;
 
   const taxaEvasao =
+    1 -
     quantidadeDeMatriculasSemestreSeguinte /
-    (quantidadeDeMatriculas.length - quantidadeDeAprovados);
+      (quantidadeDeMatriculas.length - quantidadeDeAprovados);
 
   const taxaAprovados = quantidadeDeAprovados / quantidadeDeMatriculas.length;
 
@@ -264,16 +125,131 @@ for (let i = 2013; i < 2023; i += 1) {
   dadosPPCT.push(calculaTaxaEvasaoCurso(PPCTData, `${String(i)}.2`, "SI"));
 }
 
-const labelsPSemestre = primeiroSemestreArray.map((item) => item.semestre);
+for (let i = 2013; i <= 2023; i += 1) {
+  dadosPPCT.push({
+    curso: "Geral",
+    semestre: `${String(i)}.1`,
+  });
 
-const labelsSSemestre = segundoSemestreArray.map((item) => item.semestre);
+  dadosPPCT.push({
+    curso: "Geral",
+    semestre: `${String(i)}.2`,
+  });
+}
 
-export const labelsPrimeirosSemestreFormatado = [...new Set(labelsPSemestre)];
-export const labelsSegundosSemestreFormatado = [
-  ...new Set(labelsSSemestre),
-].filter((item) => item !== "2023.2");
+dadosPPCT
+  .filter((item) => item.curso === "Geral")
+  .forEach((itemA) => {
+    const semestreSeguinte = ProximoSemestre(itemA.semestre);
 
-export const dadosPrimeirosSemestres = primeiroSemestreArray;
-export const dadosSegundoSemestreFormatado = segundoSemestreArray.filter(
-  (item) => item.semestre !== "2023.2",
-);
+    const qtdDeAprovados = dadosPPCT
+      .filter(
+        (itemB) => itemB.semestre === itemA.semestre && itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let aprovadosItem = acc;
+        aprovadosItem += itemC.qtdDeAprovados;
+        return aprovadosItem;
+      }, 0);
+
+    const quantidadeDeReprovados = dadosPPCT
+      .filter(
+        (itemB) => itemB.semestre === itemA.semestre && itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let quantidadeDeReprovadosItem = acc;
+        quantidadeDeReprovadosItem += itemC.quantidadeDeReprovados;
+        return quantidadeDeReprovadosItem;
+      }, 0);
+
+    const reprovadosFalta = dadosPPCT
+      .filter(
+        (itemB) => itemB.semestre === itemA.semestre && itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let reprovadosFaltaItem = acc;
+        reprovadosFaltaItem += itemC.reprovadosFalta;
+        return reprovadosFaltaItem;
+      }, 0);
+
+    const qtdDeMatriculas = dadosPPCT
+      .filter(
+        (itemB) => itemB.semestre === itemA.semestre && itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let quantidadeMatriculasSemestreItem = acc;
+        quantidadeMatriculasSemestreItem += itemC.qtdDeMatriculas;
+        return quantidadeMatriculasSemestreItem;
+      }, 0);
+
+    const qtdDeMatriculasSemestreSeguinte = dadosPPCT
+      .filter(
+        (itemB) =>
+          itemB.semestre === semestreSeguinte && itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let quantidadeMatriculasSemestreSeguinteItem = acc;
+        quantidadeMatriculasSemestreSeguinteItem += itemC.qtdDeMatriculas;
+        return quantidadeMatriculasSemestreSeguinteItem;
+      }, 0);
+
+    const taxaAprovados = qtdDeAprovados / qtdDeMatriculas;
+    const taxaReprovados = quantidadeDeReprovados / qtdDeMatriculas;
+    const taxaEvasao =
+      1 - qtdDeMatriculasSemestreSeguinte / (qtdDeMatriculas - qtdDeAprovados);
+
+    const quantidadeDeSuprimidos = dadosPPCT
+      .filter(
+        (itemB) => itemB.semestre === itemA.semestre && itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let quantidadeDeSuprimidosItem = acc;
+        quantidadeDeSuprimidosItem += itemC.quantidadeDeSuprimidos;
+        return quantidadeDeSuprimidosItem;
+      }, 0);
+
+    const trancados = dadosPPCT
+      .filter(
+        (itemB) => itemB.semestre === itemA.semestre && itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let trancadosItem = acc;
+        trancadosItem += itemC.trancados;
+        return trancadosItem;
+      }, 0);
+
+    const trancadosTotal = dadosPPCT
+      .filter(
+        (itemB) => itemB.semestre === itemA.semestre && itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let trancadosTotalItem = acc;
+        trancadosTotalItem += itemC.trancadosTotal;
+        return trancadosTotalItem;
+      }, 0);
+
+    const cancelados = dadosPPCT
+      .filter(
+        (itemB) => itemB.semestre === itemA.semestre && itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let canceladosItem = acc;
+        canceladosItem += itemC.cancelados;
+        return canceladosItem;
+      }, 0);
+
+    itemA.qtdDeAprovados = qtdDeAprovados;
+    itemA.quantidadeDeReprovados = quantidadeDeReprovados;
+    itemA.reprovadosFalta = reprovadosFalta;
+    itemA.qtdDeMatriculas = qtdDeMatriculas;
+    itemA.qtdDeMatriculasSemestreSeguinte = qtdDeMatriculasSemestreSeguinte;
+    itemA.quantidadeDeSuprimidos = quantidadeDeSuprimidos;
+    itemA.trancados = trancados;
+    itemA.trancadosTotal = trancadosTotal;
+    itemA.cancelados = cancelados;
+    itemA.taxaAprovados = taxaAprovados;
+    itemA.taxaReprovados = taxaReprovados;
+    itemA.taxaEvasao = taxaEvasao;
+  });
+
+export default dadosPPCT;

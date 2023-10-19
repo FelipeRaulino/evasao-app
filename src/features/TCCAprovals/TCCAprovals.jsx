@@ -4,7 +4,7 @@ import "./TCCAprovals.css";
 
 import Chart from "../../components/Chart/Chart";
 
-import { dadosPPCT } from "../../utils/PPCTDataFormatted";
+import dadosPPCT from "../../utils/PPCTDataFormatted";
 import {
   taxasEvasaoTCCI,
   taxasEvasaoTCCII,
@@ -20,6 +20,14 @@ import {
 const TCCAprovals = () => (
   <div className="content-container">
     <h1>Taxas de Aprovações</h1>
+
+    <Chart
+      options={options.TCCIOptions[3]}
+      data={data.TCCIData[3]}
+      title="Relação: UFC[Quixadá] por semestre - TCC I (Todos os semestres)"
+      additionalData={handleOnFormatAdditionalDataTCC(taxasEvasaoTCCI)}
+      additionalDataTitle="TCC I - Geral"
+    />
 
     <Chart
       options={options.TCCIOptions[0]}
@@ -50,6 +58,15 @@ const TCCAprovals = () => (
     />
 
     <Chart
+      id="TCC-II-UFC-Approvals"
+      options={options.TCCIIOptions[3]}
+      data={data.TCCIIData[3]}
+      title="Relação: UFC[Quixadá] por Semestre - TCC II (Todos os semestres)"
+      additionalData={handleOnFormatAdditionalDataTCC(taxasEvasaoTCCII)}
+      additionalDataTitle="TCC II - Geral"
+    />
+
+    <Chart
       options={options.TCCIIOptions[0]}
       data={data.TCCIIData[0]}
       title="Relação: Curso por Semestre - TCC II (Todos os semestres)"
@@ -76,6 +93,14 @@ const TCCAprovals = () => (
         (item) => item.semestre.includes(".2"),
       )}
       additionalDataTitle="TCC II - 2º Semestres"
+    />
+
+    <Chart
+      options={options.PPCTOptions[3]}
+      data={data.PPCTData[3]}
+      title="Relação: UFC[Quixadá] por semestre - PPCT (Todos os semestres)"
+      additionalData={handleOnFormatAdditionalDataPPCT(dadosPPCT)}
+      additionalDataTitle="PPCT - Geral"
     />
 
     <Chart

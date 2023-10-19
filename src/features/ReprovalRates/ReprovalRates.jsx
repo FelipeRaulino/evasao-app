@@ -2,7 +2,7 @@ import React from "react";
 
 import Chart from "../../components/Chart/Chart";
 
-import { dadosPPCT } from "../../utils/PPCTDataFormatted";
+import dadosPPCT from "../../utils/PPCTDataFormatted";
 import {
   taxasEvasaoTCCI,
   taxasEvasaoTCCII,
@@ -18,6 +18,14 @@ import {
 const ReprovalRates = () => (
   <div className="content-container">
     <h1>Taxas de Reprovações</h1>
+
+    <Chart
+      options={options.TCCIOptions[3]}
+      data={data.TCCIData[3]}
+      title="Relação: UFC[Quixadá] por semestre - TCC I (Geral)"
+      additionalData={handleOnFormatAdditionalDataTCC(taxasEvasaoTCCI)}
+      additionalDataTitle="TCC I - Geral"
+    />
 
     <Chart
       options={options.TCCIOptions[0]}
@@ -45,6 +53,15 @@ const ReprovalRates = () => (
         (item) => item.semestre.includes("2"),
       )}
       additionalDataTitle="TCC I - 2º Semestres"
+    />
+
+    <Chart
+      id="TCC-II-UFC-Reprovals"
+      options={options.TCCIIOptions[3]}
+      data={data.TCCIIData[3]}
+      title="Relação: UFC[Quixadá] por semestre - TCC II (Geral)"
+      additionalData={handleOnFormatAdditionalDataTCC(taxasEvasaoTCCII)}
+      additionalDataTitle="TCC II - Geral"
     />
 
     <Chart
