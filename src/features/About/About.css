@@ -19,6 +19,10 @@
   font-weight: bold;
 }
 
+.section-container h4 {
+  margin: 1rem 0 0rem;
+}
+
 .section-container:last-child {
   margin-bottom: 0px;
 }

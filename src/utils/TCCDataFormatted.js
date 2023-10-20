@@ -35,7 +35,7 @@ export function semestreAnterior(semestre) {
     ano -= 1;
     numeroSemestre = 2;
   } else {
-    numeroSemestre += 1;
+    numeroSemestre -= 1;
   }
 
   return `${ano}.${numeroSemestre}`;
@@ -52,9 +52,21 @@ function calculaTaxaEvasaoCurso(dados, semestre, curso) {
     (item) => item.Período === semestre && item.Curso === curso,
   ).length;
 
+  const quantidadeMatriculasSemestreAnterior = dados.filter(
+    (item) =>
+      item.Período === semestreAnterior(semestre) && item.Curso === curso,
+  ).length;
+
   const quantidadeAprovadosSemestreAtual = dados.filter(
     (item) =>
       item.Período === semestre &&
+      item.Curso === curso &&
+      item.Status === "APROVADO",
+  ).length;
+
+  const quantidadeAprovadosSemestreAnterior = dados.filter(
+    (item) =>
+      item.Período === semestreAnterior(semestre) &&
       item.Curso === curso &&
       item.Status === "APROVADO",
   ).length;
@@ -93,10 +105,18 @@ function calculaTaxaEvasaoCurso(dados, semestre, curso) {
       (quantidadeMatriculasSemestreAtual - quantidadeAprovadosSemestreAtual);
 
   const taxaEvasaoII =
-    (quantidadeSuprimidosSemestreAtual +
+    100 -
+    (quantidadeMatriculasSemestreAtual /
+      (quantidadeMatriculasSemestreAnterior -
+        quantidadeAprovadosSemestreAnterior)) *
+      100;
+
+  const taxaEvasaoIII =
+    ((quantidadeSuprimidosSemestreAtual +
       quantidadeExcluidosSemestreAtual +
       quantidadeTrancadosSemestreAtual) /
-    quantidadeMatriculasSemestreAtual;
+      quantidadeMatriculasSemestreAtual) *
+    100;
 
   const taxaReprovados =
     quantidadeReprovadosSemestreAtual / quantidadeMatriculasSemestreAtual;
@@ -108,13 +128,16 @@ function calculaTaxaEvasaoCurso(dados, semestre, curso) {
     curso,
     taxaEvasao,
     taxaEvasaoII,
+    taxaEvasaoIII,
     taxaReprovados,
     taxaAprovados,
     semestreAtual: semestre,
     semestreSeguinte,
     quantidadeMatriculasSemestreAtual,
     quantidadeMatriculasSemestreSeguinte,
+    quantidadeMatriculasSemestreAnterior,
     aprovados: quantidadeAprovadosSemestreAtual,
+    aprovadosSemestreAnterior: quantidadeAprovadosSemestreAnterior,
     reprovados: quantidadeReprovadosSemestreAtual,
     suprimidos: quantidadeSuprimidosSemestreAtual,
     excluidos: quantidadeExcluidosSemestreAtual,
@@ -195,6 +218,18 @@ taxasEvasaoTCCI
         return aprovadosItem;
       }, 0);
 
+    const aprovadosSemestreAnterior = taxasEvasaoTCCI
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === semestreAnterior(itemA.semestreAtual) &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let aprovadosItem = acc;
+        aprovadosItem += itemC.aprovados;
+        return aprovadosItem;
+      }, 0);
+
     const reprovados = taxasEvasaoTCCI
       .filter(
         (itemB) =>
@@ -220,6 +255,19 @@ taxasEvasaoTCCI
         return quantidadeMatriculasSemestreAtualItem;
       }, 0);
 
+    const quantidadeMatriculasAnterior = taxasEvasaoTCCI
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === semestreAnterior(itemA.semestreAtual) &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let quantidadeMatriculasAnteriorItem = acc;
+        quantidadeMatriculasAnteriorItem +=
+          itemC.quantidadeMatriculasSemestreAtual;
+        return quantidadeMatriculasAnteriorItem;
+      }, 0);
+
     const quantidadeMatriculasSemestreSeguinte = taxasEvasaoTCCI
       .filter(
         (itemB) =>
@@ -231,13 +279,6 @@ taxasEvasaoTCCI
           itemC.quantidadeMatriculasSemestreAtual;
         return quantidadeMatriculasSemestreSeguinteItem;
       }, 0);
-
-    const taxaAprovados = aprovados / quantidadeMatriculasSemestreAtual;
-    const taxaReprovados = reprovados / quantidadeMatriculasSemestreAtual;
-    const taxaEvasao =
-      1 -
-      quantidadeMatriculasSemestreSeguinte /
-        (quantidadeMatriculasSemestreAtual - aprovados);
 
     const suprimidos = taxasEvasaoTCCI
       .filter(
@@ -271,21 +312,44 @@ taxasEvasaoTCCI
       )
       .reduce((acc, itemC) => {
         let trancadosItem = acc;
-        trancadosItem += itemC.suprimidos;
+        trancadosItem += itemC.trancados;
         return trancadosItem;
       }, 0);
 
+    const taxaAprovados = aprovados / quantidadeMatriculasSemestreAtual;
+    const taxaReprovados = reprovados / quantidadeMatriculasSemestreAtual;
+    const taxaEvasao =
+      1 -
+      quantidadeMatriculasSemestreSeguinte /
+        (quantidadeMatriculasSemestreAtual - aprovados);
+
+    const taxaEvasaoII =
+      100 -
+      (quantidadeMatriculasSemestreAtual /
+        (quantidadeMatriculasAnterior - aprovadosSemestreAnterior)) *
+        100;
+
+    const taxaEvasaoIII =
+      ((suprimidos + excluidos + trancados) /
+        quantidadeMatriculasSemestreAtual) *
+      100;
+
     itemA.aprovados = aprovados;
+    itemA.aprovadosSemestreAnterior = aprovadosSemestreAnterior;
     itemA.reprovados = reprovados;
     itemA.quantidadeMatriculasSemestreAtual = quantidadeMatriculasSemestreAtual;
     itemA.quantidadeMatriculasSemestreSeguinte =
       quantidadeMatriculasSemestreSeguinte;
+    itemA.quantidadeMatriculasAnterior = quantidadeMatriculasAnterior;
     itemA.suprimidos = suprimidos;
     itemA.excluidos = excluidos;
     itemA.trancados = trancados;
     itemA.taxaAprovados = taxaAprovados;
     itemA.taxaReprovados = taxaReprovados;
     itemA.taxaEvasao = taxaEvasao;
+    itemA.taxaEvasaoII = taxaEvasaoII;
+    itemA.taxaEvasaoIII = taxaEvasaoIII;
+    itemA.semestreAnterior = semestreAnterior(itemA.semestreAtual);
   });
 
 taxasEvasaoTCCII
@@ -297,6 +361,18 @@ taxasEvasaoTCCII
       .filter(
         (itemB) =>
           itemB.semestreAtual === itemA.semestreAtual &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let aprovadosItem = acc;
+        aprovadosItem += itemC.aprovados;
+        return aprovadosItem;
+      }, 0);
+
+    const aprovadosSemestreAnterior = taxasEvasaoTCCII
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === semestreAnterior(itemA.semestreAtual) &&
           itemB.curso !== "Geral",
       )
       .reduce((acc, itemC) => {
@@ -342,12 +418,30 @@ taxasEvasaoTCCII
         return quantidadeMatriculasSemestreSeguinteItem;
       }, 0);
 
+    const quantidadeMatriculasAnterior = taxasEvasaoTCCII
+      .filter(
+        (itemB) =>
+          itemB.semestreAtual === semestreAnterior(itemA.semestreAtual) &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let quantidadeMatriculasAnteriorItem = acc;
+        quantidadeMatriculasAnteriorItem +=
+          itemC.quantidadeMatriculasSemestreAtual;
+        return quantidadeMatriculasAnteriorItem;
+      }, 0);
+
     const taxaAprovados = aprovados / quantidadeMatriculasSemestreAtual;
     const taxaReprovados = reprovados / quantidadeMatriculasSemestreAtual;
     const taxaEvasao =
+      1 -
+      quantidadeMatriculasSemestreSeguinte /
+        (quantidadeMatriculasSemestreAtual - aprovados);
+
+    const taxaEvasaoII =
       100 -
-      (quantidadeMatriculasSemestreSeguinte /
-        (quantidadeMatriculasSemestreAtual - aprovados)) *
+      (quantidadeMatriculasSemestreAtual /
+        (quantidadeMatriculasAnterior - aprovadosSemestreAnterior)) *
         100;
 
     const suprimidos = taxasEvasaoTCCII
@@ -387,14 +481,17 @@ taxasEvasaoTCCII
       }, 0);
 
     itemA.aprovados = aprovados;
+    itemA.aprovadosSemestreAnterior = aprovadosSemestreAnterior;
     itemA.reprovados = reprovados;
     itemA.quantidadeMatriculasSemestreAtual = quantidadeMatriculasSemestreAtual;
     itemA.quantidadeMatriculasSemestreSeguinte =
       quantidadeMatriculasSemestreSeguinte;
+    itemA.quantidadeMatriculasAnterior = quantidadeMatriculasAnterior;
     itemA.suprimidos = suprimidos;
     itemA.excluidos = excluidos;
     itemA.trancados = trancados;
     itemA.taxaAprovados = taxaAprovados;
     itemA.taxaReprovados = taxaReprovados;
     itemA.taxaEvasao = taxaEvasao;
+    itemA.taxaEvasaoII = taxaEvasaoII;
   });

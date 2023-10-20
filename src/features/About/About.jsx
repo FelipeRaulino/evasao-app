@@ -1,6 +1,9 @@
 import React from "react";
 
 import formulaTaxaEvasaoI from "../../assets/taxa_evasao_I.svg";
+import formulaTaxaEvasaoII from "../../assets/taxa-evasao-II.svg";
+import formulaTaxaEvasaoIII from "../../assets/taxa-evasao-III.svg";
+import formulaTaxaEvasaoPPCTIII from "../../assets/taxa-evasao-ppct-III.svg";
 import formulaTaxaAprovados from "../../assets/taxa-aprovados.svg";
 import formulaTaxaReprovados from "../../assets/taxa-reprovados.svg";
 
@@ -66,7 +69,7 @@ const About = () => (
         </p>
         <div className="section-formula-description">
           <p>
-            Ei<sub>n</sub> = Percentual de evasão, no período de tempo n
+            E<sub>n</sub> = Percentual de evasão, no período de tempo n
           </p>
           <p>
             M<sub>n</sub> = Quantidade de matriculados no período de tempo n
@@ -95,6 +98,119 @@ const About = () => (
             cálculo mensura a evasão imediata da instituição (percentual de não
             &quot;rematrícula&quot;).
           </p>
+        </div>
+      </div>
+
+      <div className="section-container">
+        <h3 className="section-title">Taxa de Evasão II</h3>
+        <p>
+          Essa taxa busca sintetizar o percentual estimado de alunos que iniciam
+          alguma atividade (No contexto da aplicação seria a elaboração/execução
+          do Trabalho de Conclusão de Curso (TCC) ou a iniciação da disciplina
+          de Projeto de Pesquisa Científica e Tecnológica (PPCT)) e, por algum
+          motivo, não a conclui com sucesso, abandonando-a, deixando-a de
+          apresentar ou entregar uma versão final. A evasão semestral pode ser
+          definida como:
+        </p>
+        <div className="section-formula-description">
+          <p>
+            E<sub>n</sub> = Percentual de evasão, no período de tempo n
+          </p>
+          <p>
+            M<sub>n</sub> = Quantidade de matriculados no período de tempo n
+          </p>
+          <p>
+            M<sub>n-1</sub> = Quantidade de matriculados no período de tempo
+            imediatamente anterior a n
+          </p>
+          <p>
+            A<sub>n-1</sub> = Quantidade de aprovados no período de tempo
+            imediatamente anterior a n
+          </p>
+        </div>
+        <div className="section-formula-img">
+          <img src={formulaTaxaEvasaoII} alt="Fórmula de taxa de evasão II" />
+        </div>
+        <div className="section-additional-info">
+          <h4>Como interpretar essa taxa ?</h4>
+          <p>
+            O resultado obtido através do cálculo dessa taxa reflete o
+            <strong> percentual de discentes</strong>, no período de tempo n
+            (desconsiderando os ingressantes no mesmo período, uma vez que não
+            há essa possibilidade), que <strong>estava </strong>
+            matriculado no período de tempo imediatamente anterior e não
+            realizou sua matrícula no período n. Esse tipo de cálculo mensura a
+            evasão imediata (percentual de não &quot;rematrícula&quot;).
+          </p>
+        </div>
+      </div>
+
+      <div className="section-container">
+        <h3 className="section-title">Taxa de Evasão III</h3>
+        <p>
+          Essa taxa busca sintetizar o percentual estimado de alunos que iniciam
+          alguma atividade (No contexto da aplicação seria a elaboração/execução
+          do Trabalho de Conclusão de Curso (TCC) ou a iniciação da disciplina
+          de Projeto de Pesquisa Científica e Tecnológica (PPCT)) e, por algum
+          motivo, não a conclui com sucesso, abandonando-a, deixando-a de
+          apresentar ou entregar uma versão final. No contexto do trabalho, a
+          fórmula para calcular essa evasão semestral possui parâmetros
+          individualizados para TCC e PPCT:
+        </p>
+        <h4>TCC</h4>
+        <div className="section-formula-description">
+          <p>
+            E<sub>n</sub> = Percentual de evasão, no período de tempo n
+          </p>
+          <p>
+            S<sub>n</sub> = Quantidade de matrículas suprimidas no período de
+            tempo n
+          </p>
+          <p>
+            E<sub>n</sub> = Quantidade de matrículas excluídas no período de
+            tempo n
+          </p>
+          <p>
+            T<sub>n</sub> = Quantidade de matrículas trancadas no período de
+            tempo n
+          </p>
+          <p>
+            M<sub>n</sub> = Quantidade de matrículados no período de tempo n
+          </p>
+        </div>
+        <div className="section-formula-img">
+          <img
+            src={formulaTaxaEvasaoIII}
+            alt="Fórmula de taxa de evasão III de TCC"
+          />
+        </div>
+
+        <h4>PPCT</h4>
+        <div className="section-formula-description">
+          <p>
+            E<sub>n</sub> = Percentual de evasão, no período de tempo n
+          </p>
+          <p>
+            S<sub>n</sub> = Quantidade de matrículas suprimidas no período de
+            tempo n
+          </p>
+          <p>
+            RF<sub>n</sub> = Quantidade de matrículas reprovadas por falta no
+            período de tempo n
+          </p>
+          <p>
+            T<sub>n</sub> = Quantidade de matrículas trancadas parcial e
+            totalmente no período de tempo n
+          </p>
+          <p>
+            M<sub>n</sub> = Quantidade de matrículados no período de tempo n
+          </p>
+        </div>
+        <div className="section-formula-img">
+          <img
+            src={formulaTaxaEvasaoPPCTIII}
+            alt="Fórmula de taxa de evasão III de PPCT "
+          />
         </div>
       </div>
 

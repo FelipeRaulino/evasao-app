@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { ProximoSemestre } from "./TCCDataFormatted";
+import { ProximoSemestre, semestreAnterior } from "./TCCDataFormatted";
 
 const PPCTData = require("../api/PPCT.json");
 
@@ -28,6 +28,13 @@ const calculaTaxaEvasaoCurso = (dados, semestre, curso) => {
   const quantidadeDeAprovados = quantidadeDeMatriculas.filter(
     (item) =>
       item.semestre === semestre &&
+      item.Curso === curso &&
+      item.Situação === "APROVADO",
+  ).length;
+
+  const aprovadosSemestreAnterior = quantidadeDeMatriculas.filter(
+    (item) =>
+      item.semestre === semestreAnterior(semestre) &&
       item.Curso === curso &&
       item.Situação === "APROVADO",
   ).length;
@@ -78,10 +85,26 @@ const calculaTaxaEvasaoCurso = (dados, semestre, curso) => {
     (item) => item.semestre === semestreSeguinte && item.Curso === curso,
   ).length;
 
+  const quantidadeMatriculasAnterior = dados.filter(
+    (item) =>
+      item.semestre === semestreAnterior(semestre) && item.Curso === curso,
+  ).length;
+
   const taxaEvasao =
     1 -
     quantidadeDeMatriculasSemestreSeguinte /
       (quantidadeDeMatriculas.length - quantidadeDeAprovados);
+
+  const taxaEvasaoII =
+    100 -
+    (quantidadeDeMatriculas.length /
+      (quantidadeMatriculasAnterior - aprovadosSemestreAnterior)) *
+      100;
+
+  const taxaEvasaoIII =
+    ((quantidadeDeSuprimidos + reprovadosFalta + trancados + trancadosTotal) /
+      quantidadeDeMatriculas.length) *
+    100;
 
   const taxaAprovados = quantidadeDeAprovados / quantidadeDeMatriculas.length;
 
@@ -92,8 +115,12 @@ const calculaTaxaEvasaoCurso = (dados, semestre, curso) => {
     curso,
     semestre,
     taxaEvasao,
+    taxaEvasaoII,
+    taxaEvasaoIII,
     qtdDeMatriculas: quantidadeDeMatriculas.length,
+    quantidadeMatriculasAnterior,
     qtdDeAprovados: quantidadeDeAprovados,
+    aprovadosSemestreAnterior,
     quantidadeDeReprovados,
     quantidadeDeSuprimidos,
     reprovadosFalta,
@@ -152,6 +179,18 @@ dadosPPCT
         return aprovadosItem;
       }, 0);
 
+    const aprovadosSemestreAnterior = dadosPPCT
+      .filter(
+        (itemB) =>
+          itemB.semestre === semestreAnterior(itemA.semestre) &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let aprovadosItem = acc;
+        aprovadosItem += itemC.qtdDeAprovados;
+        return aprovadosItem;
+      }, 0);
+
     const quantidadeDeReprovados = dadosPPCT
       .filter(
         (itemB) => itemB.semestre === itemA.semestre && itemB.curso !== "Geral",
@@ -182,6 +221,18 @@ dadosPPCT
         return quantidadeMatriculasSemestreItem;
       }, 0);
 
+    const quantidadeMatriculasAnterior = dadosPPCT
+      .filter(
+        (itemB) =>
+          itemB.semestre === semestreAnterior(itemA.semestre) &&
+          itemB.curso !== "Geral",
+      )
+      .reduce((acc, itemC) => {
+        let quantidadeMatriculasAnteriorItem = acc;
+        quantidadeMatriculasAnteriorItem += itemC.qtdDeMatriculas;
+        return quantidadeMatriculasAnteriorItem;
+      }, 0);
+
     const qtdDeMatriculasSemestreSeguinte = dadosPPCT
       .filter(
         (itemB) =>
@@ -192,11 +243,6 @@ dadosPPCT
         quantidadeMatriculasSemestreSeguinteItem += itemC.qtdDeMatriculas;
         return quantidadeMatriculasSemestreSeguinteItem;
       }, 0);
-
-    const taxaAprovados = qtdDeAprovados / qtdDeMatriculas;
-    const taxaReprovados = quantidadeDeReprovados / qtdDeMatriculas;
-    const taxaEvasao =
-      1 - qtdDeMatriculasSemestreSeguinte / (qtdDeMatriculas - qtdDeAprovados);
 
     const quantidadeDeSuprimidos = dadosPPCT
       .filter(
@@ -238,10 +284,28 @@ dadosPPCT
         return canceladosItem;
       }, 0);
 
+    const taxaAprovados = qtdDeAprovados / qtdDeMatriculas;
+    const taxaReprovados = quantidadeDeReprovados / qtdDeMatriculas;
+    const taxaEvasao =
+      1 - qtdDeMatriculasSemestreSeguinte / (qtdDeMatriculas - qtdDeAprovados);
+
+    const taxaEvasaoII =
+      100 -
+      (qtdDeMatriculas /
+        (quantidadeMatriculasAnterior - aprovadosSemestreAnterior)) *
+        100;
+
+    const taxaEvasaoIII =
+      ((quantidadeDeSuprimidos + reprovadosFalta + trancados + trancadosTotal) /
+        qtdDeMatriculas) *
+      100;
+
     itemA.qtdDeAprovados = qtdDeAprovados;
+    itemA.aprovadosSemestreAnterior = aprovadosSemestreAnterior;
     itemA.quantidadeDeReprovados = quantidadeDeReprovados;
     itemA.reprovadosFalta = reprovadosFalta;
     itemA.qtdDeMatriculas = qtdDeMatriculas;
+    itemA.quantidadeMatriculasAnterior = quantidadeMatriculasAnterior;
     itemA.qtdDeMatriculasSemestreSeguinte = qtdDeMatriculasSemestreSeguinte;
     itemA.quantidadeDeSuprimidos = quantidadeDeSuprimidos;
     itemA.trancados = trancados;
@@ -250,6 +314,8 @@ dadosPPCT
     itemA.taxaAprovados = taxaAprovados;
     itemA.taxaReprovados = taxaReprovados;
     itemA.taxaEvasao = taxaEvasao;
+    itemA.taxaEvasaoII = taxaEvasaoII;
+    itemA.taxaEvasaoIII = taxaEvasaoIII;
   });
 
 export default dadosPPCT;

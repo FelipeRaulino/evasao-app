@@ -6,8 +6,9 @@ import {
   AiFillInfoCircle,
   AiOutlineAreaChart,
 } from "react-icons/ai";
-import { BsFillCheckCircleFill } from "react-icons/bs";
+import { BsFillCheckCircleFill, BsFillBarChartFill } from "react-icons/bs";
 import { RiMenu2Line } from "react-icons/ri";
+import { TiChartLine } from "react-icons/ti";
 
 import "./Sidebar.css";
 
@@ -28,6 +29,18 @@ const sideBarLinkItems = [
     name: "Taxas de Evasão",
     path: "/taxasEvasao",
     icon: AiOutlineAreaChart,
+  },
+  {
+    id: "taxasEvasaoII",
+    name: "Taxas de Evasão II",
+    path: "/taxasEvasaoII",
+    icon: BsFillBarChartFill,
+  },
+  {
+    id: "taxasEvasaoIII",
+    name: "Taxas de Evasão III",
+    path: "/taxasEvasaoIII",
+    icon: TiChartLine,
   },
   {
     id: "taxasAprovacoes",

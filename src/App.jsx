@@ -10,6 +10,8 @@ import DropoutRates from "./features/DropoutRates/DropoutRates";
 import TCCAprovals from "./features/TCCAprovals/TCCAprovals";
 import About from "./features/About/About";
 import ReprovalRates from "./features/ReprovalRates/ReprovalRates";
+import DropoutRatesII from "./features/DropoutRatesII/DropoutRatesII";
+import DropoutRatesIII from "./features/DropoutRatesIII/DropoutRatesIII";
 
 const App = () => (
   <div className="app">
@@ -18,6 +20,8 @@ const App = () => (
         <Route element={<MainLayout />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/taxasEvasao" element={<DropoutRates />} />
+          <Route path="/taxasEvasaoII" element={<DropoutRatesII />} />
+          <Route path="/taxasEvasaoIII" element={<DropoutRatesIII />} />
           <Route path="/taxasAprovacoes" element={<TCCAprovals />} />
           <Route path="/taxasReprovacoes" element={<ReprovalRates />} />
           <Route path="/sobre" element={<About />} />
