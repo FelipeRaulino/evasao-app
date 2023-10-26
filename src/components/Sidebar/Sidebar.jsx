@@ -14,8 +14,8 @@ import "./Sidebar.css";
 
 import logoUFC from "../../assets/logo-ufc.png";
 
-import SidebarLinkItem from "./components/SidebarLinkItem/SidebarLinkItem";
-import SidebarMobileExpanded from "./components/SidebarMobileExpanded/SidebarMobileExpanded";
+import SidebarLinkItem from "./SidebarLinkItem/SidebarLinkItem";
+import SidebarMobileExpanded from "./SidebarMobileExpanded/SidebarMobileExpanded";
 
 const sideBarLinkItems = [
   {

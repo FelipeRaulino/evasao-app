@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
-import plusIcon from "../../../../../../../../../../assets/plus (1).png";
+import plusIcon from "../../../../../../assets/plus (1).png";
 
 import "./CursoMenuAccordion.css";
 

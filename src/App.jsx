@@ -4,14 +4,14 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 
-import MainLayout from "./features/MainLayout/MainLayout";
-import Dashboard from "./features/Dashboard/Dashboard";
-import DropoutRates from "./features/DropoutRates/DropoutRates";
-import TCCAprovals from "./features/TCCAprovals/TCCAprovals";
-import About from "./features/About/About";
-import ReprovalRates from "./features/ReprovalRates/ReprovalRates";
-import DropoutRatesII from "./features/DropoutRatesII/DropoutRatesII";
-import DropoutRatesIII from "./features/DropoutRatesIII/DropoutRatesIII";
+import MainLayout from "./pages/MainLayout/MainLayout";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import DropoutRates from "./pages/DropoutRates/DropoutRates";
+import TCCAprovals from "./pages/ApprovalRates/ApprovalRates";
+import About from "./pages/About/About";
+import ReprovalRates from "./pages/ReprovalRates/ReprovalRates";
+import DropoutRatesII from "./pages/DropoutRatesII/DropoutRatesII";
+import DropoutRatesIII from "./pages/DropoutRatesIII/DropoutRatesIII";
 
 const App = () => (
   <div className="app">

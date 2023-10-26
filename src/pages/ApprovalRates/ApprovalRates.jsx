@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./TCCAprovals.css";
+import "./ApprovalRates.css";
 
 import Chart from "../../components/Chart/Chart";
 

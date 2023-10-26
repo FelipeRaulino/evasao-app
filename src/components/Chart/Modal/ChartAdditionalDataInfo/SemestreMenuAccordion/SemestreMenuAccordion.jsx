@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
-import plusIcon from "../../../../../../../../assets/plus (1).png";
+import plusIcon from "../../../../../assets/plus (1).png";
 
 import "./SemestreMenuAccordion.css";
-import CursoMenuAccordion from "./components/CursoMenuAccordion/CursoMenuAccordion";
+import CursoMenuAccordion from "./CursoMenuAccordion/CursoMenuAccordion";
 
 const SemestreMenuAccordion = ({ semestreData, expand, onExpand }) => {
   const [expandedItem, setExpandedItem] = React.useState(null);

@@ -28,9 +28,9 @@ import barChartIcon from "../../assets/bar-chart (1).png";
 import downloadIcon from "../../assets/downloads.png";
 
 import "./Chart.css";
-import Modal from "./components/Modal/Modal";
-import ChartInfo from "./components/Modal/components/ChartInfo/ChartInfo";
-import ChartAdditionalDataInfo from "./components/Modal/components/ChartAdditionalDataInfo/ChartAdditionalDataInfo";
+import Modal from "./Modal/Modal";
+import ChartInfo from "./Modal/ChartInfo/ChartInfo";
+import ChartAdditionalDataInfo from "./Modal/ChartAdditionalDataInfo/ChartAdditionalDataInfo";
 
 ChartJS.register(
   CategoryScale,

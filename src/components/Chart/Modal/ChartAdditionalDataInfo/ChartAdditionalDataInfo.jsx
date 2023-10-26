@@ -2,7 +2,7 @@
 import React from "react";
 
 import "./ChartAdditionalDataInfo.css";
-import SemestreMenuAccordion from "./components/SemestreMenuAccordion/SemestreMenuAccordion";
+import SemestreMenuAccordion from "./SemestreMenuAccordion/SemestreMenuAccordion";
 
 /* const dataMock = [
   {

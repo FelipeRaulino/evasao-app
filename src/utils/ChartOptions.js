@@ -8718,6 +8718,7 @@ export const dropoutRatesData = {
             }),
           borderColor: "red",
           backgroundColor: "red",
+          pointRadius: 3,
         },
         {
           label: windowWidth >= 700 ? "Ciência da Computação" : "CC",
