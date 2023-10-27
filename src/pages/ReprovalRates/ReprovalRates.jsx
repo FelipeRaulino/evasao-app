@@ -93,6 +93,14 @@ const ReprovalRates = () => (
     />
 
     <Chart
+      options={options.PPCTOptions[3]}
+      data={data.PPCTData[3]}
+      title="Relação: UFC[Quixadá] por semestre - PPCT (Geral)"
+      additionalData={handleOnFormatAdditionalDataPPCT(dadosPPCT)}
+      additionalDataTitle="PPCT - Geral"
+    />
+
+    <Chart
       options={options.PPCTOptions[0]}
       data={data.PPCTData[0]}
       title="Relação: Cursos por semestre - PPCT (Geral)"

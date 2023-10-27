@@ -151,7 +151,7 @@ function calculaTaxaEvasaoCurso(dados, semestre, curso) {
   return dadosFormatado;
 }
 
-for (let i = 2012; i <= 2022; i += 1) {
+for (let i = 2012; i <= 2023; i += 1) {
   calculaTaxaEvasaoCurso(TCC_I, String(`${i}.1`), "Ciência da Computação");
   calculaTaxaEvasaoCurso(TCC_I, String(`${i}.2`), "Ciência da Computação");
   calculaTaxaEvasaoCurso(TCC_I, String(`${i}.1`), "Engenharia de Software");
@@ -179,7 +179,7 @@ for (let i = 2012; i <= 2022; i += 1) {
   calculaTaxaEvasaoCurso(TCC_II, String(`${i}.2`), "Design Digital");
 }
 
-for (let i = 2012; i <= 2022; i += 1) {
+for (let i = 2012; i <= 2023; i += 1) {
   taxasEvasaoTCCI.push({
     curso: "Geral",
     semestreAtual: `${String(i)}.1`,

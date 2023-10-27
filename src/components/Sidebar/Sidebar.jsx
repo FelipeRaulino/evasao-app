@@ -26,7 +26,7 @@ const sideBarLinkItems = [
   },
   {
     id: "taxasEvasao",
-    name: "Taxas de Evasão",
+    name: "Taxas de Evasão I",
     path: "/taxasEvasao",
     icon: AiOutlineAreaChart,
   },

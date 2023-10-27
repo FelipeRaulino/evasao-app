@@ -16,7 +16,7 @@ import {
 
 const DropoutRates = () => (
   <div className="content-container">
-    <h1>Taxas de Evasão</h1>
+    <h1>Taxas de Evasão I</h1>
 
     <Chart
       data={data.TCCIData[3]}

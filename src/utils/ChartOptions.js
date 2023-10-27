@@ -378,6 +378,130 @@ export const reprovalRatesOptions = {
         },
       },
     },
+    {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+          labels: {
+            boxWidth: 10,
+            boxHeight: 10,
+          },
+        },
+        title: {
+          display: true,
+          text: "Taxas de reprovações da disciplina de PPCT",
+        },
+        subtitle: {
+          display: true,
+          position: "top",
+          text: "Todos os semestres",
+        },
+        tooltip: {
+          callbacks: {
+            label: (context) => {
+              let label = context.dataset.label || "";
+
+              if (label) {
+                label += ": ";
+              }
+
+              if (context.parsed.y !== null) {
+                label += `${context.parsed.y.toFixed(1)}%`;
+              }
+
+              return label;
+            },
+            afterBody: (context) => {
+              if (context.length === 1) {
+                const semestre = context[0].label;
+                let curso = context[0].dataset.label;
+
+                switch (curso) {
+                  case "Engenharia de Software":
+                    curso = "ES";
+                    break;
+                  case "Engenharia de Computação":
+                    curso = "EC";
+                    break;
+                  case "Redes de Computadores":
+                    curso = "RC";
+                    break;
+                  case "Ciência da Computação":
+                    curso = "CC";
+                    break;
+                  case "Design Digital":
+                    curso = "DD";
+                    break;
+                  case "Sistemas de Informação":
+                    curso = "SI";
+                    break;
+                  default:
+                    break;
+                }
+
+                const data = dadosPPCT.filter(
+                  (item) => item.semestre === semestre && item.curso === curso,
+                );
+
+                return `\t\t\t\tQuantidade de Matrículas: ${
+                  data[0].qtdDeMatriculas
+                }\n\t\t\t\tReprovados: ${
+                  data[0].quantidadeDeReprovados + data[0].reprovadosFalta
+                }`;
+              }
+
+              let labelFormatted = "";
+
+              context.forEach((item) => {
+                const semestreItem = item.label;
+                let cursoItem = item.dataset.label;
+
+                switch (cursoItem) {
+                  case "Engenharia de Software":
+                    cursoItem = "ES";
+                    break;
+                  case "Engenharia de Computação":
+                    cursoItem = "EC";
+                    break;
+                  case "Redes de Computadores":
+                    cursoItem = "RC";
+                    break;
+                  case "Ciência da Computação":
+                    cursoItem = "CC";
+                    break;
+                  case "Design Digital":
+                    cursoItem = "DD";
+                    break;
+                  case "Sistemas de Informação":
+                    cursoItem = "SI";
+                    break;
+                  default:
+                    break;
+                }
+
+                const dataItem = dadosPPCT.filter(
+                  (itemB) =>
+                    itemB.semestre === semestreItem &&
+                    itemB.curso === cursoItem,
+                );
+
+                labelFormatted += `\n\tQuantidade de Matrículas (${
+                  dataItem[0].curso
+                }): ${dataItem[0].qtdDeMatriculas}\n\tReprovados (${
+                  dataItem[0].curso
+                }): ${
+                  dataItem[0].quantidadeDeReprovados +
+                  dataItem[0].reprovadosFalta
+                }`;
+              });
+
+              return labelFormatted;
+            },
+          },
+        },
+      },
+    },
   ],
   TCCIOptions: [
     {
@@ -1008,6 +1132,74 @@ export const reprovalRatesOptions = {
           display: true,
           position: "top",
           text: "2º Semestres",
+        },
+        tooltip: {
+          callbacks: {
+            label: (context) => {
+              let label = context.dataset.label || "";
+
+              if (label) {
+                label += ": ";
+              }
+
+              if (context.parsed.y !== null) {
+                label += `${context.parsed.y.toFixed(1)}%`;
+              }
+
+              return label;
+            },
+            afterBody: (context) => {
+              if (context.length === 1) {
+                const semestre = context[0].label;
+                const curso = context[0].dataset.label;
+
+                const data = taxasEvasaoTCCII.filter(
+                  (item) =>
+                    item.semestreAtual === semestre && item.curso === curso,
+                );
+
+                return `\t\t\t\tQuantidade de Matrículas: ${data[0].quantidadeMatriculasSemestreAtual}\n\t\t\t\tReprovados: ${data[0].reprovados}`;
+              }
+
+              let labelFormatted = "";
+
+              context.forEach((item) => {
+                const semestreItem = item.label;
+                const cursoItem = item.dataset.label;
+
+                const dataItem = taxasEvasaoTCCII.filter(
+                  (itemB) =>
+                    itemB.semestreAtual === semestreItem &&
+                    itemB.curso === cursoItem,
+                );
+
+                labelFormatted += `\n\tQuantidade de Matrículas (${dataItem[0].curso}): ${dataItem[0].quantidadeMatriculasSemestreAtual}\n\tReprovados (${dataItem[0].curso}): ${dataItem[0].reprovados}`;
+              });
+
+              return labelFormatted;
+            },
+          },
+        },
+      },
+    },
+    {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+          labels: {
+            boxWidth: 10,
+            boxHeight: 10,
+          },
+        },
+        title: {
+          display: true,
+          text: "Taxas de reprovações da atividade de TCC II",
+        },
+        subtitle: {
+          display: true,
+          position: "top",
+          text: "Todos os semestres",
         },
         tooltip: {
           callbacks: {
@@ -7005,7 +7197,7 @@ export const reprovalRatesData = {
   PPCTData: [
     {
       labels: dadosPPCT
-        .filter((item) => item.curso === "CC")
+        .filter((item) => item.curso === "CC" && item.semestre !== "2023.2")
         .map((item) => item.semestre),
       datasets: [
         {
@@ -7163,7 +7355,12 @@ export const reprovalRatesData = {
     },
     {
       labels: dadosPPCT
-        .filter((item) => item.semestre.includes(".2") && item.curso === "CC")
+        .filter(
+          (item) =>
+            item.semestre.includes(".2") &&
+            item.curso === "CC" &&
+            item.semestre !== "2023.2",
+        )
         .map((item) => item.semestre),
       datasets: [
         {
@@ -7246,11 +7443,33 @@ export const reprovalRatesData = {
         },
       ],
     },
+    {
+      labels: dadosPPCT
+        .filter((item) => item.curso === "Geral" && item.semestre !== "2023.2")
+        .map((item) => item.semestre),
+      datasets: [
+        {
+          label: "Geral",
+          data: dadosPPCT
+            .filter((item) => item.curso === "Geral")
+            .map((item) => {
+              if (Number.isNaN(item.taxaReprovados)) return 0;
+              return item.taxaReprovados * 100;
+            }),
+          borderColor: "#000123",
+          backgroundColor: "#000123",
+        },
+      ],
+    },
   ],
   TCCIData: [
     {
       labels: taxasEvasaoTCCI
-        .filter((item) => item.curso === "Engenharia de Software")
+        .filter(
+          (item) =>
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {
@@ -7427,7 +7646,8 @@ export const reprovalRatesData = {
         .filter(
           (item) =>
             item.semestreAtual.includes(".2") &&
-            item.curso === "Engenharia de Software",
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
         )
         .map((item) => item.semestreAtual),
       datasets: [
@@ -7525,7 +7745,9 @@ export const reprovalRatesData = {
     },
     {
       labels: taxasEvasaoTCCI
-        .filter((item) => item.curso === "Geral")
+        .filter(
+          (item) => item.curso === "Geral" && item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {
@@ -7547,8 +7769,8 @@ export const reprovalRatesData = {
       labels: taxasEvasaoTCCII
         .filter(
           (item) =>
-            item.semestreAtual.includes(".1") &&
-            item.curso === "Engenharia de Software",
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
         )
         .map((item) => item.semestreAtual),
       datasets: [
@@ -7726,7 +7948,8 @@ export const reprovalRatesData = {
         .filter(
           (item) =>
             item.semestreAtual.includes(".2") &&
-            item.curso === "Engenharia de Software",
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
         )
         .map((item) => item.semestreAtual),
       datasets: [
@@ -7824,7 +8047,9 @@ export const reprovalRatesData = {
     },
     {
       labels: taxasEvasaoTCCII
-        .filter((item) => item.curso === "Geral")
+        .filter(
+          (item) => item.curso === "Geral" && item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {
@@ -7847,7 +8072,7 @@ export const approvalRatesData = {
   PPCTData: [
     {
       labels: dadosPPCT
-        .filter((item) => item.curso === "CC")
+        .filter((item) => item.curso === "CC" && item.semestre !== "2023.2")
         .map((item) => item.semestre),
       datasets: [
         {
@@ -8005,7 +8230,12 @@ export const approvalRatesData = {
     },
     {
       labels: dadosPPCT
-        .filter((item) => item.semestre.includes(".2") && item.curso === "CC")
+        .filter(
+          (item) =>
+            item.semestre.includes(".2") &&
+            item.curso === "CC" &&
+            item.semestre !== "2023.2",
+        )
         .map((item) => item.semestre),
       datasets: [
         {
@@ -8090,7 +8320,7 @@ export const approvalRatesData = {
     },
     {
       labels: dadosPPCT
-        .filter((item) => item.curso === "Geral")
+        .filter((item) => item.curso === "Geral" && item.semestre !== "2023.2")
         .map((item) => item.semestre),
       datasets: [
         {
@@ -8110,7 +8340,11 @@ export const approvalRatesData = {
   TCCIData: [
     {
       labels: taxasEvasaoTCCI
-        .filter((item) => item.curso === "Engenharia de Software")
+        .filter(
+          (item) =>
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {
@@ -8287,7 +8521,8 @@ export const approvalRatesData = {
         .filter(
           (item) =>
             item.semestreAtual.includes(".2") &&
-            item.curso === "Engenharia de Software",
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
         )
         .map((item) => item.semestreAtual),
       datasets: [
@@ -8385,7 +8620,9 @@ export const approvalRatesData = {
     },
     {
       labels: taxasEvasaoTCCI
-        .filter((item) => item.curso === "Geral")
+        .filter(
+          (item) => item.curso === "Geral" && item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {
@@ -8405,7 +8642,11 @@ export const approvalRatesData = {
   TCCIIData: [
     {
       labels: taxasEvasaoTCCII
-        .filter((item) => item.curso === "Engenharia de Software")
+        .filter(
+          (item) =>
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {
@@ -8582,7 +8823,8 @@ export const approvalRatesData = {
         .filter(
           (item) =>
             item.semestreAtual.includes(".2") &&
-            item.curso === "Engenharia de Software",
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
         )
         .map((item) => item.semestreAtual),
       datasets: [
@@ -8680,7 +8922,9 @@ export const approvalRatesData = {
     },
     {
       labels: taxasEvasaoTCCII
-        .filter((item) => item.curso === "Geral")
+        .filter(
+          (item) => item.curso === "Geral" && item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {
@@ -8703,7 +8947,7 @@ export const dropoutRatesData = {
   PPCTData: [
     {
       labels: dadosPPCT
-        .filter((item) => item.curso === "CC")
+        .filter((item) => item.curso === "CC" && item.semestre !== "2023.2")
         .map((item) => item.semestre),
       datasets: [
         {
@@ -8886,7 +9130,12 @@ export const dropoutRatesData = {
     },
     {
       labels: dadosPPCT
-        .filter((item) => item.semestre.includes(".2") && item.curso === "CC")
+        .filter(
+          (item) =>
+            item.semestre.includes(".2") &&
+            item.curso === "CC" &&
+            item.semestre !== "2023.2",
+        )
         .map((item) => item.semestre),
       datasets: [
         {
@@ -8983,7 +9232,7 @@ export const dropoutRatesData = {
     },
     {
       labels: dadosPPCT
-        .filter((item) => item.curso === "Geral")
+        .filter((item) => item.curso === "Geral" && item.semestre !== "2023.2")
         .map((item) => item.semestre),
       datasets: [
         {
@@ -9005,7 +9254,11 @@ export const dropoutRatesData = {
   TCCIData: [
     {
       labels: taxasEvasaoTCCI
-        .filter((item) => item.curso === "Engenharia de Software")
+        .filter(
+          (item) =>
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {
@@ -9188,7 +9441,8 @@ export const dropoutRatesData = {
         .filter(
           (item) =>
             item.semestreAtual.includes(".2") &&
-            item.curso === "Engenharia de Software",
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
         )
         .map((item) => item.semestreAtual),
       datasets: [
@@ -9280,7 +9534,9 @@ export const dropoutRatesData = {
     },
     {
       labels: taxasEvasaoTCCI
-        .filter((item) => item.curso === "Geral")
+        .filter(
+          (item) => item.curso === "Geral" && item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {
@@ -9302,7 +9558,11 @@ export const dropoutRatesData = {
   TCCIIData: [
     {
       labels: taxasEvasaoTCCII
-        .filter((item) => item.curso === "Engenharia de Software")
+        .filter(
+          (item) =>
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {
@@ -9503,7 +9763,8 @@ export const dropoutRatesData = {
         .filter(
           (item) =>
             item.semestreAtual.includes(".2") &&
-            item.curso === "Engenharia de Software",
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
         )
         .map((item) => item.semestreAtual),
       datasets: [
@@ -9613,7 +9874,9 @@ export const dropoutRatesData = {
     },
     {
       labels: taxasEvasaoTCCII
-        .filter((item) => item.curso === "Geral")
+        .filter(
+          (item) => item.curso === "Geral" && item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {
@@ -10572,7 +10835,7 @@ export const dropoutRatesIIIData = {
   PPCTData: [
     {
       labels: dadosPPCT
-        .filter((item) => item.curso === "CC")
+        .filter((item) => item.curso === "CC" && item.semestre !== "2023.2")
         .map((item) => item.semestre),
       datasets: [
         {
@@ -10754,7 +11017,12 @@ export const dropoutRatesIIIData = {
     },
     {
       labels: dadosPPCT
-        .filter((item) => item.semestre.includes(".2") && item.curso === "CC")
+        .filter(
+          (item) =>
+            item.semestre.includes(".2") &&
+            item.curso === "CC" &&
+            item.semestre !== "2023.2",
+        )
         .map((item) => item.semestre),
       datasets: [
         {
@@ -10851,7 +11119,7 @@ export const dropoutRatesIIIData = {
     },
     {
       labels: dadosPPCT
-        .filter((item) => item.curso === "Geral")
+        .filter((item) => item.curso === "Geral" && item.semestre !== "2023.2")
         .map((item) => item.semestre),
       datasets: [
         {
@@ -10873,7 +11141,11 @@ export const dropoutRatesIIIData = {
   TCCIData: [
     {
       labels: taxasEvasaoTCCI
-        .filter((item) => item.curso === "Engenharia de Software")
+        .filter(
+          (item) =>
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {
@@ -11056,7 +11328,8 @@ export const dropoutRatesIIIData = {
         .filter(
           (item) =>
             item.semestreAtual.includes(".2") &&
-            item.curso === "Engenharia de Software",
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
         )
         .map((item) => item.semestreAtual),
       datasets: [
@@ -11148,7 +11421,9 @@ export const dropoutRatesIIIData = {
     },
     {
       labels: taxasEvasaoTCCI
-        .filter((item) => item.curso === "Geral")
+        .filter(
+          (item) => item.curso === "Geral" && item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {
@@ -11170,7 +11445,11 @@ export const dropoutRatesIIIData = {
   TCCIIData: [
     {
       labels: taxasEvasaoTCCII
-        .filter((item) => item.curso === "Engenharia de Software")
+        .filter(
+          (item) =>
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {
@@ -11371,7 +11650,8 @@ export const dropoutRatesIIIData = {
         .filter(
           (item) =>
             item.semestreAtual.includes(".2") &&
-            item.curso === "Engenharia de Software",
+            item.curso === "Engenharia de Software" &&
+            item.semestreAtual !== "2023.2",
         )
         .map((item) => item.semestreAtual),
       datasets: [
@@ -11481,7 +11761,9 @@ export const dropoutRatesIIIData = {
     },
     {
       labels: taxasEvasaoTCCII
-        .filter((item) => item.curso === "Geral")
+        .filter(
+          (item) => item.curso === "Geral" && item.semestreAtual !== "2023.2",
+        )
         .map((item) => item.semestreAtual),
       datasets: [
         {

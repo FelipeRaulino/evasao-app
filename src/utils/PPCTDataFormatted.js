@@ -32,7 +32,7 @@ const calculaTaxaEvasaoCurso = (dados, semestre, curso) => {
       item.Situação === "APROVADO",
   ).length;
 
-  const aprovadosSemestreAnterior = quantidadeDeMatriculas.filter(
+  const aprovadosSemestreAnterior = dados.filter(
     (item) =>
       item.semestre === semestreAnterior(semestre) &&
       item.Curso === curso &&
@@ -114,6 +114,7 @@ const calculaTaxaEvasaoCurso = (dados, semestre, curso) => {
   return {
     curso,
     semestre,
+    semestreAnterior: semestreAnterior(semestre),
     taxaEvasao,
     taxaEvasaoII,
     taxaEvasaoIII,
@@ -137,7 +138,7 @@ for (let i = 2013; i <= 2023; i += 1) {
   formatandoSemestres(PPCTData, String(i));
 }
 
-for (let i = 2013; i < 2023; i += 1) {
+for (let i = 2013; i <= 2023; i += 1) {
   dadosPPCT.push(calculaTaxaEvasaoCurso(PPCTData, `${String(i)}.1`, "ES"));
   dadosPPCT.push(calculaTaxaEvasaoCurso(PPCTData, `${String(i)}.2`, "ES"));
   dadosPPCT.push(calculaTaxaEvasaoCurso(PPCTData, `${String(i)}.1`, "DD"));
@@ -285,7 +286,8 @@ dadosPPCT
       }, 0);
 
     const taxaAprovados = qtdDeAprovados / qtdDeMatriculas;
-    const taxaReprovados = quantidadeDeReprovados / qtdDeMatriculas;
+    const taxaReprovados =
+      (quantidadeDeReprovados + reprovadosFalta) / qtdDeMatriculas;
     const taxaEvasao =
       1 - qtdDeMatriculasSemestreSeguinte / (qtdDeMatriculas - qtdDeAprovados);
 
